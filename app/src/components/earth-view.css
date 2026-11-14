@@ -1,0 +1,194 @@
+/* On Earth section. Colours come only from the shared CSS variables in index.css. */
+.earth-view {
+  display: grid;
+  gap: var(--space-48);
+  min-width: 0;
+  color: var(--text);
+}
+.earth-view h3, .earth-view h4, .earth-view h5, .earth-view p, .earth-view ul, .earth-view ol, .earth-view dl, .earth-view dd { margin: 0; }
+.earth-view ul, .earth-view ol { padding: 0; list-style: none; }
+.earth-view a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  overflow-wrap: anywhere;
+}
+.earth-view a:hover { color: var(--focus); }
+.earth-view :where(a, button):focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-small);
+}
+
+.ev-limit {
+  max-width: 72ch;
+  padding: var(--space-16) var(--space-24);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-panel);
+  background: var(--panel);
+  font-size: var(--type-body);
+  line-height: 1.6;
+}
+.ev-limit strong { color: var(--accent); }
+
+.ev-block { display: grid; gap: var(--space-16); min-width: 0; }
+.ev-h {
+  font-family: var(--font-display);
+  font-size: var(--type-h3);
+  line-height: 1.25;
+}
+.ev-lede { max-width: 72ch; color: var(--muted); font-size: var(--type-small); line-height: 1.6; }
+.ev-body { font-size: var(--type-small); line-height: 1.6; }
+.ev-kicker {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--type-caption);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.ev-card-title { font-family: var(--font-display); font-size: 1.0625rem; line-height: 1.3; }
+
+.ev-sources { color: var(--muted); font-size: var(--type-caption); line-height: 1.5; }
+.ev-source-line { display: flex; flex-wrap: wrap; gap: var(--space-8) var(--space-12); align-items: baseline; }
+.ev-si, .ev-gap-tag {
+  display: inline-block;
+  padding: 2px var(--space-8);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: var(--type-caption);
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.ev-gap-tag { border-color: var(--accent); color: var(--accent); }
+
+.ev-map-button {
+  justify-self: start;
+  min-height: 40px;
+  padding: var(--space-8) var(--space-16);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-small);
+  background: var(--panel-2);
+  color: var(--text);
+  font-size: var(--type-small);
+  font-weight: 600;
+}
+.ev-map-button:hover { background: var(--line); }
+
+/* Twin strip */
+.ev-twin { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-16); }
+.ev-twin-card, .ev-card, .ev-trail-item, .ev-local-item {
+  display: grid;
+  gap: var(--space-12);
+  align-content: start;
+  min-width: 0;
+  padding: var(--space-24);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-panel);
+  background: var(--panel);
+}
+.ev-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-12); }
+.ev-facts dt { color: var(--muted); font-size: var(--type-caption); }
+.ev-facts dd { font-family: var(--font-mono); font-size: 1.125rem; font-variant-numeric: tabular-nums; }
+
+/* Evidence cards */
+.ev-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-16); }
+.ev-card-head { display: flex; flex-wrap: wrap; gap: var(--space-8) var(--space-12); align-items: center; justify-content: space-between; }
+.ev-tags { display: inline-flex; flex-wrap: wrap; gap: var(--space-8); }
+.ev-list { display: grid; gap: var(--space-12); }
+.ev-list li { padding-left: var(--space-16); border-left: 2px solid var(--line); }
+.ev-list .ev-sources { display: block; margin-top: var(--space-4); }
+.ev-gaps {
+  display: grid;
+  gap: var(--space-8);
+  padding-top: var(--space-12);
+  border-top: 1px dashed var(--line-strong);
+}
+.ev-gaps-h { color: var(--accent); font-size: var(--type-small); font-weight: 600; }
+.ev-gaps .ev-list li { border-left-style: dashed; border-left-color: var(--line-strong); }
+.ev-card-gap { border-style: dashed; border-color: var(--line-strong); background: transparent; }
+.ev-gap-lead { color: var(--accent); font-size: var(--type-body); font-weight: 600; line-height: 1.45; }
+.ev-card-action { display: flex; flex-wrap: wrap; gap: var(--space-8) var(--space-12); align-items: center; }
+.ev-action-note { color: var(--muted); font-size: var(--type-caption); }
+
+/* Loading and failure */
+.ev-status {
+  display: grid;
+  gap: var(--space-12);
+  padding: var(--space-24);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-panel);
+  color: var(--muted);
+  font-size: var(--type-small);
+}
+.ev-status-failed { color: var(--text); }
+
+/* Spinoff trail */
+.ev-trail { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-16); }
+.ev-trail-item { border-top: 3px solid var(--line-strong); }
+.ev-year { color: var(--accent); font-family: var(--font-mono); font-size: 1.125rem; font-variant-numeric: tabular-nums; }
+.ev-trail-facts { display: grid; gap: var(--space-4); }
+.ev-trail-facts dt { margin-top: var(--space-8); color: var(--muted); font-size: var(--type-caption); }
+.ev-trail-facts dd { font-size: var(--type-small); line-height: 1.55; }
+
+/* Local context */
+.ev-local { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-16); }
+
+@media (max-width: 1100px) {
+  .ev-trail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ev-local { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  .earth-view { gap: var(--space-32); }
+  .ev-twin, .ev-cards, .ev-trail { grid-template-columns: minmax(0, 1fr); }
+  .ev-twin-card, .ev-card, .ev-trail-item, .ev-local-item { padding: var(--space-16); }
+  .ev-limit { padding: var(--space-16); }
+  .ev-map-button { min-height: 44px; }
+}
+
+/* F3 model placements inside Earth cards */
+.ev-models { display: grid; gap: var(--space-8); min-width: 0; }
+.ev-models-note { color: var(--muted); font-size: var(--type-caption); }
+
+.ev-study-applications {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-panel);
+  padding: var(--space-16);
+  background: var(--panel);
+}
+
+.ev-study-applications summary {
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: var(--type-h3);
+}
+
+.ev-study-applications summary:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.ev-study-applications li {
+  border-top: 1px solid var(--line);
+  padding-block: var(--space-12);
+}
+
+.ev-study-applications ul {
+  margin-top: var(--space-16);
+}
+
+.ev-study-applications button {
+  margin-bottom: var(--space-8);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Art direction */
+:root .ev-map-button { background: transparent; box-shadow: inset 0 0 0 1px var(--line-strong); border: 0; }
+:root .ev-limit { border: 0; border-left: 2px solid var(--flame-orange); border-radius: 0; background: none; }

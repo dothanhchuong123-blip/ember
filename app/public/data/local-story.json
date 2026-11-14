@@ -1,0 +1,38 @@
+[
+  {
+    "id": "khuong-ha",
+    "geography": "Hanoi, Vietnam",
+    "si_generated": true,
+    "text": "The September 2023 Khương Hạ apartment fire killed 56 people. Hanoi police traced ignition to an electrical short in a gasoline scooter on the ground floor.",
+    "sources": [
+      {
+        "label": "Vietnam Government Portal, Khương Hạ apartment fire investigation",
+        "url": "https://xaydungchinhsach.chinhphu.vn/thong-tin-chinh-thuc-ve-vu-chay-chung-cu-mi-ni-o-ha-noi-119230913165403418.htm"
+      }
+    ]
+  },
+  {
+    "id": "hcmc-oxygen",
+    "geography": "Ho Chi Minh City, Vietnam",
+    "si_generated": true,
+    "text": "During the COVID-19 response, Ho Chi Minh City fire police included medical oxygen storage, supply systems and cylinders in fire-safety inspections of treatment facilities.",
+    "sources": [
+      {
+        "label": "Ho Chi Minh City Police, fire safety at COVID-19 treatment facilities",
+        "url": "https://congan.hochiminhcity.gov.vn/wps/portal/Home/trang-chu/noi-dung-chi-tiet/tin-chuyen-nganh/tin%2Bhoat%2Bdong/an%2Btoan%2Bpccc%2Btai%2Bco%2Bso%2Bdieu%2Btri%2Bbenh%2Bnhan%2Bcovid%2Bviec%2Bkhong%2Bthe%2Blo%2Bla?WCM_Page.CATP_Menu_TinTucChiTiet_Related=18"
+      }
+    ]
+  },
+  {
+    "id": "home-oxygen-us",
+    "geography": "Four U.S. states",
+    "si_generated": true,
+    "text": "The CDC identified 38 deaths in 37 fires associated with smoking during long-term oxygen therapy from 2000 to 2007 across Maine, Massachusetts, New Hampshire and Oklahoma.",
+    "sources": [
+      {
+        "label": "CDC MMWR, Fatal Fires Associated with Smoking During Long-Term Oxygen Therapy",
+        "url": "https://www.cdc.gov/mmwr/preview/mmwrhtml/mm5731a3.htm"
+      }
+    ]
+  }
+]

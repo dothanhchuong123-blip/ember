@@ -1,0 +1,232 @@
+[
+  {
+    "id": "oxygen-rich-medicine",
+    "title": "Oxygen-rich medicine",
+    "mode": "compare",
+    "verified": true,
+    "environment_ids": [
+      "hospital-o2",
+      "hyperbaric"
+    ],
+    "related_investigations": [
+      "PSI-69",
+      "PSI-159"
+    ],
+    "model_ids": [
+      "pfe_real",
+      "mist_ext",
+      "pba_real"
+    ],
+    "spinoff_ids": [
+      "water-mist"
+    ],
+    "controls": {
+      "o2_pct": [23.5, 100],
+      "pressure_kpa": [101.325, 303.975],
+      "range_label": "Comparison spans the sea-level enrichment threshold and the example chamber's rated maximum.",
+      "sources": [
+        {
+          "label": "NFPA 53 second draft report, annex A.3.3.25 discussion of NFPA 99",
+          "url": "https://docinfofiles.nfpa.org/files/AboutTheCodes/53/53_F2020_OXY_AAA_SD_SRStatements.pdf"
+        },
+        {
+          "label": "FDA-hosted 510(k) K081506, device description",
+          "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf8/K081506.pdf"
+        },
+        {
+          "label": "NIST pressure conversions",
+          "url": "https://www.nist.gov/pml/owm/metric-si/unit-conversion/pressure-and-gas-flow-unit-conversions"
+        }
+      ]
+    },
+    "evidence": [
+      {
+        "text": "A review of reports from 1923 to 1996 counted 77 deaths in 35 hyperbaric chamber fires across Asia, Europe and North America.",
+        "sources": [
+          {
+            "label": "Sheffield and Desautels, 73-year chamber fire analysis, p. 153",
+            "url": "https://uhms.org/images/Safety-Articles/hyperbaric_and_hypobaric_cha.pdf"
+          }
+        ]
+      },
+      {
+        "text": "NASA developed fine water mist for the ISS cabin because astronaut emergency breathing equipment could not filter carbon dioxide.",
+        "sources": [
+          {
+            "label": "NASA Spinoff (2020), Zero-Leak Valve Holds Tight in Demanding Environments",
+            "url": "https://spinoff.nasa.gov/node/11065"
+          }
+        ]
+      },
+      {
+        "text": "The hospital point marks a definition threshold, and the hyperbaric point shows the rated maximum of a specific monoplace chamber model.",
+        "sources": [
+          {
+            "label": "NFPA 53 second draft report, annex A.3.3.25 discussion of NFPA 99",
+            "url": "https://docinfofiles.nfpa.org/files/AboutTheCodes/53/53_F2020_OXY_AAA_SD_SRStatements.pdf"
+          },
+          {
+            "label": "FDA-hosted 510(k) K081506, device description",
+            "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf8/K081506.pdf"
+          }
+        ]
+      }
+    ],
+    "gaps": [
+      "The plotted NASA droplet and gas runs do not establish how cotton, silicone tubing or alcohol pads ignite at Earth gravity in wards, incubators or hyperbaric chambers.",
+      "The ISS extinguisher and breathing-equipment models illustrate spacecraft hardware. Hyperbaric systems have their own design and performance criteria."
+    ],
+    "source_quotes": [
+      {
+        "text": "While hyperbaric fire suppression systems are water-based, they have design and performance criteria different from other types of fire suppression systems.",
+        "sources": [
+          {
+            "label": "NFPA 99 hyperbaric first draft, first revision 953, annex A.14.3.4.3.7",
+            "url": "https://docinfofiles.nfpa.org/files/AboutTheCodes/99/99_A2023_HEA_HYP_FR_Report.pdf"
+          }
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  {
+    "id": "sealed-low-ventilation",
+    "title": "Smoke in low-ventilation spaces",
+    "mode": "evidence",
+    "verified": true,
+    "environment_ids": [],
+    "related_investigations": [
+      "PSI-102",
+      "PSI-101",
+      "PSI-25"
+    ],
+    "model_ids": [],
+    "spinoff_ids": [
+      "fire-detector"
+    ],
+    "evidence": [
+      {
+        "text": "In SAME, a substantial share of the smoke particles from the materials tested measured below 500 nm across. The study’s transport model found that mixing dominated smoke movement in microgravity.",
+        "sources": [
+          {
+            "label": "Yang et al., SAME NASA technical memorandum, abstract",
+            "url": "https://www.nist.gov/publications/smoke-aerosol-measuremen-experiment-same"
+          }
+        ]
+      },
+      {
+        "text": "NASA identified false alarms during maintenance, such as vacuuming, as a reason crews sometimes disable alarms.",
+        "sources": [
+          {
+            "label": "Ruff, NASA spacecraft fire safety technology, 2021",
+            "url": "https://ntrs.nasa.gov/citations/20210021318"
+          }
+        ]
+      },
+      {
+        "text": "NASA flame-spread work varied airflow, pressure and oxygen to study which combinations sustained spread in the materials tested.",
+        "sources": [
+          {
+            "label": "Olson et al., Microgravity Flame Spread in Exploration Atmospheres",
+            "url": "https://ntrs.nasa.gov/citations/20080034883"
+          }
+        ]
+      },
+      {
+        "text": "The Shuttle-era Brunswick detector distinguished dust from combustion particles, a useful comparison for nuisance alarms in mines, submarines and server rooms.",
+        "sources": [
+          {
+            "label": "NASA Spinoff (1978), Fire Detector",
+            "url": "https://spinoff.nasa.gov/node/9407"
+          }
+        ]
+      }
+    ],
+    "gaps": [
+      "On Earth, buoyancy can carry warm smoke upward even when mechanical ventilation is off. Detector placement and alarm times require evidence from the actual space.",
+      "The map does not estimate smoke paths, alarm coverage or room-specific ventilation effects."
+    ],
+    "source_quotes": [],
+    "si_generated": true
+  },
+  {
+    "id": "aircraft-cabin-cargo",
+    "title": "Aircraft cabin and cargo hold",
+    "mode": "compare",
+    "verified": true,
+    "environment_ids": [
+      "airliner"
+    ],
+    "related_investigations": [
+      "PSI-69",
+      "PSI-159"
+    ],
+    "model_ids": [],
+    "spinoff_ids": [],
+    "example_run_ids": [
+      "PSI-69:57",
+      "PSI-69:56"
+    ],
+    "evidence": [
+      {
+        "text": "The cabin map point uses standard-atmosphere pressure at the FAA’s 8,000-foot normal cabin-altitude limit and the oxygen fraction of dry air.",
+        "sources": [
+          {
+            "label": "14 CFR § 25.841(a), pressurized cabins",
+            "url": "https://www.govinfo.gov/content/pkg/CFR-2025-title14-vol1/pdf/CFR-2025-title14-vol1-sec25-841.pdf"
+          },
+          {
+            "label": "U.S. Standard Atmosphere (1976), lower-atmosphere pressure model",
+            "url": "https://ntrs.nasa.gov/citations/19770009539"
+          },
+          {
+            "label": "NASA atmospheric effects reference, dry air composition",
+            "url": "https://ntrs.nasa.gov/citations/19830028038"
+          }
+        ]
+      },
+      {
+        "text": "NASA reports that a detector tracking particles and chemical species performed better than the aircraft smoke detectors used for comparison in joint NASA–FAA tests of false-alarm rejection and real-event detection.",
+        "sources": [
+          {
+            "label": "NASA Researcher’s Guide to Combustion Science, p. 35",
+            "url": "https://www.nasa.gov/wp-content/uploads/2016/05/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf"
+          }
+        ]
+      }
+    ],
+    "gaps": [
+      "Nearby droplet or gas runs compare oxygen and pressure. Cabin altitude does not set atmospheric conditions in every cargo hold.",
+      "NASA microgravity runs near the cabin point cannot establish how fast cargo materials burn or how detectors perform in an individual aircraft."
+    ],
+    "source_quotes": [],
+    "si_generated": true
+  },
+  {
+    "id": "batteries",
+    "title": "Battery fires",
+    "mode": "gap",
+    "verified": true,
+    "environment_ids": [],
+    "related_investigations": [],
+    "model_ids": [],
+    "spinoff_ids": [],
+    "evidence": [
+      {
+        "text": "NASA developed a lithium-ion battery fire test as part of qualifying the ISS fine-water-mist extinguisher.",
+        "sources": [
+          {
+            "label": "NASA portable extinguisher qualification and lithium-ion fire test methods",
+            "url": "https://ntrs.nasa.gov/citations/20180005251"
+          }
+        ]
+      }
+    ],
+    "gaps": [
+      "The EMBER PSI combustion inventory contains no battery-fire runs.",
+      "A future investigation would need comparable cell types, charge states, pack layouts, airflow and ignition conditions, with measurements of heat release, cell-to-cell spread and reignition."
+    ],
+    "source_quotes": [],
+    "si_generated": true
+  }
+]

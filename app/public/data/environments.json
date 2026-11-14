@@ -1,0 +1,428 @@
+[
+  {
+    "id": "iss",
+    "domain": "space",
+    "name": "International Space Station",
+    "o2_pct": [
+      21,
+      21
+    ],
+    "pressure_kpa": [
+      101.35,
+      101.35
+    ],
+    "gravity_g": 0,
+    "why_it_matters": "The nominal station cabin is close to sea-level air, with near-weightlessness shown as 0 g on the map.",
+    "sources": [
+      {
+        "label": "NASA Moon to Mars exploration atmosphere",
+        "url": "https://ntrs.nasa.gov/citations/20240003211"
+      },
+      {
+        "label": "NIST pressure conversions",
+        "url": "https://www.nist.gov/pml/owm/metric-si/unit-conversion/pressure-and-gas-flow-unit-conversions"
+      },
+      {
+        "label": "NASA Glenn, What Is Microgravity?",
+        "url": "https://www.nasa.gov/centers-and-facilities/glenn/what-is-microgravity/"
+      }
+    ],
+    "verified": true,
+    "si_generated": true
+  },
+  {
+    "id": "moon-habitat",
+    "domain": "space",
+    "name": "Moon habitat (NASA design reference)",
+    "o2_pct": [
+      34,
+      34
+    ],
+    "pressure_kpa": [
+      56.54,
+      56.54
+    ],
+    "gravity_g": 0.165,
+    "why_it_matters": "NASA studied this atmosphere in a lunar habitat reference design, and the evidence map can show which tests are nearby in oxygen and pressure at different gravity levels.",
+    "sources": [
+      {
+        "label": "NASA lunar surface habitat reference design, p. 2",
+        "url": "https://ntrs.nasa.gov/citations/20220013669"
+      },
+      {
+        "label": "NASA exploration atmosphere evidence report, § III",
+        "url": "https://ntrs.nasa.gov/citations/20150021491"
+      },
+      {
+        "label": "NIST pressure conversions",
+        "url": "https://www.nist.gov/pml/owm/metric-si/unit-conversion/pressure-and-gas-flow-unit-conversions"
+      },
+      {
+        "label": "NASA Life Support Baseline Values, table 4-66",
+        "url": "https://ntrs.nasa.gov/citations/20210024855"
+      }
+    ],
+    "verified": true,
+    "si_generated": true
+  },
+  {
+    "id": "lunar-rover",
+    "domain": "space",
+    "name": "Pressurized lunar rover (NASA design reference)",
+    "o2_pct": [34, 34],
+    "pressure_kpa": [56.54, 56.54],
+    "gravity_g": 0.165,
+    "why_it_matters": "NASA used this cabin atmosphere in a pressurized rover design study, so the map can show nearby oxygen and pressure tests while lunar gravity and the rover layout remain separate factors.",
+    "sources": [
+      {
+        "label": "NASA lunar habitat and pressurized rover oxygen use study, cabin environment table",
+        "url": "https://ntrs.nasa.gov/citations/20220006740"
+      },
+      {
+        "label": "NIST pressure conversions",
+        "url": "https://www.nist.gov/pml/owm/metric-si/unit-conversion/pressure-and-gas-flow-unit-conversions"
+      },
+      {
+        "label": "NASA Life Support Baseline Values, table 4-66",
+        "url": "https://ntrs.nasa.gov/citations/20210024855"
+      }
+    ],
+    "verified": true,
+    "si_generated": true
+  },
+  {
+    "id": "shuttle-pre-eva",
+    "domain": "space",
+    "name": "Space Shuttle (spacewalk preparation)",
+    "o2_pct": [
+      26.5,
+      26.5
+    ],
+    "pressure_kpa": [
+      70.33,
+      70.33
+    ],
+    "gravity_g": 0,
+    "why_it_matters": "This historical cabin setting was used to prepare for spacewalks, with near-weightlessness shown as 0 g on the map.",
+    "sources": [
+      {
+        "label": "NASA exploration atmosphere evidence report, § III",
+        "url": "https://ntrs.nasa.gov/citations/20150021491"
+      },
+      {
+        "label": "NIST pressure conversions",
+        "url": "https://www.nist.gov/pml/owm/metric-si/unit-conversion/pressure-and-gas-flow-unit-conversions"
+      },
+      {
+        "label": "NASA Glenn, What Is Microgravity?",
+        "url": "https://www.nasa.gov/centers-and-facilities/glenn/what-is-microgravity/"
+      }
+    ],
+    "verified": true,
+    "si_generated": true
+  },
+  {
+    "id": "skylab",
+    "domain": "space",
+    "name": "Skylab cabin",
+    "o2_pct": [
+      70,
+      74
+    ],
+    "pressure_kpa": [
+      34.47,
+      34.47
+    ],
+    "gravity_g": 0,
+    "why_it_matters": "Skylab pairs low total pressure with a high oxygen fraction, with near-weightlessness shown as 0 g on the map.",
+    "sources": [
+      {
+        "label": "NASA Moon to Mars exploration atmosphere",
+        "url": "https://ntrs.nasa.gov/citations/20240003211"
+      },
+      {
+        "label": "NIST pressure conversions",
+        "url": "https://www.nist.gov/pml/owm/metric-si/unit-conversion/pressure-and-gas-flow-unit-conversions"
+      },
+      {
+        "label": "NASA Glenn, What Is Microgravity?",
+        "url": "https://www.nasa.gov/centers-and-facilities/glenn/what-is-microgravity/"
+      }
+    ],
+    "verified": true,
+    "si_generated": true
+  },
+  {
+    "id": "apollo-1",
+    "domain": "space",
+    "name": "Apollo 1 cabin (ground test)",
+    "o2_pct": [
+      100,
+      100
+    ],
+    "pressure_kpa": [
+      115.14,
+      115.14
+    ],
+    "gravity_g": 1,
+    "why_it_matters": "The Apollo 204 Review Board documented this pressurized pure-oxygen atmosphere during the ground test fire.",
+    "sources": [
+      {
+        "label": "Apollo 204 Review Board, finding 2",
+        "url": "https://www.nasa.gov/wp-content/uploads/static/history/Apollo204/find.html"
+      },
+      {
+        "label": "NIST pressure conversions",
+        "url": "https://www.nist.gov/pml/owm/metric-si/unit-conversion/pressure-and-gas-flow-unit-conversions"
+      },
+      {
+        "label": "NASA Life Support Baseline Values, table 4-66",
+        "url": "https://ntrs.nasa.gov/citations/20210024855"
+      }
+    ],
+    "verified": true,
+    "si_generated": true
+  },
+  {
+    "id": "iss-spacesuit",
+    "domain": "space",
+    "name": "ISS spacesuit (U.S. EMU)",
+    "o2_pct": [
+      100,
+      100
+    ],
+    "pressure_kpa": [
+      29.65,
+      29.65
+    ],
+    "gravity_g": 0,
+    "why_it_matters": "The U.S. spacewalking suit uses pure oxygen at low pressure, with near-weightlessness shown as 0 g on the map.",
+    "sources": [
+      {
+        "label": "NASA-STD-3001 Vol. 2, § 6.4.1 rationale",
+        "url": "https://www.nasa.gov/reference/6-0-natural-and-induced-environments-vol-2/"
+      },
+      {
+        "label": "NIST pressure conversions",
+        "url": "https://www.nist.gov/pml/owm/metric-si/unit-conversion/pressure-and-gas-flow-unit-conversions"
+      },
+      {
+        "label": "NASA Glenn, What Is Microgravity?",
+        "url": "https://www.nasa.gov/centers-and-facilities/glenn/what-is-microgravity/"
+      }
+    ],
+    "verified": true,
+    "si_generated": true
+  },
+  {
+    "id": "hospital-o2",
+    "domain": "earth",
+    "name": "Hospital oxygen enrichment threshold",
+    "o2_pct": [
+      23.5,
+      23.5
+    ],
+    "pressure_kpa": [
+      101.325,
+      101.325
+    ],
+    "gravity_g": 1,
+    "why_it_matters": "This sea-level comparison marks the threshold above which NFPA 99 calls the air oxygen-enriched, while buoyancy and clinical materials limit what NASA’s microgravity tests can say about a ward fire.",
+    "sources": [
+      {
+        "label": "NFPA 53 second draft report, annex A.3.3.25 discussion of NFPA 99",
+        "url": "https://docinfofiles.nfpa.org/files/AboutTheCodes/53/53_F2020_OXY_AAA_SD_SRStatements.pdf"
+      },
+      {
+        "label": "NIST pressure conversions",
+        "url": "https://www.nist.gov/pml/owm/metric-si/unit-conversion/pressure-and-gas-flow-unit-conversions"
+      },
+      {
+        "label": "NASA Life Support Baseline Values, table 4-66",
+        "url": "https://ntrs.nasa.gov/citations/20210024855"
+      },
+      {
+        "label": "Olson et al., Microgravity Flame Spread in Exploration Atmospheres",
+        "url": "https://ntrs.nasa.gov/citations/20080034883"
+      }
+    ],
+    "verified": true,
+    "si_generated": true
+  },
+  {
+    "id": "hyperbaric",
+    "domain": "earth",
+    "name": "Hyperbaric chamber (example rated maximum)",
+    "o2_pct": [
+      100,
+      100
+    ],
+    "pressure_kpa": [
+      303.975,
+      303.975
+    ],
+    "gravity_g": 1,
+    "why_it_matters": "The manufacturer lists this pure-oxygen point as the rated maximum for its HA-34 and HA-38 monoplace chambers, and chamber fire behavior still depends on the materials, layout and buoyant flow at Earth gravity.",
+    "sources": [
+      {
+        "label": "FDA-hosted 510(k) K081506, device description",
+        "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf8/K081506.pdf"
+      },
+      {
+        "label": "NIST pressure conversions",
+        "url": "https://www.nist.gov/pml/owm/metric-si/unit-conversion/pressure-and-gas-flow-unit-conversions"
+      },
+      {
+        "label": "NASA Life Support Baseline Values, table 4-66",
+        "url": "https://ntrs.nasa.gov/citations/20210024855"
+      },
+      {
+        "label": "Sheffield and Desautels, 73-year chamber fire analysis, p. 153",
+        "url": "https://uhms.org/images/Safety-Articles/hyperbaric_and_hypobaric_cha.pdf"
+      },
+      {
+        "label": "Olson et al., Microgravity Flame Spread in Exploration Atmospheres",
+        "url": "https://ntrs.nasa.gov/citations/20080034883"
+      }
+    ],
+    "verified": true,
+    "si_generated": true
+  },
+  {
+    "id": "airliner",
+    "domain": "earth",
+    "name": "Aircraft cabin (8,000 ft reference)",
+    "o2_pct": [
+      21,
+      21
+    ],
+    "pressure_kpa": [
+      75.26,
+      75.26
+    ],
+    "gravity_g": 1,
+    "why_it_matters": "This dry-air reference uses the standard-atmosphere pressure at the FAA’s normal cabin-altitude limit, so NASA runs nearby in pressure can inform comparisons while cabin or cargo fire behavior needs tests with Earth gravity, relevant fuels and aircraft airflow.",
+    "sources": [
+      {
+        "label": "14 CFR § 25.841(a), pressurized cabins",
+        "url": "https://www.govinfo.gov/content/pkg/CFR-2025-title14-vol1/pdf/CFR-2025-title14-vol1-sec25-841.pdf"
+      },
+      {
+        "label": "U.S. Standard Atmosphere (1976), lower-atmosphere pressure model",
+        "url": "https://ntrs.nasa.gov/citations/19770009539"
+      },
+      {
+        "label": "NASA atmospheric effects reference, dry air composition",
+        "url": "https://ntrs.nasa.gov/citations/19830028038"
+      },
+      {
+        "label": "NASA Life Support Baseline Values, table 4-66",
+        "url": "https://ntrs.nasa.gov/citations/20210024855"
+      },
+      {
+        "label": "NASA Researcher’s Guide to Combustion Science",
+        "url": "https://www.nasa.gov/wp-content/uploads/2016/05/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf"
+      }
+    ],
+    "verified": true,
+    "si_generated": true
+  },
+  {
+    "id": "high-altitude-o2",
+    "domain": "earth",
+    "name": "Kangding high-altitude fabric test",
+    "o2_pct": [
+      33,
+      33
+    ],
+    "pressure_kpa": [
+      60.5,
+      60.5
+    ],
+    "gravity_g": 1,
+    "why_it_matters": "This published cotton and polyester test point illustrates low pressure with added oxygen, while the Earth experiment’s buoyancy limits comparisons with spacecraft flame spread.",
+    "sources": [
+      {
+        "label": "Journal of Tsinghua University, fabric combustion experiment, Methods",
+        "url": "https://www.sciopen.com/article/10.16511/j.cnki.qhdxxb.2023.26.040"
+      },
+      {
+        "label": "NASA Life Support Baseline Values, table 4-66",
+        "url": "https://ntrs.nasa.gov/citations/20210024855"
+      },
+      {
+        "label": "Olson et al., Microgravity Flame Spread in Exploration Atmospheres",
+        "url": "https://ntrs.nasa.gov/citations/20080034883"
+      }
+    ],
+    "verified": true,
+    "si_generated": true
+  },
+  {
+    "id": "submarine",
+    "domain": "earth",
+    "name": "Submarine cabin",
+    "o2_pct": null,
+    "pressure_kpa": null,
+    "gravity_g": 1,
+    "why_it_matters": "Historical submarine measurements report oxygen partial pressure, while a paired cabin pressure and oxygen fraction are needed for this map.",
+    "sources": [
+      {
+        "label": "National Academies, submarine oxygen exposure, Background",
+        "url": "https://www.nationalacademies.org/read/11170/chapter/13"
+      },
+      {
+        "label": "NASA Life Support Baseline Values, table 4-66",
+        "url": "https://ntrs.nasa.gov/citations/20210024855"
+      }
+    ],
+    "verified": false,
+    "si_generated": true
+  },
+  {
+    "id": "hypoxic-data-centre",
+    "domain": "earth",
+    "name": "Oxygen-reduced data centre",
+    "o2_pct": null,
+    "pressure_kpa": null,
+    "gravity_g": 1,
+    "why_it_matters": "Reduced oxygen is relevant to material flammability, while a specific documented installation and Earth-gravity testing are needed to make a useful comparison.",
+    "sources": [
+      {
+        "label": "NASA Life Support Baseline Values, table 4-66",
+        "url": "https://ntrs.nasa.gov/citations/20210024855"
+      },
+      {
+        "label": "Olson et al., Microgravity Flame Spread in Exploration Atmospheres",
+        "url": "https://ntrs.nasa.gov/citations/20080034883"
+      }
+    ],
+    "verified": false,
+    "si_generated": true
+  },
+  {
+    "id": "deep-mine",
+    "domain": "earth",
+    "name": "Underground coal mine",
+    "o2_pct": null,
+    "pressure_kpa": null,
+    "gravity_g": 1,
+    "why_it_matters": "MSHA documents oxygen deficiency where mine ventilation is poor, while spacecraft smoke and flame results give no mine-specific predictions.",
+    "sources": [
+      {
+        "label": "MSHA bulletin P11-18, oxygen deficiency",
+        "url": "https://www.msha.gov/sites/default/files/Directive%20%26%20Guidance/PIbs/P11-18%20PIB.pdf"
+      },
+      {
+        "label": "NASA Life Support Baseline Values, table 4-66",
+        "url": "https://ntrs.nasa.gov/citations/20210024855"
+      },
+      {
+        "label": "Yang et al., SAME NASA technical memorandum, abstract",
+        "url": "https://www.nist.gov/publications/smoke-aerosol-measuremen-experiment-same"
+      }
+    ],
+    "verified": false,
+    "si_generated": true
+  }
+]

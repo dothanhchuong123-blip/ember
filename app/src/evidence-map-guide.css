@@ -1,0 +1,114 @@
+.map-nearest {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-8);
+  margin: 0;
+  padding: var(--space-8) var(--map-edge) var(--space-8);
+  color: var(--muted);
+  font-size: .875rem;
+  line-height: 1.4;
+}
+.map-nearest strong { color: var(--text); font-weight: 600; }
+.nearest-swatch {
+  flex: none;
+  width: 22px;
+  border-top: 2px dashed var(--focus);
+  transform: translateY(-4px);
+}
+.map .map-nearest-link, .map .map-label-leaders, .map .plot-border { pointer-events: none; }
+.map .map-nearest-link line { stroke: var(--focus); stroke-width: 1.6; stroke-dasharray: 5 4; }
+.map .map-nearest-link circle { fill: none; stroke: var(--focus); stroke-width: 1.4; }
+.map .map-landmark { pointer-events: none; }
+.map .map-landmark path { stroke: var(--muted); stroke-width: 1; opacity: .55; }
+.map .map-landmark circle { fill: var(--plot-bg); stroke: var(--muted); stroke-width: 1.2; opacity: .8; }
+.map .landmark-leader { stroke: var(--muted); stroke-width: 1; opacity: .6; }
+
+.map-place-readout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4) var(--space-16);
+  margin: 0 var(--map-edge);
+  padding: var(--space-8) 0;
+  border-block-start: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .8125rem;
+}
+.map-place-readout .mono { color: var(--text); }
+.map-line-key { width: 16px; border-top: 2px dashed var(--muted); }
+.breathing-line-key { border-color: var(--map-reference); }
+.map-area-key { width: 16px; height: 10px; border: 1px solid var(--line-strong); }
+.map-area-key.shaded { background: var(--score-ramp); }
+.map-area-key.hatched { background: repeating-linear-gradient(135deg, var(--line) 0 1px, var(--plot-well) 1px 4px); }
+
+.plot-label {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: 0 var(--space-8);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-small);
+  background: var(--plot-bg);
+  color: var(--text);
+  font: 500 .75rem/1.15 var(--font-body);
+  text-align: start;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+.plot-label:active { cursor: grabbing; }
+.plot-label:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+.plot-label-grip {
+  flex: none;
+  width: 5px;
+  height: 12px;
+  border-inline: 1px dotted currentColor;
+  color: var(--muted);
+}
+.plot-label .plot-label-text { min-width: 0; }
+.plot-label-landmark strong {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.plot-label-selected {
+  z-index: 3;
+  border-color: var(--focus);
+  background: var(--panel-2);
+  font-size: .875rem;
+}
+.plot-label-selected .plot-label-grip { color: var(--focus); }
+.plot-label-tag {
+  display: block;
+  margin-block-end: 2px;
+  color: var(--focus);
+  font: 600 .75rem/1 var(--font-body);
+}
+
+.map-tooltip.run-inspector-card {
+  align-content: start;
+  box-shadow: var(--elevation-overlay);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.map-tooltip.preview { pointer-events: none; }
+.map-tooltip .link-btn { padding: var(--space-4) var(--space-8); }
+
+.score-words { display: grid; gap: var(--space-4); flex: 1 1 260px; min-width: 0; }
+.map-caption .score-plain { color: var(--text); }
+.map-landmark-list {
+  margin: var(--space-8) 0 0;
+  padding-inline-start: var(--space-24);
+  color: var(--muted);
+  font-size: .875rem;
+}
+@media (max-width: 600px) {
+  .map-nearest { font-size: .8125rem; }
+  .map-tooltip .run-inspector-actions { gap: var(--space-8); }
+  .map-tooltip .cluster-pager { margin-inline-start: 0; }
+}

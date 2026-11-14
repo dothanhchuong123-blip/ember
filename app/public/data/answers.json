@@ -1,0 +1,1966 @@
+{
+  "iss|solid": {
+    "known": [
+      {
+        "text": "Across 31 PSI-25 BASS-II 0 g solid runs near 21% O2 (20.0–22.0% O2 at 101.3 kPa assumed glovebox pressure), 26 sustained burning (e.g., PSI-25:B6 on 2 cm 0.1 mm PMMA film), 4 extinguished, and 1 had unknown outcome.",
+        "cites": [
+          "PSI-25:B6",
+          "PSI-25:B8",
+          "PSI-25:F2",
+          "PSI-25",
+          "psi:PSI-26:srd-pressure",
+          "bass2:tm-app-a-overview"
+        ]
+      },
+      {
+        "text": "Across all 129 BASS-II tests (13.6–22.2% initial O2), solid PMMA rods sustained down to 14.8% initial O2 (13.6% final, PSI-25:O4) and SIBAL cotton-fiberglass sustained down to 16.9% O2 (PSI-25:T14), below normal-gravity limits.",
+        "cites": [
+          "PSI-25:O4",
+          "PSI-25:T14",
+          "bass2:tm-sec6-1-4-2-o4",
+          "bass2:tm-app-a-sibal"
+        ]
+      }
+    ],
+    "nearest": [
+      {
+        "text": "BASS (PSI-26) and Saffire-I/II (PSI-98, PSI-99) add 0 g solid tests in MSG and Cygnus, showing NASA-STD-6001 Test 1 is not always conservative and nitrogen jets can entrain air.",
+        "cites": [
+          "PSI-26",
+          "PSI-98",
+          "PSI-99",
+          "research01:sec3-guide"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "BASS-II CSV tables lack a measured pressure column (101.3 kPa is assumed from the Researcher's Guide p. 19), flow_cm_s is uncalibrated pot settings, and Appendix A outcomes are SI-extracted; a human check of 20 of 113 labels against the report agreed on all 20.",
+        "cites": [
+          "psi:PSI-25:srd-diluent",
+          "psi:PSI-26:srd-pressure",
+          "bass2:tm-app-a-overview"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "Earth safety transfers center on technology and oxygen-ranking concepts rather than microgravity flame speeds because Earth buoyancy alters flames: ISS water-mist hardware spun off a zero-leak valve, Shuttle detectors rejected dust nuisance alarms, and Apollo-era tanks/suits aided firefighters.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "spinoff:water-mist",
+          "spinoff:fire-detector",
+          "spinoff:air-tanks"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "iss|droplet": {
+    "known": [
+      {
+        "text": "PSI records 77 0 g droplet runs within ±1% O2 and ±2.5 kPa of ISS cabin air (including 2 exact FLEX runs at 21.0% O2, 101.35 kPa: PSI-69:202 and PSI-69:206); 5 sustained to completion, 29 extinguished, and 43 had unknown/disrupted outcome.",
+        "cites": [
+          "PSI-69:202",
+          "PSI-69:206",
+          "PSI-69:47",
+          "PSI-69:2",
+          "PSI-69",
+          "PSI-39"
+        ]
+      },
+      {
+        "text": "FLEX showed heptane and methanol droplets in 0 g ignite and can enter low-temperature cool flames after hot-flame extinction, with lower oxygen limits than 1 g suppressant standards imply.",
+        "cites": [
+          "PSI-69",
+          "guide:p11-13-droplets-flex",
+          "guide:p33-34-cool-flames"
+        ]
+      }
+    ],
+    "nearest": [
+      {
+        "text": "PSI-39 CFI adds 87 heavy-alkane droplet runs (17–21% O2, 50.66–506.62 kPa) without recorded outcomes, while FLEX spans 12–34% O2 and 70.17–309.29 kPa overall.",
+        "cites": [
+          "PSI-39",
+          "psi:PSI-39:overview-note",
+          "PSI-69"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "All 274 FLEX droplets were externally ignited (no unignited threshold data), PSI-39 CFI has no outcome column, and PSI-68 FLEX-2 matrix rows lack single-run coordinates.",
+        "cites": [
+          "psi:PSI-39:overview-note",
+          "psi:PSI-68:matrix-note"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "FLEX microgravity cool-flame discoveries inform internal-combustion efficiency research (up to ~60% theoretical engine efficiency vs ~35% current gasoline, theoretical only) and STS-107 water-mist suppression spun off a zero-leak valve.",
+        "cites": [
+          "research02:cool-flames-engines",
+          "spinoff:water-mist"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "iss|gas": {
+    "known": [
+      {
+        "text": "PSI records 91 normal ambient 0 g gas runs near ISS cabin air (~21% O2, ~101.3 kPa) from PSI-159 CFI-G and PSI-10 Flame Design: 0 sustained until flow shutoff, 19 extinguished, 8 did not ignite, and 64 lack recorded outcome.",
+        "cites": [
+          "PSI-159:normal:11",
+          "PSI-10:normal:19115A1",
+          "PSI-159",
+          "PSI-10",
+          "psi:PSI-159:final-report"
+        ]
+      },
+      {
+        "text": "In PSI-159 normal gas flames, ignition and non-ignition overlap across 20.67–39.45% O2 because burner fuel dilution (Xf), fuel flow, and igniter power control whether hot ignition occurs.",
+        "cites": [
+          "PSI-159",
+          "psi:PSI-159:final-report"
+        ]
+      }
+    ],
+    "nearest": [
+      {
+        "text": "PSI-20 ACME BRE also burned 59 ISS porous-burner gas tests emulating condensed-phase solids at 14.7 psia/21% O2 (where flames self-extinguished quickly in 21% O2 without flow) and exploration atmospheres.",
+        "cites": [
+          "PSI-20",
+          "psi:PSI-20:researchImpacts",
+          "research01:sec1-overview"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "PSI-10 (327 runs) lacks a tabulated outcome column, 154 CFI-G inverse flames use burner-stream O2 rather than cabin air (excluded here), and PSI-20 BRE provides day summaries rather than plotted single runs.",
+        "cites": [
+          "psi:PSI-10:final-report",
+          "psi:PSI-159:final-report"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "ACME and NASA/LBNL low-swirl microgravity burner work targets lower soot and cleaner terrestrial furnaces and power combustors, since combustion supplies ~85% of delivered U.S. energy.",
+        "cites": [
+          "research02:acme-soot-burners",
+          "research01:sec1-overview"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "moon-habitat|solid": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest cleaned solid runs sit 11.8 percentage points lower in oxygen and at assumed 1 atm pressure: PSI-25 BASS-II tested 13.6–22.2% O2 at 101.3 kPa assumed in 0 g (highest O2 run PSI-25:B1 (100 micron PMMA film 2 cm wide, 22.2% O2, 101.3 kPa assumed, sustained)).",
+        "cites": [
+          "PSI-25:B1",
+          "PSI-25",
+          "psi:PSI-26:srd-pressure",
+          "env:moon-habitat"
+        ]
+      },
+      {
+        "text": "Outside solids, PSI is NOT empty near 34% O2: PSI-159 has 9 normal 0 g gas runs at 50.67 kPa and 33.245–35.853% O2 (e.g., PSI-159:normal:128), PSI-69 FLEX has 9 droplet runs at exact 34.0% O2 and 71.23–72.37 kPa (e.g., PSI-69:19), and PSI-20 ACME BRE emulated solids with gas burners at 8.2 psia / 34% O2.",
+        "cites": [
+          "PSI-159:normal:128",
+          "PSI-69:19",
+          "PSI-159",
+          "PSI-69",
+          "PSI-20"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Cleaned PSI contains 0 solid-material runs above 22.2% O2, 0 solid runs with measured sub-atmospheric pressure, and 0 lunar-gravity (0.165 g / 1/6 g) runs anywhere; NASA's upcoming FM2 experiment targets 1/6 g SIBAL testing.",
+        "cites": [
+          "PSI-25",
+          "research01:fm2-lunar",
+          "research01:exp-atm-eawg",
+          "env:moon-habitat"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "Earth safety transfers center on technology and oxygen-ranking concepts rather than microgravity flame speeds because Earth buoyancy alters flames: ISS water-mist hardware spun off a zero-leak valve, Shuttle detectors rejected dust nuisance alarms, and Apollo-era tanks/suits aided firefighters.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "spinoff:water-mist",
+          "spinoff:fire-detector",
+          "spinoff:air-tanks"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "moon-habitat|droplet": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "PSI-69 FLEX contains 9 0 g droplet runs at exact 34.0% O2, all at higher pressure (71.23–72.37 kPa, about 14.7–15.8 kPa above 56.54 kPa): 8 disrupted (unknown outcome, e.g., PSI-69:19) and 1 sustained to completion (PSI-69:20).",
+        "cites": [
+          "PSI-69:19",
+          "PSI-69:20",
+          "PSI-69",
+          "env:moon-habitat"
+        ]
+      },
+      {
+        "text": "In other fuel classes nearby, PSI-159 tested 9 normal 0 g gas runs at 50.67 kPa and 33.245–35.853% O2.",
+        "cites": [
+          "PSI-159:normal:128",
+          "PSI-159"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Zero droplet runs fall inside 34±2% O2 and 56.5±10 kPa (minimum FLEX pressure is 70.17 kPa; PSI-39 stops at 21% O2), and zero lunar-gravity (0.165 g) droplet tests exist in PSI.",
+        "cites": [
+          "PSI-69",
+          "PSI-39",
+          "research01:fm2-lunar",
+          "env:moon-habitat"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "FLEX microgravity cool-flame discoveries inform internal-combustion efficiency research (up to ~60% theoretical engine efficiency vs ~35% current gasoline, theoretical only) and STS-107 water-mist suppression spun off a zero-leak valve.",
+        "cites": [
+          "research02:cool-flames-engines",
+          "spinoff:water-mist"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "moon-habitat|gas": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "PSI-159 CFI-G ran 9 ambient normal 0 g gas tests nearby at 50.67 kPa (5.9 kPa below 56.54 kPa) and 33.245–35.853% O2: 4 sustained until flow shutoff (PSI-159:normal:129), 2 extinguished (PSI-159:normal:128), and 3 did not ignite (PSI-159:normal:39) depending on burner fuel dilution.",
+        "cites": [
+          "PSI-159:normal:129",
+          "PSI-159:normal:128",
+          "PSI-159:normal:39",
+          "PSI-159",
+          "psi:PSI-159:final-report",
+          "env:moon-habitat"
+        ]
+      },
+      {
+        "text": "PSI-20 ACME BRE also ran 0 g porous-burner gas emulation tests under the 8.2 psia / 34% O2 exploration atmosphere, noting sustained quiescent burning occurred mainly in elevated-O2 atmospheres.",
+        "cites": [
+          "PSI-20",
+          "psi:PSI-20:researchImpacts"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Zero PSI gas runs test lunar gravity (0.165 g), and CFI-G normal flames have zero runs between 50.67 and 94.44 kPa, leaving exact 56.54 kPa gas pressure interpolated only across 0 g.",
+        "cites": [
+          "PSI-159",
+          "psi:PSI-159:final-report",
+          "research01:fm2-lunar",
+          "env:moon-habitat"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "ACME and NASA/LBNL low-swirl microgravity burner work targets lower soot and cleaner terrestrial furnaces and power combustors, since combustion supplies ~85% of delivered U.S. energy.",
+        "cites": [
+          "research02:acme-soot-burners",
+          "research01:sec1-overview"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "lunar-rover|solid": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest cleaned solid runs sit 11.8 percentage points lower in oxygen and at assumed 1 atm pressure: PSI-25 BASS-II tested 13.6–22.2% O2 at 101.3 kPa assumed in 0 g (highest O2 run PSI-25:B1 (100 micron PMMA film 2 cm wide, 22.2% O2, 101.3 kPa assumed, sustained)).",
+        "cites": [
+          "PSI-25:B1",
+          "PSI-25",
+          "psi:PSI-26:srd-pressure",
+          "env:lunar-rover"
+        ]
+      },
+      {
+        "text": "Outside solids, PSI is NOT empty near 34% O2: PSI-159 has 9 normal 0 g gas runs at 50.67 kPa and 33.245–35.853% O2 (e.g., PSI-159:normal:128), PSI-69 FLEX has 9 droplet runs at exact 34.0% O2 and 71.23–72.37 kPa (e.g., PSI-69:19), and PSI-20 ACME BRE emulated solids with gas burners at 8.2 psia / 34% O2.",
+        "cites": [
+          "PSI-159:normal:128",
+          "PSI-69:19",
+          "PSI-159",
+          "PSI-69",
+          "PSI-20"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Cleaned PSI contains 0 solid-material runs above 22.2% O2, 0 solid runs with measured sub-atmospheric pressure, and 0 lunar-gravity (0.165 g / 1/6 g) runs anywhere; NASA's upcoming FM2 experiment targets 1/6 g SIBAL testing.",
+        "cites": [
+          "PSI-25",
+          "research01:fm2-lunar",
+          "research01:exp-atm-eawg",
+          "env:lunar-rover"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "Earth safety transfers center on technology and oxygen-ranking concepts rather than microgravity flame speeds because Earth buoyancy alters flames: ISS water-mist hardware spun off a zero-leak valve, Shuttle detectors rejected dust nuisance alarms, and Apollo-era tanks/suits aided firefighters.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "spinoff:water-mist",
+          "spinoff:fire-detector",
+          "spinoff:air-tanks"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "lunar-rover|droplet": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "PSI-69 FLEX contains 9 0 g droplet runs at exact 34.0% O2, all at higher pressure (71.23–72.37 kPa, about 14.7–15.8 kPa above 56.54 kPa): 8 disrupted (unknown outcome, e.g., PSI-69:19) and 1 sustained to completion (PSI-69:20).",
+        "cites": [
+          "PSI-69:19",
+          "PSI-69:20",
+          "PSI-69",
+          "env:lunar-rover"
+        ]
+      },
+      {
+        "text": "In other fuel classes nearby, PSI-159 tested 9 normal 0 g gas runs at 50.67 kPa and 33.245–35.853% O2.",
+        "cites": [
+          "PSI-159:normal:128",
+          "PSI-159"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Zero droplet runs fall inside 34±2% O2 and 56.5±10 kPa (minimum FLEX pressure is 70.17 kPa; PSI-39 stops at 21% O2), and zero lunar-gravity (0.165 g) droplet tests exist in PSI.",
+        "cites": [
+          "PSI-69",
+          "PSI-39",
+          "research01:fm2-lunar",
+          "env:lunar-rover"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "FLEX microgravity cool-flame discoveries inform internal-combustion efficiency research (up to ~60% theoretical engine efficiency vs ~35% current gasoline, theoretical only) and STS-107 water-mist suppression spun off a zero-leak valve.",
+        "cites": [
+          "research02:cool-flames-engines",
+          "spinoff:water-mist"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "lunar-rover|gas": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "PSI-159 CFI-G ran 9 ambient normal 0 g gas tests nearby at 50.67 kPa (5.9 kPa below 56.54 kPa) and 33.245–35.853% O2: 4 sustained until flow shutoff (PSI-159:normal:129), 2 extinguished (PSI-159:normal:128), and 3 did not ignite (PSI-159:normal:39) depending on burner fuel dilution.",
+        "cites": [
+          "PSI-159:normal:129",
+          "PSI-159:normal:128",
+          "PSI-159:normal:39",
+          "PSI-159",
+          "psi:PSI-159:final-report",
+          "env:lunar-rover"
+        ]
+      },
+      {
+        "text": "PSI-20 ACME BRE also ran 0 g porous-burner gas emulation tests under the 8.2 psia / 34% O2 exploration atmosphere, noting sustained quiescent burning occurred mainly in elevated-O2 atmospheres.",
+        "cites": [
+          "PSI-20",
+          "psi:PSI-20:researchImpacts"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Zero PSI gas runs test lunar gravity (0.165 g), and CFI-G normal flames have zero runs between 50.67 and 94.44 kPa, leaving exact 56.54 kPa gas pressure interpolated only across 0 g.",
+        "cites": [
+          "PSI-159",
+          "psi:PSI-159:final-report",
+          "research01:fm2-lunar",
+          "env:lunar-rover"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "ACME and NASA/LBNL low-swirl microgravity burner work targets lower soot and cleaner terrestrial furnaces and power combustors, since combustion supplies ~85% of delivered U.S. energy.",
+        "cites": [
+          "research02:acme-soot-burners",
+          "research01:sec1-overview"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "shuttle-pre-eva|solid": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g solid runs to Space Shuttle (spacewalk preparation) (26.5% O2, 70.33 kPa) are PSI-25:B1 (100 micron PMMA film 2 cm wide, 22.2% O2, 101.3 kPa assumed, sustained); PSI-25:B2 (200 micron PMMA film 2 cm wide, 22.2% O2, 101.3 kPa assumed, unknown); PSI-25:B3 (100 micron film 2 cm wide, 22.2% O2, 101.3 kPa assumed, sustained).",
+        "cites": [
+          "PSI-25:B1",
+          "PSI-25:B2",
+          "PSI-25:B3",
+          "env:shuttle-pre-eva"
+        ]
+      },
+      {
+        "text": "In FLEX, 6 0 g droplet runs sit at 25.0% O2 and 71.5–72.2 kPa (e.g., PSI-69:92), and PSI-20 BRE studied 10.2 psia / 26.5% O2 via porous gas burners.",
+        "cites": [
+          "PSI-69:92",
+          "PSI-69",
+          "PSI-20",
+          "research01:exp-atm-eawg",
+          "env:shuttle-pre-eva"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Zero cleaned ambient PSI runs reach 26.5% O2 and 70.33 kPa simultaneously (ambient PSI spans 13.6–22.2% O2 for solids, 12.0–34.0% for droplets, and 18.0–40.0% for normal gases above 50.67 kPa).",
+        "cites": [
+          "PSI-25",
+          "PSI-69",
+          "PSI-159",
+          "psi:PSI-159:final-report",
+          "env:shuttle-pre-eva"
+        ]
+      },
+      {
+        "text": "No solid runs in PSI have measured sub-atmospheric pressure (BASS-II assumes 101.3 kPa; Saffire-I/II pressure is null) or exceed 22.2% O2.",
+        "cites": [
+          "psi:PSI-26:srd-pressure",
+          "psi:PSI-99:table-notes",
+          "PSI-25"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "Earth safety transfers center on technology and oxygen-ranking concepts rather than microgravity flame speeds because Earth buoyancy alters flames: ISS water-mist hardware spun off a zero-leak valve, Shuttle detectors rejected dust nuisance alarms, and Apollo-era tanks/suits aided firefighters.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "spinoff:water-mist",
+          "spinoff:fire-detector",
+          "spinoff:air-tanks"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "shuttle-pre-eva|droplet": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g droplet runs to Space Shuttle (spacewalk preparation) (26.5% O2, 70.33 kPa) are PSI-69:92 (Heptane droplet, 25.0% O2, 71.5 kPa, unknown); PSI-69:93 (Heptane droplet, 25.0% O2, 71.6 kPa, unknown); PSI-69:89 (Methanol droplet, 25.0% O2, 71.7 kPa, unknown).",
+        "cites": [
+          "PSI-69:92",
+          "PSI-69:93",
+          "PSI-69:89",
+          "env:shuttle-pre-eva"
+        ]
+      },
+      {
+        "text": "In FLEX, 6 0 g droplet runs sit at 25.0% O2 and 71.5–72.2 kPa (e.g., PSI-69:92), and PSI-20 BRE studied 10.2 psia / 26.5% O2 via porous gas burners.",
+        "cites": [
+          "PSI-69:92",
+          "PSI-69",
+          "PSI-20",
+          "research01:exp-atm-eawg",
+          "env:shuttle-pre-eva"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Zero cleaned ambient PSI runs reach 26.5% O2 and 70.33 kPa simultaneously (ambient PSI spans 13.6–22.2% O2 for solids, 12.0–34.0% for droplets, and 18.0–40.0% for normal gases above 50.67 kPa).",
+        "cites": [
+          "PSI-25",
+          "PSI-69",
+          "PSI-159",
+          "psi:PSI-159:final-report",
+          "env:shuttle-pre-eva"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "FLEX microgravity cool-flame discoveries inform internal-combustion efficiency research (up to ~60% theoretical engine efficiency vs ~35% current gasoline, theoretical only) and STS-107 water-mist suppression spun off a zero-leak valve.",
+        "cites": [
+          "research02:cool-flames-engines",
+          "spinoff:water-mist"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "shuttle-pre-eva|gas": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g gas runs to Space Shuttle (spacewalk preparation) (26.5% O2, 70.33 kPa) are PSI-159:normal:40 (50% butane gas, normal spherical flame, 21.0% O2, 50.7 kPa, extinguished); PSI-159:normal:41 (50% butane gas, normal spherical flame, 20.9% O2, 50.7 kPa, extinguished); PSI-159:normal:25 (50% butane gas, normal spherical flame, 23.4% O2, 101.3 kPa, extinguished).",
+        "cites": [
+          "PSI-159:normal:40",
+          "PSI-159:normal:41",
+          "PSI-159:normal:25",
+          "env:shuttle-pre-eva"
+        ]
+      },
+      {
+        "text": "In FLEX, 6 0 g droplet runs sit at 25.0% O2 and 71.5–72.2 kPa (e.g., PSI-69:92), and PSI-20 BRE studied 10.2 psia / 26.5% O2 via porous gas burners.",
+        "cites": [
+          "PSI-69:92",
+          "PSI-69",
+          "PSI-20",
+          "research01:exp-atm-eawg",
+          "env:shuttle-pre-eva"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Zero cleaned ambient PSI runs reach 26.5% O2 and 70.33 kPa simultaneously (ambient PSI spans 13.6–22.2% O2 for solids, 12.0–34.0% for droplets, and 18.0–40.0% for normal gases above 50.67 kPa).",
+        "cites": [
+          "PSI-25",
+          "PSI-69",
+          "PSI-159",
+          "psi:PSI-159:final-report",
+          "env:shuttle-pre-eva"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "ACME and NASA/LBNL low-swirl microgravity burner work targets lower soot and cleaner terrestrial furnaces and power combustors, since combustion supplies ~85% of delivered U.S. energy.",
+        "cites": [
+          "research02:acme-soot-burners",
+          "research01:sec1-overview"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "skylab|solid": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g solid runs to Skylab cabin (70–74% O2, 34.47 kPa) are PSI-25:B1 (100 micron PMMA film 2 cm wide, 22.2% O2, 101.3 kPa assumed, sustained); PSI-25:B2 (200 micron PMMA film 2 cm wide, 22.2% O2, 101.3 kPa assumed, unknown); PSI-25:B3 (100 micron film 2 cm wide, 22.2% O2, 101.3 kPa assumed, sustained).",
+        "cites": [
+          "PSI-25:B1",
+          "PSI-25:B2",
+          "PSI-25:B3",
+          "env:skylab"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Zero cleaned ambient PSI runs reach 70–74% O2 and 34.47 kPa simultaneously (ambient PSI spans 13.6–22.2% O2 for solids, 12.0–34.0% for droplets, and 18.0–40.0% for normal gases above 50.67 kPa).",
+        "cites": [
+          "PSI-25",
+          "PSI-69",
+          "PSI-159",
+          "psi:PSI-159:final-report",
+          "env:skylab"
+        ]
+      },
+      {
+        "text": "No solid runs in PSI have measured sub-atmospheric pressure (BASS-II assumes 101.3 kPa; Saffire-I/II pressure is null) or exceed 22.2% O2.",
+        "cites": [
+          "psi:PSI-26:srd-pressure",
+          "psi:PSI-99:table-notes",
+          "PSI-25"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "Earth safety transfers center on technology and oxygen-ranking concepts rather than microgravity flame speeds because Earth buoyancy alters flames: ISS water-mist hardware spun off a zero-leak valve, Shuttle detectors rejected dust nuisance alarms, and Apollo-era tanks/suits aided firefighters.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "spinoff:water-mist",
+          "spinoff:fire-detector",
+          "spinoff:air-tanks"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "skylab|droplet": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g droplet runs to Skylab cabin (70–74% O2, 34.47 kPa) are PSI-69:37 (Methanol droplet, 34.0% O2, 71.2 kPa, unknown); PSI-69:38 (Methanol droplet, 34.0% O2, 71.2 kPa, unknown); PSI-69:39 (Heptane droplet, 34.0% O2, 71.3 kPa, unknown).",
+        "cites": [
+          "PSI-69:37",
+          "PSI-69:38",
+          "PSI-69:39",
+          "env:skylab"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Zero cleaned ambient PSI runs reach 70–74% O2 and 34.47 kPa simultaneously (ambient PSI spans 13.6–22.2% O2 for solids, 12.0–34.0% for droplets, and 18.0–40.0% for normal gases above 50.67 kPa).",
+        "cites": [
+          "PSI-25",
+          "PSI-69",
+          "PSI-159",
+          "psi:PSI-159:final-report",
+          "env:skylab"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "FLEX microgravity cool-flame discoveries inform internal-combustion efficiency research (up to ~60% theoretical engine efficiency vs ~35% current gasoline, theoretical only) and STS-107 water-mist suppression spun off a zero-leak valve.",
+        "cites": [
+          "research02:cool-flames-engines",
+          "spinoff:water-mist"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "skylab|gas": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g gas runs to Skylab cabin (70–74% O2, 34.47 kPa) are PSI-159:normal:31 (50% butane gas, normal spherical flame, 39.3% O2, 50.7 kPa, extinguished); PSI-159:normal:125 (30% ethane gas, normal spherical flame, 38.9% O2, 50.7 kPa, extinguished); PSI-159:normal:152 (30% butane gas, normal spherical flame, 38.9% O2, 50.7 kPa, extinguished).",
+        "cites": [
+          "PSI-159:normal:31",
+          "PSI-159:normal:125",
+          "PSI-159:normal:152",
+          "env:skylab"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Zero cleaned ambient PSI runs reach 70–74% O2 and 34.47 kPa simultaneously (ambient PSI spans 13.6–22.2% O2 for solids, 12.0–34.0% for droplets, and 18.0–40.0% for normal gases above 50.67 kPa).",
+        "cites": [
+          "PSI-25",
+          "PSI-69",
+          "PSI-159",
+          "psi:PSI-159:final-report",
+          "env:skylab"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "ACME and NASA/LBNL low-swirl microgravity burner work targets lower soot and cleaner terrestrial furnaces and power combustors, since combustion supplies ~85% of delivered U.S. energy.",
+        "cites": [
+          "research02:acme-soot-burners",
+          "research01:sec1-overview"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "apollo-1|solid": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g solid runs to Apollo 1 cabin (ground test) (100% O2, 115.14 kPa) are PSI-25:B1 (100 micron PMMA film 2 cm wide, 22.2% O2, 101.3 kPa assumed, sustained); PSI-25:B2 (200 micron PMMA film 2 cm wide, 22.2% O2, 101.3 kPa assumed, unknown); PSI-25:B3 (100 micron film 2 cm wide, 22.2% O2, 101.3 kPa assumed, sustained).",
+        "cites": [
+          "PSI-25:B1",
+          "PSI-25:B2",
+          "PSI-25:B3",
+          "env:apollo-1"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Cleaned PSI has 0 runs at 1 g Earth gravity, so Earth buoyancy effects on flame spread and smoke are outside this dataset; only oxygen/pressure limits and spinoff technology transfer.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "env:apollo-1"
+        ]
+      },
+      {
+        "text": "No solid runs in PSI have measured sub-atmospheric pressure (BASS-II assumes 101.3 kPa; Saffire-I/II pressure is null) or exceed 22.2% O2.",
+        "cites": [
+          "psi:PSI-26:srd-pressure",
+          "psi:PSI-99:table-notes",
+          "PSI-25"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "Earth safety transfers center on technology and oxygen-ranking concepts rather than microgravity flame speeds because Earth buoyancy alters flames: ISS water-mist hardware spun off a zero-leak valve, Shuttle detectors rejected dust nuisance alarms, and Apollo-era tanks/suits aided firefighters.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "spinoff:water-mist",
+          "spinoff:fire-detector",
+          "spinoff:air-tanks"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "apollo-1|droplet": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g droplet runs to Apollo 1 cabin (ground test) (100% O2, 115.14 kPa) are PSI-69:24 (Heptane droplet, 34.0% O2, 72.4 kPa, unknown); PSI-69:23 (Heptane droplet, 34.0% O2, 72.2 kPa, unknown); PSI-69:21 (Methanol droplet, 34.0% O2, 72.1 kPa, unknown).",
+        "cites": [
+          "PSI-69:24",
+          "PSI-69:23",
+          "PSI-69:21",
+          "env:apollo-1"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Cleaned PSI has 0 runs at 1 g Earth gravity, so Earth buoyancy effects on flame spread and smoke are outside this dataset; only oxygen/pressure limits and spinoff technology transfer.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "env:apollo-1"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "FLEX microgravity cool-flame discoveries inform internal-combustion efficiency research (up to ~60% theoretical engine efficiency vs ~35% current gasoline, theoretical only) and STS-107 water-mist suppression spun off a zero-leak valve.",
+        "cites": [
+          "research02:cool-flames-engines",
+          "spinoff:water-mist"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "apollo-1|gas": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g gas runs to Apollo 1 cabin (ground test) (100% O2, 115.14 kPa) are PSI-159:normal:139 (30% ethane gas, normal spherical flame, 40.0% O2, 101.3 kPa, extinguished); PSI-159:normal:113 (30% propane gas, normal spherical flame, 40.0% O2, 101.3 kPa, extinguished); PSI-10:normal:19189A1 (C2H4 gas, normal spherical flame, 39.9% O2, 128.0 kPa, unknown).",
+        "cites": [
+          "PSI-159:normal:139",
+          "PSI-159:normal:113",
+          "PSI-10:normal:19189A1",
+          "env:apollo-1"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Cleaned PSI has 0 runs at 1 g Earth gravity, so Earth buoyancy effects on flame spread and smoke are outside this dataset; only oxygen/pressure limits and spinoff technology transfer.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "env:apollo-1"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "ACME and NASA/LBNL low-swirl microgravity burner work targets lower soot and cleaner terrestrial furnaces and power combustors, since combustion supplies ~85% of delivered U.S. energy.",
+        "cites": [
+          "research02:acme-soot-burners",
+          "research01:sec1-overview"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "iss-spacesuit|solid": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g solid runs to ISS spacesuit (U.S. EMU) (100% O2, 29.65 kPa) are PSI-25:B1 (100 micron PMMA film 2 cm wide, 22.2% O2, 101.3 kPa assumed, sustained); PSI-25:B2 (200 micron PMMA film 2 cm wide, 22.2% O2, 101.3 kPa assumed, unknown); PSI-25:B3 (100 micron film 2 cm wide, 22.2% O2, 101.3 kPa assumed, sustained).",
+        "cites": [
+          "PSI-25:B1",
+          "PSI-25:B2",
+          "PSI-25:B3",
+          "env:iss-spacesuit"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Zero cleaned ambient PSI runs reach 100% O2 and 29.65 kPa simultaneously (ambient PSI spans 13.6–22.2% O2 for solids, 12.0–34.0% for droplets, and 18.0–40.0% for normal gases above 50.67 kPa).",
+        "cites": [
+          "PSI-25",
+          "PSI-69",
+          "PSI-159",
+          "psi:PSI-159:final-report",
+          "env:iss-spacesuit"
+        ]
+      },
+      {
+        "text": "No solid runs in PSI have measured sub-atmospheric pressure (BASS-II assumes 101.3 kPa; Saffire-I/II pressure is null) or exceed 22.2% O2.",
+        "cites": [
+          "psi:PSI-26:srd-pressure",
+          "psi:PSI-99:table-notes",
+          "PSI-25"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "Earth safety transfers center on technology and oxygen-ranking concepts rather than microgravity flame speeds because Earth buoyancy alters flames: ISS water-mist hardware spun off a zero-leak valve, Shuttle detectors rejected dust nuisance alarms, and Apollo-era tanks/suits aided firefighters.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "spinoff:water-mist",
+          "spinoff:fire-detector",
+          "spinoff:air-tanks"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "iss-spacesuit|droplet": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g droplet runs to ISS spacesuit (U.S. EMU) (100% O2, 29.65 kPa) are PSI-69:37 (Methanol droplet, 34.0% O2, 71.2 kPa, unknown); PSI-69:38 (Methanol droplet, 34.0% O2, 71.2 kPa, unknown); PSI-69:39 (Heptane droplet, 34.0% O2, 71.3 kPa, unknown).",
+        "cites": [
+          "PSI-69:37",
+          "PSI-69:38",
+          "PSI-69:39",
+          "env:iss-spacesuit"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Zero cleaned ambient PSI runs reach 100% O2 and 29.65 kPa simultaneously (ambient PSI spans 13.6–22.2% O2 for solids, 12.0–34.0% for droplets, and 18.0–40.0% for normal gases above 50.67 kPa).",
+        "cites": [
+          "PSI-25",
+          "PSI-69",
+          "PSI-159",
+          "psi:PSI-159:final-report",
+          "env:iss-spacesuit"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "FLEX microgravity cool-flame discoveries inform internal-combustion efficiency research (up to ~60% theoretical engine efficiency vs ~35% current gasoline, theoretical only) and STS-107 water-mist suppression spun off a zero-leak valve.",
+        "cites": [
+          "research02:cool-flames-engines",
+          "spinoff:water-mist"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "iss-spacesuit|gas": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g gas runs to ISS spacesuit (U.S. EMU) (100% O2, 29.65 kPa) are PSI-159:normal:31 (50% butane gas, normal spherical flame, 39.3% O2, 50.7 kPa, extinguished); PSI-159:normal:125 (30% ethane gas, normal spherical flame, 38.9% O2, 50.7 kPa, extinguished); PSI-159:normal:152 (30% butane gas, normal spherical flame, 38.9% O2, 50.7 kPa, extinguished).",
+        "cites": [
+          "PSI-159:normal:31",
+          "PSI-159:normal:125",
+          "PSI-159:normal:152",
+          "env:iss-spacesuit"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Zero cleaned ambient PSI runs reach 100% O2 and 29.65 kPa simultaneously (ambient PSI spans 13.6–22.2% O2 for solids, 12.0–34.0% for droplets, and 18.0–40.0% for normal gases above 50.67 kPa).",
+        "cites": [
+          "PSI-25",
+          "PSI-69",
+          "PSI-159",
+          "psi:PSI-159:final-report",
+          "env:iss-spacesuit"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "ACME and NASA/LBNL low-swirl microgravity burner work targets lower soot and cleaner terrestrial furnaces and power combustors, since combustion supplies ~85% of delivered U.S. energy.",
+        "cites": [
+          "research02:acme-soot-burners",
+          "research01:sec1-overview"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "hospital-o2|solid": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g solid runs to Hospital oxygen enrichment threshold (23.5% O2, 101.325 kPa) are PSI-25:B1 (100 micron PMMA film 2 cm wide, 22.2% O2, 101.3 kPa assumed, sustained); PSI-25:B2 (200 micron PMMA film 2 cm wide, 22.2% O2, 101.3 kPa assumed, unknown); PSI-25:B3 (100 micron film 2 cm wide, 22.2% O2, 101.3 kPa assumed, sustained).",
+        "cites": [
+          "PSI-25:B1",
+          "PSI-25:B2",
+          "PSI-25:B3",
+          "env:hospital-o2"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Cleaned PSI has 0 runs at 1 g Earth gravity, so Earth buoyancy effects on flame spread and smoke are outside this dataset; only oxygen/pressure limits and spinoff technology transfer.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "env:hospital-o2"
+        ]
+      },
+      {
+        "text": "No solid runs in PSI have measured sub-atmospheric pressure (BASS-II assumes 101.3 kPa; Saffire-I/II pressure is null) or exceed 22.2% O2.",
+        "cites": [
+          "psi:PSI-26:srd-pressure",
+          "psi:PSI-99:table-notes",
+          "PSI-25"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "NASA replaced ISS CO2 units with nine non-toxic fine-water-mist extinguishers (2015–2016) whose zero-leak valve spun off to >450 industrial/military trailers, while NFPA 99 notes hyperbaric water suppression follows distinct criteria.",
+        "cites": [
+          "spinoff:water-mist",
+          "research02:water-mist-history",
+          "earth:hyperbaric-nfpa99"
+        ]
+      },
+      {
+        "text": "NFPA 99 defines sea-level oxygen-enriched atmospheres above 23.5% O2, and 1923–1996 hyperbaric reviews counted 77 deaths in 35 chamber fires above 28% O2, underscoring oxygen limits even though Earth buoyancy prevents direct 0 g extrapolation.",
+        "cites": [
+          "earth:hospital-o2-nfpa",
+          "earth:hyperbaric-fda-uhms",
+          "earth:buoyancy-transfer-limits"
+        ]
+      },
+      {
+        "text": "Local context in Vietnam includes medical oxygen system inspections in Ho Chi Minh City treatment facilities and the 2023 Khương Hạ apartment fire in Hanoi (56 deaths), illustrating enclosed-space smoke and oxygen hazards.",
+        "cites": [
+          "earth:local-hcmc-oxygen",
+          "earth:local-khuong-ha"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "hospital-o2|droplet": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "While all cleaned PSI runs are 0 g, 9 microgravity droplet runs sit within ±1% O2 and ±2.5 kPa of Hospital oxygen enrichment threshold (23.5% O2, 101.325 kPa), including PSI-69:131 (Heptane droplet, 24.0% O2, 101.8 kPa, unknown); PSI-69:132 (Heptane droplet, 24.0% O2, 102.0 kPa, unknown); PSI-69:133 (Heptane droplet, 24.0% O2, 102.2 kPa, unknown).",
+        "cites": [
+          "PSI-69:131",
+          "PSI-69:132",
+          "PSI-69:133",
+          "earth:buoyancy-transfer-limits"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Cleaned PSI has 0 runs at 1 g Earth gravity, so Earth buoyancy effects on flame spread and smoke are outside this dataset; only oxygen/pressure limits and spinoff technology transfer.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "env:hospital-o2"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "NASA replaced ISS CO2 units with nine non-toxic fine-water-mist extinguishers (2015–2016) whose zero-leak valve spun off to >450 industrial/military trailers, while NFPA 99 notes hyperbaric water suppression follows distinct criteria.",
+        "cites": [
+          "spinoff:water-mist",
+          "research02:water-mist-history",
+          "earth:hyperbaric-nfpa99"
+        ]
+      },
+      {
+        "text": "NFPA 99 defines sea-level oxygen-enriched atmospheres above 23.5% O2, and 1923–1996 hyperbaric reviews counted 77 deaths in 35 chamber fires above 28% O2, underscoring oxygen limits even though Earth buoyancy prevents direct 0 g extrapolation.",
+        "cites": [
+          "earth:hospital-o2-nfpa",
+          "earth:hyperbaric-fda-uhms",
+          "earth:buoyancy-transfer-limits"
+        ]
+      },
+      {
+        "text": "Local context in Vietnam includes medical oxygen system inspections in Ho Chi Minh City treatment facilities and the 2023 Khương Hạ apartment fire in Hanoi (56 deaths), illustrating enclosed-space smoke and oxygen hazards.",
+        "cites": [
+          "earth:local-hcmc-oxygen",
+          "earth:local-khuong-ha"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "hospital-o2|gas": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "While all cleaned PSI runs are 0 g, 6 microgravity gas runs sit within ±1% O2 and ±2.5 kPa of Hospital oxygen enrichment threshold (23.5% O2, 101.325 kPa), including PSI-159:normal:25 (50% butane gas, normal spherical flame, 23.4% O2, 101.3 kPa, extinguished); PSI-159:normal:26 (50% butane gas, normal spherical flame, 23.4% O2, 101.3 kPa, extinguished); PSI-159:normal:27 (50% butane gas, normal spherical flame, 23.3% O2, 101.3 kPa, no_ignition).",
+        "cites": [
+          "PSI-159:normal:25",
+          "PSI-159:normal:26",
+          "PSI-159:normal:27",
+          "earth:buoyancy-transfer-limits"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Cleaned PSI has 0 runs at 1 g Earth gravity, so Earth buoyancy effects on flame spread and smoke are outside this dataset; only oxygen/pressure limits and spinoff technology transfer.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "env:hospital-o2"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "NASA replaced ISS CO2 units with nine non-toxic fine-water-mist extinguishers (2015–2016) whose zero-leak valve spun off to >450 industrial/military trailers, while NFPA 99 notes hyperbaric water suppression follows distinct criteria.",
+        "cites": [
+          "spinoff:water-mist",
+          "research02:water-mist-history",
+          "earth:hyperbaric-nfpa99"
+        ]
+      },
+      {
+        "text": "NFPA 99 defines sea-level oxygen-enriched atmospheres above 23.5% O2, and 1923–1996 hyperbaric reviews counted 77 deaths in 35 chamber fires above 28% O2, underscoring oxygen limits even though Earth buoyancy prevents direct 0 g extrapolation.",
+        "cites": [
+          "earth:hospital-o2-nfpa",
+          "earth:hyperbaric-fda-uhms",
+          "earth:buoyancy-transfer-limits"
+        ]
+      },
+      {
+        "text": "Local context in Vietnam includes medical oxygen system inspections in Ho Chi Minh City treatment facilities and the 2023 Khương Hạ apartment fire in Hanoi (56 deaths), illustrating enclosed-space smoke and oxygen hazards.",
+        "cites": [
+          "earth:local-hcmc-oxygen",
+          "earth:local-khuong-ha"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "hyperbaric|solid": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g solid runs to Hyperbaric chamber (example rated maximum) (100% O2, 303.975 kPa) are PSI-25:B1 (100 micron PMMA film 2 cm wide, 22.2% O2, 101.3 kPa assumed, sustained); PSI-25:B2 (200 micron PMMA film 2 cm wide, 22.2% O2, 101.3 kPa assumed, unknown); PSI-25:B3 (100 micron film 2 cm wide, 22.2% O2, 101.3 kPa assumed, sustained).",
+        "cites": [
+          "PSI-25:B1",
+          "PSI-25:B2",
+          "PSI-25:B3",
+          "env:hyperbaric"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Cleaned PSI has 0 runs at 1 g Earth gravity, so Earth buoyancy effects on flame spread and smoke are outside this dataset; only oxygen/pressure limits and spinoff technology transfer.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "env:hyperbaric"
+        ]
+      },
+      {
+        "text": "No solid runs in PSI have measured sub-atmospheric pressure (BASS-II assumes 101.3 kPa; Saffire-I/II pressure is null) or exceed 22.2% O2.",
+        "cites": [
+          "psi:PSI-26:srd-pressure",
+          "psi:PSI-99:table-notes",
+          "PSI-25"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "NASA replaced ISS CO2 units with nine non-toxic fine-water-mist extinguishers (2015–2016) whose zero-leak valve spun off to >450 industrial/military trailers, while NFPA 99 notes hyperbaric water suppression follows distinct criteria.",
+        "cites": [
+          "spinoff:water-mist",
+          "research02:water-mist-history",
+          "earth:hyperbaric-nfpa99"
+        ]
+      },
+      {
+        "text": "NFPA 99 defines sea-level oxygen-enriched atmospheres above 23.5% O2, and 1923–1996 hyperbaric reviews counted 77 deaths in 35 chamber fires above 28% O2, underscoring oxygen limits even though Earth buoyancy prevents direct 0 g extrapolation.",
+        "cites": [
+          "earth:hospital-o2-nfpa",
+          "earth:hyperbaric-fda-uhms",
+          "earth:buoyancy-transfer-limits"
+        ]
+      },
+      {
+        "text": "Local context in Vietnam includes medical oxygen system inspections in Ho Chi Minh City treatment facilities and the 2023 Khương Hạ apartment fire in Hanoi (56 deaths), illustrating enclosed-space smoke and oxygen hazards.",
+        "cites": [
+          "earth:local-hcmc-oxygen",
+          "earth:local-khuong-ha"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "hyperbaric|droplet": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g droplet runs to Hyperbaric chamber (example rated maximum) (100% O2, 303.975 kPa) are PSI-39:1335 ([.60]/[.40] C12H26/iso-dodecane droplet, 21.0% O2, 304.0 kPa, unknown); PSI-39:1336 ([.60]/[.40] C12H26/iso-dodecane droplet, 21.0% O2, 304.0 kPa, unknown); PSI-39:1337 ([.60]/[.40] C12H26/iso-dodecane droplet, 21.0% O2, 304.0 kPa, unknown).",
+        "cites": [
+          "PSI-39:1335",
+          "PSI-39:1336",
+          "PSI-39:1337",
+          "env:hyperbaric"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Cleaned PSI has 0 runs at 1 g Earth gravity, so Earth buoyancy effects on flame spread and smoke are outside this dataset; only oxygen/pressure limits and spinoff technology transfer.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "env:hyperbaric"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "NASA replaced ISS CO2 units with nine non-toxic fine-water-mist extinguishers (2015–2016) whose zero-leak valve spun off to >450 industrial/military trailers, while NFPA 99 notes hyperbaric water suppression follows distinct criteria.",
+        "cites": [
+          "spinoff:water-mist",
+          "research02:water-mist-history",
+          "earth:hyperbaric-nfpa99"
+        ]
+      },
+      {
+        "text": "NFPA 99 defines sea-level oxygen-enriched atmospheres above 23.5% O2, and 1923–1996 hyperbaric reviews counted 77 deaths in 35 chamber fires above 28% O2, underscoring oxygen limits even though Earth buoyancy prevents direct 0 g extrapolation.",
+        "cites": [
+          "earth:hospital-o2-nfpa",
+          "earth:hyperbaric-fda-uhms",
+          "earth:buoyancy-transfer-limits"
+        ]
+      },
+      {
+        "text": "Local context in Vietnam includes medical oxygen system inspections in Ho Chi Minh City treatment facilities and the 2023 Khương Hạ apartment fire in Hanoi (56 deaths), illustrating enclosed-space smoke and oxygen hazards.",
+        "cites": [
+          "earth:local-hcmc-oxygen",
+          "earth:local-khuong-ha"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "hyperbaric|gas": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g gas runs to Hyperbaric chamber (example rated maximum) (100% O2, 303.975 kPa) are PSI-159:normal:168 (30% butane gas, normal spherical flame, 39.9% O2, 202.7 kPa, sustained); PSI-159:normal:131 (30% ethane gas, normal spherical flame, 39.9% O2, 202.7 kPa, extinguished); PSI-159:normal:157 (30% butane gas, normal spherical flame, 39.9% O2, 202.7 kPa, extinguished).",
+        "cites": [
+          "PSI-159:normal:168",
+          "PSI-159:normal:131",
+          "PSI-159:normal:157",
+          "env:hyperbaric"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Cleaned PSI has 0 runs at 1 g Earth gravity, so Earth buoyancy effects on flame spread and smoke are outside this dataset; only oxygen/pressure limits and spinoff technology transfer.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "env:hyperbaric"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "NASA replaced ISS CO2 units with nine non-toxic fine-water-mist extinguishers (2015–2016) whose zero-leak valve spun off to >450 industrial/military trailers, while NFPA 99 notes hyperbaric water suppression follows distinct criteria.",
+        "cites": [
+          "spinoff:water-mist",
+          "research02:water-mist-history",
+          "earth:hyperbaric-nfpa99"
+        ]
+      },
+      {
+        "text": "NFPA 99 defines sea-level oxygen-enriched atmospheres above 23.5% O2, and 1923–1996 hyperbaric reviews counted 77 deaths in 35 chamber fires above 28% O2, underscoring oxygen limits even though Earth buoyancy prevents direct 0 g extrapolation.",
+        "cites": [
+          "earth:hospital-o2-nfpa",
+          "earth:hyperbaric-fda-uhms",
+          "earth:buoyancy-transfer-limits"
+        ]
+      },
+      {
+        "text": "Local context in Vietnam includes medical oxygen system inspections in Ho Chi Minh City treatment facilities and the 2023 Khương Hạ apartment fire in Hanoi (56 deaths), illustrating enclosed-space smoke and oxygen hazards.",
+        "cites": [
+          "earth:local-hcmc-oxygen",
+          "earth:local-khuong-ha"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "airliner|solid": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g solid runs to Aircraft cabin (8,000 ft reference) (21% O2, 75.26 kPa) are PSI-25:B6 (2 cm 0.1 mm PMMA film, 21.0% O2, 101.3 kPa assumed, sustained); PSI-25:B8 (2 cm 0.2 mm PMMA film, 21.0% O2, 101.3 kPa assumed, sustained); PSI-25:B9 (2 cm 0.1 mm PMMA film, 21.0% O2, 101.3 kPa assumed, sustained).",
+        "cites": [
+          "PSI-25:B6",
+          "PSI-25:B8",
+          "PSI-25:B9",
+          "env:airliner"
+        ]
+      },
+      {
+        "text": "Joint NASA-FAA testing showed a NASA sensor combining particulate and chemical channels outperformed aircraft smoke detectors on false-alarm rejection, while FLEX runs near 71–73 kPa (e.g., PSI-69:56, PSI-69:57) probe 0.7 atm droplets in 0 g.",
+        "cites": [
+          "guide:p26-35-smoke-detection",
+          "PSI-69:56",
+          "PSI-69:57"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Cleaned PSI has 0 runs at 1 g Earth gravity, so Earth buoyancy effects on flame spread and smoke are outside this dataset; only oxygen/pressure limits and spinoff technology transfer.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "env:airliner"
+        ]
+      },
+      {
+        "text": "No solid runs in PSI have measured sub-atmospheric pressure (BASS-II assumes 101.3 kPa; Saffire-I/II pressure is null) or exceed 22.2% O2.",
+        "cites": [
+          "psi:PSI-26:srd-pressure",
+          "psi:PSI-99:table-notes",
+          "PSI-25"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "The 1978 Brunswick Shuttle spinoff detects combustion particles while rejecting dust false alarms for large facilities such as mines, while NASA's joint FAA test showed dual particulate-chemical sensing outperformed existing aircraft smoke detectors.",
+        "cites": [
+          "spinoff:fire-detector",
+          "guide:p26-35-smoke-detection"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "airliner|droplet": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "While all cleaned PSI runs are 0 g, 4 microgravity droplet runs sit within ±1% O2 and ±2.5 kPa of Aircraft cabin (8,000 ft reference) (21% O2, 75.26 kPa), including PSI-39:1346 ([.60]/[.40] C12H26/iso-dodecane droplet, 21.0% O2, 76.0 kPa, unknown); PSI-39:1347 ([.60]/[.40] C12H26/iso-dodecane droplet, 21.0% O2, 76.0 kPa, unknown); PSI-39:1348 ([.60]/[.40] C12H26/iso-dodecane droplet, 21.0% O2, 76.0 kPa, unknown).",
+        "cites": [
+          "PSI-39:1346",
+          "PSI-39:1347",
+          "PSI-39:1348",
+          "earth:buoyancy-transfer-limits"
+        ]
+      },
+      {
+        "text": "Joint NASA-FAA testing showed a NASA sensor combining particulate and chemical channels outperformed aircraft smoke detectors on false-alarm rejection, while FLEX runs near 71–73 kPa (e.g., PSI-69:56, PSI-69:57) probe 0.7 atm droplets in 0 g.",
+        "cites": [
+          "guide:p26-35-smoke-detection",
+          "PSI-69:56",
+          "PSI-69:57"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Cleaned PSI has 0 runs at 1 g Earth gravity, so Earth buoyancy effects on flame spread and smoke are outside this dataset; only oxygen/pressure limits and spinoff technology transfer.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "env:airliner"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "The 1978 Brunswick Shuttle spinoff detects combustion particles while rejecting dust false alarms for large facilities such as mines, while NASA's joint FAA test showed dual particulate-chemical sensing outperformed existing aircraft smoke detectors.",
+        "cites": [
+          "spinoff:fire-detector",
+          "guide:p26-35-smoke-detection"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "airliner|gas": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g gas runs to Aircraft cabin (8,000 ft reference) (21% O2, 75.26 kPa) are PSI-159:normal:40 (50% butane gas, normal spherical flame, 21.0% O2, 50.7 kPa, extinguished); PSI-159:normal:41 (50% butane gas, normal spherical flame, 20.9% O2, 50.7 kPa, extinguished); PSI-159:normal:42 (50% butane gas, normal spherical flame, 20.7% O2, 50.7 kPa, extinguished).",
+        "cites": [
+          "PSI-159:normal:40",
+          "PSI-159:normal:41",
+          "PSI-159:normal:42",
+          "env:airliner"
+        ]
+      },
+      {
+        "text": "Joint NASA-FAA testing showed a NASA sensor combining particulate and chemical channels outperformed aircraft smoke detectors on false-alarm rejection, while FLEX runs near 71–73 kPa (e.g., PSI-69:56, PSI-69:57) probe 0.7 atm droplets in 0 g.",
+        "cites": [
+          "guide:p26-35-smoke-detection",
+          "PSI-69:56",
+          "PSI-69:57"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Cleaned PSI has 0 runs at 1 g Earth gravity, so Earth buoyancy effects on flame spread and smoke are outside this dataset; only oxygen/pressure limits and spinoff technology transfer.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "env:airliner"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "The 1978 Brunswick Shuttle spinoff detects combustion particles while rejecting dust false alarms for large facilities such as mines, while NASA's joint FAA test showed dual particulate-chemical sensing outperformed existing aircraft smoke detectors.",
+        "cites": [
+          "spinoff:fire-detector",
+          "guide:p26-35-smoke-detection"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "high-altitude-o2|solid": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g solid runs to Kangding high-altitude fabric test (33% O2, 60.5 kPa) are PSI-25:B1 (100 micron PMMA film 2 cm wide, 22.2% O2, 101.3 kPa assumed, sustained); PSI-25:B2 (200 micron PMMA film 2 cm wide, 22.2% O2, 101.3 kPa assumed, unknown); PSI-25:B3 (100 micron film 2 cm wide, 22.2% O2, 101.3 kPa assumed, sustained).",
+        "cites": [
+          "PSI-25:B1",
+          "PSI-25:B2",
+          "PSI-25:B3",
+          "env:high-altitude-o2"
+        ]
+      },
+      {
+        "text": "Nearby 0 g low-pressure gas tests in PSI-159 (3 runs at 50.67 kPa, 33.2–34.1% O2, e.g. PSI-159:normal:130) bracket the pressure-oxygen regime studied in Kangding fabric tests (60.5 kPa, 33% O2).",
+        "cites": [
+          "PSI-159:normal:130",
+          "earth:kangding-high-altitude"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Cleaned PSI has 0 runs at 1 g Earth gravity, so Earth buoyancy effects on flame spread and smoke are outside this dataset; only oxygen/pressure limits and spinoff technology transfer.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "env:high-altitude-o2"
+        ]
+      },
+      {
+        "text": "No solid runs in PSI have measured sub-atmospheric pressure (BASS-II assumes 101.3 kPa; Saffire-I/II pressure is null) or exceed 22.2% O2.",
+        "cites": [
+          "psi:PSI-26:srd-pressure",
+          "psi:PSI-99:table-notes",
+          "PSI-25"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "High-altitude oxygen-enriched studies in Kangding (60.5 kPa, 30–33% O2) sit near exploration cabin conditions, and NASA's finding that oxygen fraction dominates pressure helps explain elevated textile fire hazard while Earth buoyancy still applies.",
+        "cites": [
+          "earth:kangding-high-altitude",
+          "research01:ruff-2021-gaps",
+          "earth:buoyancy-transfer-limits"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "high-altitude-o2|droplet": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g droplet runs to Kangding high-altitude fabric test (33% O2, 60.5 kPa) are PSI-69:37 (Methanol droplet, 34.0% O2, 71.2 kPa, unknown); PSI-69:38 (Methanol droplet, 34.0% O2, 71.2 kPa, unknown); PSI-69:39 (Heptane droplet, 34.0% O2, 71.3 kPa, unknown).",
+        "cites": [
+          "PSI-69:37",
+          "PSI-69:38",
+          "PSI-69:39",
+          "env:high-altitude-o2"
+        ]
+      },
+      {
+        "text": "Nearby 0 g low-pressure gas tests in PSI-159 (3 runs at 50.67 kPa, 33.2–34.1% O2, e.g. PSI-159:normal:130) bracket the pressure-oxygen regime studied in Kangding fabric tests (60.5 kPa, 33% O2).",
+        "cites": [
+          "PSI-159:normal:130",
+          "earth:kangding-high-altitude"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Cleaned PSI has 0 runs at 1 g Earth gravity, so Earth buoyancy effects on flame spread and smoke are outside this dataset; only oxygen/pressure limits and spinoff technology transfer.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "env:high-altitude-o2"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "High-altitude oxygen-enriched studies in Kangding (60.5 kPa, 30–33% O2) sit near exploration cabin conditions, and NASA's finding that oxygen fraction dominates pressure helps explain elevated textile fire hazard while Earth buoyancy still applies.",
+        "cites": [
+          "earth:kangding-high-altitude",
+          "research01:ruff-2021-gaps",
+          "earth:buoyancy-transfer-limits"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "high-altitude-o2|gas": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "The nearest ambient 0 g gas runs to Kangding high-altitude fabric test (33% O2, 60.5 kPa) are PSI-159:normal:130 (30% ethane gas, normal spherical flame, 33.2% O2, 50.7 kPa, sustained); PSI-159:normal:129 (30% ethane gas, normal spherical flame, 33.5% O2, 50.7 kPa, sustained); PSI-159:normal:128 (30% ethane gas, normal spherical flame, 34.1% O2, 50.7 kPa, extinguished).",
+        "cites": [
+          "PSI-159:normal:130",
+          "PSI-159:normal:129",
+          "PSI-159:normal:128",
+          "env:high-altitude-o2"
+        ]
+      },
+      {
+        "text": "Nearby 0 g low-pressure gas tests in PSI-159 (3 runs at 50.67 kPa, 33.2–34.1% O2, e.g. PSI-159:normal:130) bracket the pressure-oxygen regime studied in Kangding fabric tests (60.5 kPa, 33% O2).",
+        "cites": [
+          "PSI-159:normal:130",
+          "earth:kangding-high-altitude"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Cleaned PSI has 0 runs at 1 g Earth gravity, so Earth buoyancy effects on flame spread and smoke are outside this dataset; only oxygen/pressure limits and spinoff technology transfer.",
+        "cites": [
+          "earth:buoyancy-transfer-limits",
+          "env:high-altitude-o2"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "High-altitude oxygen-enriched studies in Kangding (60.5 kPa, 30–33% O2) sit near exploration cabin conditions, and NASA's finding that oxygen fraction dominates pressure helps explain elevated textile fire hazard while Earth buoyancy still applies.",
+        "cites": [
+          "earth:kangding-high-altitude",
+          "research01:ruff-2021-gaps",
+          "earth:buoyancy-transfer-limits"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "submarine|solid": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "For enclosed low-ventilation spaces, SAME measured microgravity smoke particles largely under 500 nm, and the 1978 Brunswick Shuttle spinoff detects combustion aerosols while filtering dust in mines.",
+        "cites": [
+          "PSI-102",
+          "research01:sec1-overview",
+          "spinoff:fire-detector"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Submarine cabin lacks verified paired O2% and pressure coordinates in EMBER (Historical submarine measurements report oxygen partial pressure, while a paired cabin pressure and oxygen fraction are needed for this map.), and PSI holds 0 runs at 1 g Earth gravity.",
+        "cites": [
+          "env:submarine"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "The 1978 Brunswick Shuttle spinoff detects combustion particles while rejecting dust false alarms for large facilities such as mines, while NASA's joint FAA test showed dual particulate-chemical sensing outperformed existing aircraft smoke detectors.",
+        "cites": [
+          "spinoff:fire-detector",
+          "guide:p26-35-smoke-detection"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "submarine|droplet": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "For enclosed low-ventilation spaces, SAME measured microgravity smoke particles largely under 500 nm, and the 1978 Brunswick Shuttle spinoff detects combustion aerosols while filtering dust in mines.",
+        "cites": [
+          "PSI-102",
+          "research01:sec1-overview",
+          "spinoff:fire-detector"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Submarine cabin lacks verified paired O2% and pressure coordinates in EMBER (Historical submarine measurements report oxygen partial pressure, while a paired cabin pressure and oxygen fraction are needed for this map.), and PSI holds 0 runs at 1 g Earth gravity.",
+        "cites": [
+          "env:submarine"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "The 1978 Brunswick Shuttle spinoff detects combustion particles while rejecting dust false alarms for large facilities such as mines, while NASA's joint FAA test showed dual particulate-chemical sensing outperformed existing aircraft smoke detectors.",
+        "cites": [
+          "spinoff:fire-detector",
+          "guide:p26-35-smoke-detection"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "submarine|gas": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "For enclosed low-ventilation spaces, SAME measured microgravity smoke particles largely under 500 nm, and the 1978 Brunswick Shuttle spinoff detects combustion aerosols while filtering dust in mines.",
+        "cites": [
+          "PSI-102",
+          "research01:sec1-overview",
+          "spinoff:fire-detector"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Submarine cabin lacks verified paired O2% and pressure coordinates in EMBER (Historical submarine measurements report oxygen partial pressure, while a paired cabin pressure and oxygen fraction are needed for this map.), and PSI holds 0 runs at 1 g Earth gravity.",
+        "cites": [
+          "env:submarine"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "The 1978 Brunswick Shuttle spinoff detects combustion particles while rejecting dust false alarms for large facilities such as mines, while NASA's joint FAA test showed dual particulate-chemical sensing outperformed existing aircraft smoke detectors.",
+        "cites": [
+          "spinoff:fire-detector",
+          "guide:p26-35-smoke-detection"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "hypoxic-data-centre|solid": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "Reduced-oxygen fire-prevention concepts align with BASS-II solid limits down to 14.8% initial O2 (PSI-25:O4, provisional) and FLEX droplet completion down to 14.0% O2 (PSI-69:69) in 0 g.",
+        "cites": [
+          "PSI-25:O4",
+          "PSI-69:69",
+          "earth:hypoxic-datacentre"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Oxygen-reduced data centre lacks verified paired O2% and pressure coordinates in EMBER (Reduced oxygen is relevant to material flammability, while a specific documented installation and Earth-gravity testing are needed to make a useful comparison.), and PSI holds 0 runs at 1 g Earth gravity.",
+        "cites": [
+          "env:hypoxic-data-centre"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "The 1978 Brunswick Shuttle spinoff detects combustion particles while rejecting dust false alarms for large facilities such as mines, while NASA's joint FAA test showed dual particulate-chemical sensing outperformed existing aircraft smoke detectors.",
+        "cites": [
+          "spinoff:fire-detector",
+          "guide:p26-35-smoke-detection"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "hypoxic-data-centre|droplet": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "Reduced-oxygen fire-prevention concepts align with BASS-II solid limits down to 14.8% initial O2 (PSI-25:O4, provisional) and FLEX droplet completion down to 14.0% O2 (PSI-69:69) in 0 g.",
+        "cites": [
+          "PSI-25:O4",
+          "PSI-69:69",
+          "earth:hypoxic-datacentre"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Oxygen-reduced data centre lacks verified paired O2% and pressure coordinates in EMBER (Reduced oxygen is relevant to material flammability, while a specific documented installation and Earth-gravity testing are needed to make a useful comparison.), and PSI holds 0 runs at 1 g Earth gravity.",
+        "cites": [
+          "env:hypoxic-data-centre"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "The 1978 Brunswick Shuttle spinoff detects combustion particles while rejecting dust false alarms for large facilities such as mines, while NASA's joint FAA test showed dual particulate-chemical sensing outperformed existing aircraft smoke detectors.",
+        "cites": [
+          "spinoff:fire-detector",
+          "guide:p26-35-smoke-detection"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "hypoxic-data-centre|gas": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "Reduced-oxygen fire-prevention concepts align with BASS-II solid limits down to 14.8% initial O2 (PSI-25:O4, provisional) and FLEX droplet completion down to 14.0% O2 (PSI-69:69) in 0 g.",
+        "cites": [
+          "PSI-25:O4",
+          "PSI-69:69",
+          "earth:hypoxic-datacentre"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Oxygen-reduced data centre lacks verified paired O2% and pressure coordinates in EMBER (Reduced oxygen is relevant to material flammability, while a specific documented installation and Earth-gravity testing are needed to make a useful comparison.), and PSI holds 0 runs at 1 g Earth gravity.",
+        "cites": [
+          "env:hypoxic-data-centre"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "The 1978 Brunswick Shuttle spinoff detects combustion particles while rejecting dust false alarms for large facilities such as mines, while NASA's joint FAA test showed dual particulate-chemical sensing outperformed existing aircraft smoke detectors.",
+        "cites": [
+          "spinoff:fire-detector",
+          "guide:p26-35-smoke-detection"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "deep-mine|solid": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "For enclosed low-ventilation spaces, SAME measured microgravity smoke particles largely under 500 nm, and the 1978 Brunswick Shuttle spinoff detects combustion aerosols while filtering dust in mines.",
+        "cites": [
+          "PSI-102",
+          "research01:sec1-overview",
+          "spinoff:fire-detector"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Underground coal mine lacks verified paired O2% and pressure coordinates in EMBER (MSHA documents oxygen deficiency where mine ventilation is poor, while spacecraft smoke and flame results give no mine-specific predictions.), and PSI holds 0 runs at 1 g Earth gravity.",
+        "cites": [
+          "env:deep-mine"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "The 1978 Brunswick Shuttle spinoff detects combustion particles while rejecting dust false alarms for large facilities such as mines, while NASA's joint FAA test showed dual particulate-chemical sensing outperformed existing aircraft smoke detectors.",
+        "cites": [
+          "spinoff:fire-detector",
+          "guide:p26-35-smoke-detection"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "deep-mine|droplet": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "For enclosed low-ventilation spaces, SAME measured microgravity smoke particles largely under 500 nm, and the 1978 Brunswick Shuttle spinoff detects combustion aerosols while filtering dust in mines.",
+        "cites": [
+          "PSI-102",
+          "research01:sec1-overview",
+          "spinoff:fire-detector"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Underground coal mine lacks verified paired O2% and pressure coordinates in EMBER (MSHA documents oxygen deficiency where mine ventilation is poor, while spacecraft smoke and flame results give no mine-specific predictions.), and PSI holds 0 runs at 1 g Earth gravity.",
+        "cites": [
+          "env:deep-mine"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "The 1978 Brunswick Shuttle spinoff detects combustion particles while rejecting dust false alarms for large facilities such as mines, while NASA's joint FAA test showed dual particulate-chemical sensing outperformed existing aircraft smoke detectors.",
+        "cites": [
+          "spinoff:fire-detector",
+          "guide:p26-35-smoke-detection"
+        ]
+      }
+    ],
+    "si_generated": true
+  },
+  "deep-mine|gas": {
+    "known": [
+      {
+        "text": "The NASA PSI combustion evidence does not reach this environment; no tested runs in this fuel class match both the target atmosphere and gravity regime.",
+        "cites": []
+      }
+    ],
+    "nearest": [
+      {
+        "text": "For enclosed low-ventilation spaces, SAME measured microgravity smoke particles largely under 500 nm, and the 1978 Brunswick Shuttle spinoff detects combustion aerosols while filtering dust in mines.",
+        "cites": [
+          "PSI-102",
+          "research01:sec1-overview",
+          "spinoff:fire-detector"
+        ]
+      }
+    ],
+    "missing": [
+      {
+        "text": "Underground coal mine lacks verified paired O2% and pressure coordinates in EMBER (MSHA documents oxygen deficiency where mine ventilation is poor, while spacecraft smoke and flame results give no mine-specific predictions.), and PSI holds 0 runs at 1 g Earth gravity.",
+        "cites": [
+          "env:deep-mine"
+        ]
+      }
+    ],
+    "earth": [
+      {
+        "text": "The 1978 Brunswick Shuttle spinoff detects combustion particles while rejecting dust false alarms for large facilities such as mines, while NASA's joint FAA test showed dual particulate-chemical sensing outperformed existing aircraft smoke detectors.",
+        "cites": [
+          "spinoff:fire-detector",
+          "guide:p26-35-smoke-detection"
+        ]
+      }
+    ],
+    "si_generated": true
+  }
+}

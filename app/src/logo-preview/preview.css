@@ -1,0 +1,222 @@
+.logo-preview .wrap {
+  max-width: 1120px;
+}
+
+.proof-bar {
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-2);
+}
+
+.proof-bar .wrap {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-12);
+}
+
+.proof-bar a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--text);
+  font-size: var(--type-small);
+  text-decoration: none;
+  transition: none;
+}
+
+.proof-bar a:hover {
+  text-decoration: underline;
+}
+
+.proof-caption {
+  color: var(--proof-muted, var(--muted));
+  font: var(--type-caption)/1.4 var(--font-mono);
+  letter-spacing: .045em;
+  text-transform: uppercase;
+}
+
+.proof-main {
+  padding-block: var(--space-64);
+}
+
+.proof-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: var(--space-24);
+  margin-bottom: var(--space-32);
+}
+
+.proof-intro h1 {
+  font-size: var(--type-display);
+}
+
+.proof-intro p,
+.proof-concept p {
+  color: var(--muted);
+}
+
+.proof-intro p {
+  margin-top: var(--space-12);
+}
+
+.proof-mode {
+  display: flex;
+  align-self: end;
+  flex-shrink: 0;
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+}
+
+.proof-mode label {
+  position: relative;
+  cursor: pointer;
+}
+
+.proof-mode label + label {
+  border-left: 1px solid var(--line-strong);
+}
+
+.proof-mode input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.proof-mode span {
+  display: grid;
+  place-items: center;
+  min-height: 44px;
+  padding-inline: var(--space-16);
+  color: var(--muted);
+  font-size: var(--type-small);
+  font-weight: 600;
+}
+
+.proof-mode input:hover + span {
+  background: var(--panel);
+}
+
+.proof-mode input:checked + span {
+  background: var(--accent-soft);
+  color: var(--text);
+  box-shadow: inset 0 -2px var(--proof-blue);
+}
+
+.proof-mode input:focus-visible + span {
+  position: relative;
+  outline: 2px solid var(--focus);
+  outline-offset: -3px;
+  pointer-events: none;
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-24);
+}
+
+.proof-concept {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 4;
+  gap: 0;
+  border-top: 1px solid var(--line-strong);
+}
+
+.proof-concept h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  padding-top: var(--space-16);
+}
+
+.proof-concept h2 span {
+  color: var(--proof-blue);
+  font: var(--type-small)/1 var(--font-mono);
+}
+
+.proof-concept p {
+  margin-block: var(--space-8) var(--space-24);
+  font-size: var(--type-small);
+}
+
+.proof-surface {
+  --proof-muted: var(--muted);
+  --proof-divider: var(--line);
+  --proof-dot-color: var(--proof-blue);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 76px;
+  background: var(--panel);
+  color: var(--text);
+}
+
+.proof-surface[data-surface='light'] {
+  --proof-muted: var(--paper-muted);
+  --proof-divider: var(--paper-line);
+  --proof-dot-color: color-mix(in srgb, var(--proof-blue) 45%, var(--paper-text));
+  background: var(--paper);
+  color: var(--paper-text);
+}
+
+.proof-surface > div {
+  display: grid;
+  grid-template-rows: auto 32px;
+  align-items: center;
+  gap: var(--space-12);
+  padding: var(--space-16);
+}
+
+.proof-favicon {
+  justify-items: center;
+  border-inline-start: 1px solid var(--proof-divider);
+}
+
+.proof-lockup {
+  display: block;
+  max-inline-size: 100%;
+}
+
+.proof-dot {
+  fill: var(--proof-dot-color);
+}
+
+.proof-header .proof-dot {
+  filter: drop-shadow(0 0 3px var(--proof-dot-color));
+}
+
+.logo-preview[data-monochrome='true'] .proof-dot {
+  fill: currentColor;
+  filter: none;
+}
+
+@media (max-width: 760px) {
+  .proof-main {
+    padding-block: var(--space-32);
+  }
+
+  .proof-intro {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .proof-mode {
+    align-self: start;
+  }
+
+  .proof-grid {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0;
+  }
+
+  .proof-concept + .proof-concept {
+    margin-top: var(--space-32);
+  }
+}

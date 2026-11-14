@@ -1,0 +1,106 @@
+.brief-dialog {
+  color-scheme: light;
+  background: #fff;
+  color: #172331;
+  border: 1px solid #c3d0dc;
+  border-radius: 12px;
+  width: min(52rem, calc(100% - 1.5rem));
+  max-height: calc(100% - 1.5rem);
+  padding: 0;
+}
+
+.brief-dialog::backdrop { background: rgb(10 20 32 / 70%); }
+
+.brief-actions {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+  background: #f4f8fc;
+  border-bottom: 1px solid #d4dfe9;
+  padding: .65rem clamp(.75rem, 3vw, 1.5rem);
+}
+
+.brief-actions button {
+  border: 1px solid #b0c4d6;
+  border-radius: 6px;
+  background: white;
+  color: #134466;
+  padding: .4rem .6rem;
+  font-size: .875rem;
+  font-weight: 600;
+}
+
+.brief-actions button:first-child { background: #134466; color: white; }
+.brief-actions button:last-child { margin-inline-start: auto; }
+.brief-dialog :focus-visible { outline: 2px solid #236994; outline-offset: 2px; }
+.brief-paper a { color: #134f78; }
+.brief-print { display: none; }
+
+.brief-paper {
+  padding: clamp(.85rem, 4vw, 1.75rem);
+  font: 400 .875rem/1.45 var(--font-body);
+  overflow-wrap: anywhere;
+}
+
+.brief-header { padding-bottom: .5em; border-bottom: 1px solid #cedbe6; }
+.brief-header p { color: #3f556b; }
+.brief-header h2 { font-size: 1.9em; margin-block: .13em .2em; }
+.brief-paper section, .brief-answer { margin-block-start: .85em; }
+.brief-paper h3 { color: #134466; font-size: 1.13em; margin-block-end: .25em; }
+.brief-paper p + p { margin-block-start: .35em; }
+.brief-atmosphere { display: flex; flex-wrap: wrap; gap: .15em .85em; }
+.brief-markers { font-size: .85em; }
+.brief-markers > * { margin-inline-end: .18em; white-space: nowrap; }
+
+.brief-answer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .7em 1.3em;
+}
+.brief-answer section { margin: 0; }
+
+.brief-studies, .brief-chips { list-style: none; margin: 0; padding: 0; }
+.brief-studies > li + li { margin-block-start: .35em; }
+.brief-chips { display: flex; flex-wrap: wrap; gap: .2em .35em; }
+.brief-chips li {
+  background: #f5f9fc;
+  border: 1px solid #dce6ef;
+  border-radius: .35em;
+  padding-inline: .35em;
+  font-size: .9em;
+}
+
+.brief-sources { columns: 2; column-gap: 2em; margin: 0; padding-inline-start: 1.65em; }
+.brief-sources li { break-inside: avoid; margin-block-end: .15em; }
+
+@media screen and (max-width: 560px) {
+  .brief-answer { grid-template-columns: minmax(0, 1fr); }
+  .brief-sources { columns: 1; }
+}
+
+@media print {
+  @page evidence-brief { size: A4 portrait; margin: 11mm; }
+
+  html:has(.brief-print),
+  body:has(.brief-print) { background: white; overflow: visible; color-scheme: light; }
+  body:has(.brief-print) > :not(.brief-print),
+  .brief-dialog::backdrop { display: none !important; }
+
+  .brief-print {
+    display: block;
+    page: evidence-brief;
+    background: white;
+    color: #172331;
+  }
+
+  .brief-print .brief-paper { padding: 0; font-size: 9.25pt; line-height: 1.22; }
+  .brief-print .brief-paper section, .brief-print .brief-answer { margin-block-start: .65em; }
+  .brief-print .brief-answer { display: block; columns: 2; column-gap: 1.4em; }
+  .brief-print .brief-answer section { break-inside: avoid; margin: 0 0 .5em; }
+  .brief-print .brief-chips { display: inline; margin-inline-start: .35em; }
+  .brief-print .brief-chips li { display: inline-block; margin: 0 .3em .15em 0; }
+  .brief-print .brief-sources { font-size: 8.25pt; }
+}

@@ -1,0 +1,49 @@
+[
+  {
+    "id": "water-mist",
+    "title": "Zero-leak valve from the ISS water-mist extinguisher",
+    "year": 2020,
+    "nasa_origin": "A NASA-funded ISS water-mist extinguisher needed a valve that would stay sealed during storage.",
+    "earth_use": "Doering commercialized the valve for industrial equipment and military trailer brakes.",
+    "benefit": "NASA reported that the valve went into more than 450 munitions trailers.",
+    "linked_investigations": [],
+    "source_url": "https://spinoff.nasa.gov/node/11065",
+    "si_generated": true
+  },
+  {
+    "id": "fire-detector",
+    "title": "Air-sampling fire detector",
+    "year": 1978,
+    "nasa_origin": "The Brunswick Incipient Fire Detector was developed for Space Shuttle orbiters.",
+    "earth_use": "Linked air-sampling sensors can monitor large spaces such as mines.",
+    "benefit": "The detector distinguishes combustion particles from dust, reducing susceptibility to false alarms.",
+    "linked_investigations": [
+      "PSI-102",
+      "PSI-101"
+    ],
+    "source_url": "https://spinoff.nasa.gov/node/9407",
+    "si_generated": true
+  },
+  {
+    "id": "air-tanks",
+    "title": "Lightweight firefighter air tanks",
+    "year": 1976,
+    "nasa_origin": "NASA Johnson and Scott Aviation developed a composite tank with an aluminum liner.",
+    "earth_use": "Scott Aviation used the tanks in a firefighter breathing-air backpack.",
+    "benefit": "NASA reported 30 minutes of air in a 20-pound system, 13 pounds lighter than the conventional equipment it compared with.",
+    "linked_investigations": [],
+    "source_url": "https://spinoff.nasa.gov/node/9582",
+    "si_generated": true
+  },
+  {
+    "id": "fires-gear",
+    "title": "FIRES firefighter protective clothing",
+    "year": 1982,
+    "nasa_origin": "NASA and the U.S. Fire Administration drew on Apollo protective materials and design concepts.",
+    "earth_use": "The FIRES project developed a protective ensemble and planned field feedback to inform standards.",
+    "benefit": "The project aimed to improve heat protection for firefighters.",
+    "linked_investigations": [],
+    "source_url": "https://spinoff.nasa.gov/node/9918",
+    "si_generated": true
+  }
+]

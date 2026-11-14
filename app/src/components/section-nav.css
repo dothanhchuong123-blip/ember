@@ -1,0 +1,105 @@
+/* Sticky section tabs and the first-load step hint. Colours come from the theme tokens in index.css. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid var(--line-strong);
+  background: color-mix(in srgb, var(--bg) 93%, transparent);
+  backdrop-filter: blur(12px);
+}
+.header-inner { min-height: var(--nav-h); }
+.header-inner .brand {
+  flex: none;
+  justify-content: center;
+  gap: var(--space-8);
+  min-width: 44px;
+  min-height: 44px;
+  color: var(--text);
+  text-decoration: none;
+}
+.brand-core {
+  color: var(--ember-blue);
+  fill: currentColor;
+  filter: drop-shadow(0 0 3px currentColor);
+}
+.section-tabs { display: flex; gap: var(--space-8); margin: 0; padding: 0; list-style: none; }
+.section-tab {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  min-height: 44px;
+  padding: 0 var(--space-16);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-small);
+  background: var(--panel);
+  color: var(--text);
+  font: 600 .9375rem/1 var(--font-body);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.section-tab:hover { border-color: var(--accent); background: var(--panel-2); color: var(--text); }
+.section-tab:focus-visible { outline-offset: 2px; }
+.section-tab svg { flex: none; transition: transform var(--motion-fast) var(--ease-out); }
+@media (prefers-reduced-motion: no-preference) {
+  .section-tab:hover svg { transform: translateY(-2px); }
+}
+.section-tab[aria-current] { border-color: var(--accent); background: transparent; color: var(--accent-ink); }
+.section-tab[aria-current]:hover { color: var(--accent-ink); }
+.section-tab-pill { position: absolute; inset: -1px; z-index: -1; border-radius: inherit; background: var(--accent); }
+
+.step-hint { overflow: hidden; border-bottom: 1px solid var(--line); background: var(--accent-soft); }
+.step-hint ol { display: flex; flex-wrap: wrap; gap: var(--space-4) var(--space-24); margin-block: 0; padding: 0; list-style: none; }
+.step-hint a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  min-height: 40px;
+  color: var(--text);
+  font-size: var(--type-small);
+  font-weight: 600;
+  text-decoration: none;
+}
+.step-hint a:hover { color: var(--accent); }
+.step-hint b {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font: 700 .75rem/1 var(--font-mono);
+}
+
+@media (max-width: 960px) {
+  .header-inner .event-name { display: none; }
+  .section-tab { padding-inline: var(--space-8); }
+}
+@media (max-width: 840px) {
+  .brand-name { display: none; }
+}
+@media (max-width: 700px) {
+  .header-inner { gap: var(--space-8); padding-block: var(--space-8); }
+  .header-inner nav { flex: 1; }
+  .section-tabs { flex: 1; gap: var(--space-4); }
+  .section-tabs li { flex: 1 1 0; min-width: 0; }
+  .section-tab {
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+    width: 100%;
+    height: 100%;
+    min-height: 48px;
+    padding: var(--space-4) 2px;
+    font-size: .75rem;
+    line-height: 1.1;
+    text-align: center;
+    white-space: normal;
+  }
+}
+@media (max-width: 520px) {
+  .step-hint ol { gap: 0 var(--space-16); }
+  .step-hint a { min-height: 36px; }
+}

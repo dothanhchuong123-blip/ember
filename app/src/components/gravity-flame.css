@@ -1,0 +1,70 @@
+/* Hero gravity flame. The canvas is softened with a CSS blur so a few hundred dots read as one flame. */
+.gflame { display: grid; gap: var(--space-16); align-content: center; block-size: 100%; }
+.gflame-stage {
+  position: relative;
+  aspect-ratio: 4 / 3.3;
+  max-block-size: 430px;
+  inline-size: 100%;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 62%, #ff87500f, transparent 55%);
+}
+.gflame[data-g='space'] .gflame-stage { background: radial-gradient(circle at 50% 62%, #4f7dff12, transparent 55%); }
+.gflame-canvas { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; filter: blur(7px) saturate(1.15); }
+.gflame-candle { position: absolute; left: 50%; top: 70%; block-size: 40%; aspect-ratio: 1; translate: -50% 0; overflow: visible; }
+.gflame-wick { stroke: #1a1410; stroke-width: 1.6; stroke-linecap: round; }
+.gflame-wax { fill: #d8cdbb; opacity: .14; }
+.gflame-readout {
+  position: absolute;
+  left: 0;
+  top: var(--space-8);
+  display: grid;
+  gap: 2px;
+  margin: 0;
+}
+.gflame-g {
+  font: 300 clamp(2.2rem, 3.4vw, 3.2rem)/1 var(--font-display);
+  font-variation-settings: 'opsz' 144;
+  letter-spacing: -.03em;
+  font-variant-numeric: tabular-nums;
+}
+.gflame-g small { font-size: .45em; color: var(--muted); letter-spacing: 0; }
+.gflame-place { font: 500 .7rem var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--flame-orange); }
+.gflame[data-g='space'] .gflame-place { color: #8fb0ff; }
+.gflame-controls { display: grid; gap: var(--space-8); }
+.gflame-slider input {
+  inline-size: 100%;
+  margin: 0;
+  accent-color: var(--flame-orange);
+  direction: rtl; /* left = Earth (1 g), right = Space (0 g), matching the preset order */
+}
+.gflame-stops { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+.gflame-stops button {
+  display: grid;
+  justify-items: start;
+  gap: 2px;
+  padding: var(--space-8) 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  text-align: start;
+  font-size: .875rem;
+}
+.gflame-stops button:nth-child(2) { justify-items: center; text-align: center; }
+.gflame-stops button:nth-child(3) { justify-items: end; text-align: end; }
+.gflame-stops button span { font-size: .72rem; }
+.gflame-stops button[aria-pressed='true'] { color: var(--text); }
+.gflame-stops button[aria-pressed='true'] strong { color: var(--flame-orange); }
+.gflame-note { margin: 0; max-width: 52ch; color: var(--muted); font-size: .8125rem; line-height: 1.5; }
+.gflame-wax { opacity: .4; }
+.gflame-wick { fill: none; stroke: #120d0a; stroke-width: 1.4; stroke-linecap: round; }
+.gflame-drip { fill: none; stroke: #9b8c77; stroke-width: 2.2; stroke-linecap: round; opacity: .5; }
+.gflame-wax-glow { opacity: .55; mix-blend-mode: screen; transition: opacity var(--motion-normal) var(--ease-out); }
+.gflame[data-g='space'] .gflame-wax-glow { opacity: .25; filter: hue-rotate(190deg); }
+.gflame-stage::after { /* floor line the candle stands on */
+  content: '';
+  position: absolute;
+  inset-inline: 18%;
+  bottom: 0;
+  block-size: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+}

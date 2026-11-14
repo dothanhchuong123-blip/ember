@@ -1,0 +1,72 @@
+.hero-art .habitat-viewport {
+  position: relative;
+  min-height: 0;
+  aspect-ratio: 16 / 10;
+  align-self: center;
+  isolation: isolate;
+}
+
+.hero-art .habitat-viewport > img,
+.habitat-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  transform: none;
+  mask-image: none;
+}
+
+.hero-art .habitat-viewport > img {
+  object-fit: contain;
+  border-radius: var(--radius-panel);
+}
+
+.habitat-canvas {
+  opacity: 0;
+  transition: opacity .48s ease-out;
+}
+
+.habitat-canvas[data-ready='true'] {
+  opacity: 1;
+}
+
+.hero-art .habitat-viewport:has(.habitat-canvas[data-ready='true']) > img {
+  opacity: 0;
+  transition: opacity .38s ease-in;
+}
+
+.habitat-motion {
+  position: absolute;
+  z-index: 1;
+  top: .65rem;
+  right: .65rem;
+  min-height: 36px;
+  padding: .35rem .7rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-small);
+  background: rgba(16, 24, 39, 0.88);
+  color: var(--muted);
+  font: inherit;
+  font-size: .75rem;
+  cursor: pointer;
+}
+
+.habitat-motion:hover { color: var(--text); border-color: var(--muted); }
+
+.habitat-caption-copy {
+  display: grid;
+  gap: 2px;
+  color: var(--text);
+  font-size: .875rem;
+}
+
+.habitat-credit {
+  color: var(--muted);
+  font-size: .75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .habitat-canvas,
+  .hero-art .habitat-viewport > img { transition: none; }
+}

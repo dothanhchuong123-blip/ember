@@ -1,0 +1,77 @@
+/* Sticky scenario bar under the section tabs (see ScenarioBar.tsx). */
+.scenario-bar {
+  position: fixed;
+  inset-inline: 0;
+  z-index: 29;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
+  backdrop-filter: blur(12px);
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+.scenario-bar[data-shown='true'] { transform: none; opacity: 1; pointer-events: auto; }
+@media (prefers-reduced-motion: reduce) { .scenario-bar { transition: none; transform: none; } }
+
+.scenario-bar-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8) var(--space-24);
+  padding-block: var(--space-8);
+}
+.scenario-bar-pickers { display: flex; gap: var(--space-8); min-width: 0; }
+.scenario-bar select {
+  appearance: none;
+  min-height: 36px;
+  max-width: 100%;
+  padding: 4px 28px 4px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  color: var(--text);
+  font: 500 .875rem/1.2 var(--font-body);
+  background:
+    linear-gradient(45deg, transparent 50%, var(--muted) 50%) right 14px center / 5px 5px no-repeat,
+    linear-gradient(-45deg, transparent 50%, var(--muted) 50%) right 10px center / 5px 5px no-repeat,
+    var(--panel);
+  cursor: pointer;
+}
+.scenario-bar select:hover { border-color: var(--muted); }
+.scenario-bar select:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.scenario-bar option, .scenario-bar optgroup { background: var(--panel); color: var(--text); }
+
+.scenario-bar-stats { display: flex; gap: var(--space-24); margin: 0; }
+.scenario-bar-stats div { display: flex; align-items: baseline; gap: 6px; }
+.scenario-bar-stats dd {
+  order: -1;
+  margin: 0;
+  font: 400 1.375rem/1 var(--font-display);
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+.scenario-bar-stats dt {
+  font: 500 .6875rem/1.2 var(--font-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.scenario-bar-stats [data-zero='true'] dd { color: var(--flame-orange); text-shadow: 0 0 12px rgba(255, 120, 40, .55); }
+
+@media (max-width: 700px) {
+  .scenario-bar-inner { gap: 6px; padding-block: 6px; }
+  .scenario-bar-pickers { width: 100%; }
+  .scenario-bar-pickers label { flex: 1 1 0; min-width: 0; }
+  .scenario-bar select { width: 100%; min-height: 34px; font-size: .8125rem; }
+  .scenario-bar-stats { width: 100%; justify-content: space-between; gap: var(--space-8); }
+  .scenario-bar-stats dd { font-size: 1.125rem; }
+  .scenario-bar-stats dt { font-size: .625rem; letter-spacing: .03em; }
+}
+
+/* Tab jumps land below the tabs and this bar. The Explore section is the exception: the bar is hidden there. */
+html { scroll-padding-top: calc(var(--nav-h) + var(--scenario-h, 0px) + var(--space-16)); }
+#explore { scroll-margin-top: calc(-1 * var(--scenario-h, 0px)); }
+
+/* The map card's own place and material inputs repeat this bar, which is always on screen beside the map. */
+.map-scenario-inputs { display: none; }

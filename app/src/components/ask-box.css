@@ -1,0 +1,80 @@
+/* Ask box and saved-answer notice */
+.ask-box {
+  display: grid;
+  gap: var(--space-8);
+  padding: var(--space-16);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-panel);
+  background: var(--panel);
+}
+.ask-box label { font-weight: 600; color: var(--text); }
+.ask-row { display: flex; gap: var(--space-8); }
+.ask-row input {
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0 var(--space-12);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-small);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+.ask-row input::placeholder { color: var(--muted); }
+.ask-submit {
+  min-height: 44px;
+  padding-inline: var(--space-24);
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.ask-submit:hover:not(:disabled) { background: var(--focus); color: var(--accent-ink); }
+.ask-submit:disabled { opacity: .55; cursor: not-allowed; }
+.ask-hint { margin: 0; color: var(--muted); font-size: .875rem; }
+.ask-examples { display: flex; flex-wrap: wrap; gap: var(--space-8); margin: 0; padding: 0; list-style: none; }
+.ask-examples button {
+  min-height: 32px;
+  padding: 4px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: .8125rem;
+  text-align: left;
+  cursor: pointer;
+}
+.ask-examples button:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+
+.asked {
+  padding: var(--space-12) var(--space-16);
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: var(--radius-small);
+}
+.asked.is-fallback { border-left-color: var(--sustained); background: var(--sustained-soft); }
+.asked p { margin: 0 0 var(--space-8); line-height: 1.5; }
+.asked-question { font-weight: 600; overflow-wrap: anywhere; }
+.asked-kind {
+  display: inline-block;
+  margin-right: var(--space-8);
+  font: 600 .75rem/1.4 var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.asked .text-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-align: left;
+  cursor: pointer;
+  min-height: 32px;
+}
+
+@media (max-width: 520px) {
+  .ask-row { flex-direction: column; }
+}
