@@ -53,6 +53,7 @@ const PLACE_NAMES: Record<string, string> = {
 const PLACE_STILLS: Partial<Record<string, { id: ModelId; label?: string; zoom?: number; originY?: string }>> = {
   'moon-habitat': { id: 'lunar_hab', zoom: 1.16, originY: '58%' },
   iss: { id: 'gateway', label: 'Space station concept', zoom: 1.68, originY: '52%' },
+  'lunar-rover': { id: 'lunar_rover', zoom: 1.5, originY: '56%' },
   hyperbaric: { id: 'chamber', label: 'Pressure chamber illustration' },
 }
 
