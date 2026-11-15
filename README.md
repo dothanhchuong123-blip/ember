@@ -20,6 +20,24 @@ EMBER is a web dashboard for any enclosed place where people breathe: a Moon hab
 
 It works with real data only. Every number on screen traces to a row in a NASA PSI table or a page in a NASA report. Missing stays missing. EMBER never claims that microgravity results equal Moon or Earth behaviour, and it has no "safety score".
 
+## Screenshots
+
+Moon habitat, solid materials, as the app shows them today.
+
+![Hero: the same candle, two different fires](docs/images/01-hero.jpg)
+
+**Pick a place and a material, then read the evidence map.** Each dot is one NASA test. The hatched area is where there are too few tests for the model to say anything.
+
+![Evidence map for a Moon habitat](docs/images/02-evidence-map.jpg)
+
+**A cited answer.** Here the honest result is "No evidence here". Every numbered chip links to a source.
+
+![Cited evidence answer and what-if panel](docs/images/03-cited-answer.jpg)
+
+**NASA studies ranked by how close their tests come to your place.**
+
+![Ranked NASA studies](docs/images/04-nasa-studies.jpg)
+
 ## How the website works
 
 The page reads top to bottom as one argument. Each step uses the choices you made in the first one.
@@ -38,11 +56,17 @@ The public site is static. Data is JSON served from the same host, and the answe
 
 ## How the answers are kept honest
 
+![Model boundary and the support gate](docs/images/07-model-boundary.jpg)
+
 - **Source rule.** Every claim cites a PSI study, a NASA report page or a sourced Earth reference. A validator rejects any sentence that has a number but no citation, or a citation that does not exist.
 - **No extrapolation.** The model refuses to answer outside tested conditions (support score below 0.5).
 - **Evaluation.** 15 test questions (10 in scope, 5 out of scope): 62 of 62 cited sentences traced to a verified source, and 5 of 5 out-of-scope questions were refused.
 - **Model results, reported as they are.** Leave-one-test-day-out evaluation, pooled balanced accuracy 0.746 against 0.671 for a single oxygen-threshold baseline, over 502 runs from 113 test days. For gases the model does **not** beat the baseline (0.680 vs 0.688) and the app labels it that way. Solid-fuel results are provisional: BASS-II runs share one assumed glovebox pressure (101.3 kPa) and their outcomes were labelled by an SI model from a NASA report, then checked by hand on 20 rows (20 of 20 agreed).
 - **Known gaps stated on screen.** For example, the cleaned PSI data has no solid-material runs and no lunar-gravity (1/6 g) runs near a Moon-habitat atmosphere (about 56.5 kPa, 34% O₂).
+
+### Architecture
+
+![EMBER architecture: raw NASA data, extraction, model, grounded answers, web app](docs/images/06-architecture.jpg)
 
 ## Data
 
@@ -72,7 +96,8 @@ This repository holds the web app. The data cleaning, model training and answer-
 
 | Folder | Contents |
 |---|---|
-| `app/` | Web app (Vite, React, TypeScript, Three.js) |
+| `app/` | Web app (Vite, React, TypeScript, Three.js). Data JSON is in `app/public/data/`, the optional live-answer function in `app/api/` |
+| `docs/images/` | Screenshots and figures used in this README |
 
 ## Disclosure
 
