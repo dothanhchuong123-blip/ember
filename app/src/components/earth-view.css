@@ -42,12 +42,10 @@
 .ev-body { font-size: var(--type-small); line-height: 1.6; }
 .ev-kicker {
   color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: var(--type-caption);
-  letter-spacing: .06em;
-  text-transform: uppercase;
+  font-size: var(--type-small);
+  font-weight: 500;
 }
-.ev-card-title { font-family: var(--font-display); font-size: 1.0625rem; line-height: 1.3; }
+.ev-card-title { font-family: var(--font-display); font-size: var(--type-body); line-height: 1.3; }
 
 .ev-sources { color: var(--muted); font-size: var(--type-caption); line-height: 1.5; }
 .ev-source-line { display: flex; flex-wrap: wrap; gap: var(--space-8) var(--space-12); align-items: baseline; }
@@ -84,13 +82,13 @@
   align-content: start;
   min-width: 0;
   padding: var(--space-24);
-  border: 1px solid var(--line);
+  border: 1px solid transparent;
   border-radius: var(--radius-panel);
   background: var(--panel);
 }
 .ev-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-12); }
 .ev-facts dt { color: var(--muted); font-size: var(--type-caption); }
-.ev-facts dd { font-family: var(--font-mono); font-size: 1.125rem; font-variant-numeric: tabular-nums; }
+.ev-facts dd { font-family: var(--font-mono); font-size: var(--type-h3); font-variant-numeric: tabular-nums; }
 
 /* Evidence cards */
 .ev-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-16); }
@@ -127,7 +125,7 @@
 /* Spinoff trail */
 .ev-trail { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-16); }
 .ev-trail-item { border-top: 3px solid var(--line-strong); }
-.ev-year { color: var(--accent); font-family: var(--font-mono); font-size: 1.125rem; font-variant-numeric: tabular-nums; }
+.ev-year { color: var(--accent); font-family: var(--font-mono); font-size: var(--type-h3); font-variant-numeric: tabular-nums; }
 .ev-trail-facts { display: grid; gap: var(--space-4); }
 .ev-trail-facts dt { margin-top: var(--space-8); color: var(--muted); font-size: var(--type-caption); }
 .ev-trail-facts dd { font-size: var(--type-small); line-height: 1.55; }
@@ -152,7 +150,7 @@
 .ev-models-note { color: var(--muted); font-size: var(--type-caption); }
 
 .ev-study-applications {
-  border: 1px solid var(--line);
+  border: 0;
   border-radius: var(--radius-panel);
   padding: var(--space-16);
   background: var(--panel);
@@ -191,4 +189,4 @@
 
 /* Art direction */
 :root .ev-map-button { background: transparent; box-shadow: inset 0 0 0 1px var(--line-strong); border: 0; }
-:root .ev-limit { border: 0; border-left: 2px solid var(--flame-orange); border-radius: 0; background: none; }
+:root .ev-limit { border: 0; border-left: 2px solid var(--accent); border-radius: 0; background: none; }

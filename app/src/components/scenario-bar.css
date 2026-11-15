@@ -29,9 +29,9 @@
   max-width: 100%;
   padding: 4px 28px 4px 10px;
   border: 1px solid var(--line-strong);
-  border-radius: 2px;
+  border-radius: var(--radius-small);
   color: var(--text);
-  font: 500 .875rem/1.2 var(--font-body);
+  font: 500 var(--type-small)/1.2 var(--font-body);
   background:
     linear-gradient(45deg, transparent 50%, var(--muted) 50%) right 14px center / 5px 5px no-repeat,
     linear-gradient(-45deg, transparent 50%, var(--muted) 50%) right 10px center / 5px 5px no-repeat,
@@ -47,12 +47,12 @@
 .scenario-bar-stats dd {
   order: -1;
   margin: 0;
-  font: 400 1.375rem/1 var(--font-display);
+  font: 400 var(--type-h3)/1 var(--font-display);
   font-variant-numeric: tabular-nums;
   color: var(--text);
 }
 .scenario-bar-stats dt {
-  font: 500 .6875rem/1.2 var(--font-mono);
+  font: 500 var(--type-caption)/1.2 var(--font-mono);
   letter-spacing: .06em;
   text-transform: uppercase;
   color: var(--muted);
@@ -63,10 +63,10 @@
   .scenario-bar-inner { gap: 6px; padding-block: 6px; }
   .scenario-bar-pickers { width: 100%; }
   .scenario-bar-pickers label { flex: 1 1 0; min-width: 0; }
-  .scenario-bar select { width: 100%; min-height: 34px; font-size: .8125rem; }
+  .scenario-bar select { width: 100%; min-height: 34px; font-size: var(--type-caption); }
   .scenario-bar-stats { width: 100%; justify-content: space-between; gap: var(--space-8); }
-  .scenario-bar-stats dd { font-size: 1.125rem; }
-  .scenario-bar-stats dt { font-size: .625rem; letter-spacing: .03em; }
+  .scenario-bar-stats dd { font-size: var(--type-h3); }
+  .scenario-bar-stats dt { font-size: var(--type-caption); letter-spacing: .03em; }
 }
 
 /* Tab jumps land below the tabs and this bar. The Explore section is the exception: the bar is hidden there. */

@@ -56,9 +56,9 @@
   /* Known · Nearest · Missing · Earth read left to right, one column each. */
   .answer-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); column-gap: 0; }
   .answer-grid > section { border-bottom: 0; padding: var(--space-16) var(--space-24) var(--space-16) 0; }
-  .answer-grid > section + section { padding-inline-start: var(--space-24); border-inline-start: 1px solid var(--line); }
+  .answer-grid > section + section { padding-inline-start: var(--space-24); }
 }
-.answer-grid > section { min-width: 0; padding-block: var(--space-12); border-bottom: 1px solid var(--line); }
+.answer-grid > section { min-width: 0; padding-block: var(--space-12); }
 .answer-grid h3, .full-answer-group h4 {
   margin: 0 0 var(--space-4);
   color: var(--accent);
@@ -140,7 +140,7 @@
 .cited-source-list a { display: inline-block; margin-inline-start: var(--space-8); }
 .evidence-answer .link-btn { padding: var(--space-4) var(--space-8); border-radius: var(--radius-small); }
 .evidence-answer .link-btn:hover { background: var(--line); }
-.answer-focus { border-bottom: 1px solid var(--line); background: var(--accent-soft); }
+.answer-focus { border-radius: var(--radius-small); background: var(--accent-soft); }
 .answer-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-8); margin-top: var(--space-4); }
 .answer-footer {
   display: flex;
@@ -155,19 +155,18 @@
 .answer-body .asked { margin-top: var(--space-12); }
 
 /* Art direction: the answer reads as a notebook spread, not a card. */
-:root .evidence-answer { border: 0; border-top: 1px solid var(--line-strong); border-radius: 0; background: none; }
-:root .answer-header, :root .answer-body { padding-inline: 0; }
+:root .evidence-answer { border: 0; border-radius: var(--radius-large); background: var(--panel); }
+:root .answer-header, :root .answer-body { padding-inline: var(--space-24); }
+:root .answer-focus, :root .answer-footer { padding-inline: var(--space-24); }
 :root .answer-header h2 { font-size: var(--type-h2); font-weight: 400; }
 :root .answer-grid h3, :root .full-answer-group h4 {
   color: var(--muted);
-  font: 500 .7rem/1.3 var(--font-mono);
-  letter-spacing: .14em;
-  text-transform: uppercase;
+  font: 600 var(--type-small)/1.3 var(--font-body);
 }
 :root .answer-grid .is-refusal h3 { color: var(--flame-orange); }
 :root .refusal-tag, :root .claim-headline strong:first-child { font-weight: 400; }
 :root .refusal-tag { font: italic 380 clamp(1.4rem, 1.1rem + 1vw, 1.9rem)/1.15 var(--font-display); font-variation-settings: 'opsz' 72; }
-:root .cite-marker { background: transparent; border-color: var(--line); border-radius: 0; color: var(--sustained); }
+:root .cite-marker { background: var(--panel-2); border-color: transparent; color: var(--sustained); }
 :root .cite-marker:hover, :root .cite-marker:focus-visible { border-color: var(--flame-orange); box-shadow: 0 0 12px #ff875040; }
 :root .cite-marker[data-active='true'], :root .cite-marker[aria-pressed='true'] { background: var(--flame-orange); border-color: var(--flame-orange); color: #140a05; }
 :root .evidence-answer [data-cited-run='true'] { background: #ff87500f; box-shadow: -3px 0 var(--flame-orange); }

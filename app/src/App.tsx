@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, useIsPresent } from 'motion/react'
-import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from 'react'
 import { buildCitedAnswerSummary } from './answerSummary'
 import { askLive, nearestCached } from './ask'
 import { EvidenceMap } from './EvidenceMap'
@@ -106,6 +106,30 @@ function hasAirOnRecord(run: Run) {
 }
 
 const QUICK_PLACES = ['moon-habitat', 'iss', 'hospital-o2', 'airliner']
+
+/* Hero finding: one plain sentence built from the live hook counts. `atGravity` is a subset of `near`
+   (closeToPlace filters closeAir by gravity). A null count is unknown and is said so, never shown as 0. */
+function heroFinding(
+  counts: { plotted: number | null; near: number | null; atGravity: number | null },
+  words: { tests: string; air: string; gravity: string },
+): ReactNode {
+  const { plotted, near, atGravity } = counts
+  const n = (value: number) => <strong>{value.toLocaleString()}</strong>
+  const pool = plotted === null
+    ? <>the {words.tests} tests</>
+    : <>the {n(plotted)} {words.tests} {plotted === 1 ? 'test' : 'tests'}</>
+  if (plotted === 0) return <>No {words.tests} tests with air on record yet, so none ran close to {words.air}.</>
+  if (near === null) return <>How many of {pool} ran close to {words.air} is not known.</>
+  if (near === 0) return <><strong>None</strong> of {pool} ran close to {words.air}.</>
+  const lead = plotted !== null && near === plotted && near > 1
+    ? <>All {pool} ran close to {words.air}</>
+    : <>{n(near)} of {pool} ran close to {words.air}</>
+  const one = near === 1
+  if (atGravity === null) return <>{lead}; whether {one ? 'it was' : 'any were'} also at {words.gravity} is not known.</>
+  if (atGravity === 0) return <>{lead}, but {one ? 'not' : <><strong>none</strong> of them</>} at {words.gravity}.</>
+  if (atGravity === near) return <>{lead}, and {one ? 'it was' : near === 2 ? 'both were' : 'all of them were'} also at {words.gravity}.</>
+  return <>{lead}, and {n(atGravity)} of them also at {words.gravity}.</>
+}
 
 function isCabinTest(run: Run) {
   return !run.flags.some((flag) =>
@@ -491,12 +515,15 @@ function App() {
             where people breathe, and <strong>where the evidence stops</strong>.
           </p>
           {coreReady && moonHook && (
-            <dl className="hero-stats" aria-label="Moon habitat, solid materials">
-              <div><dt>NASA test records</dt><dd className="mono">{runs.length.toLocaleString()}</dd></div>
-              <div><dt>Solid-material tests with air on record</dt><dd className="mono">{moonHook.plotted.toLocaleString()}</dd></div>
-              <div className="is-gap"><dt>Close to Moon-habitat air</dt><dd className="mono">{moonHook.near.toLocaleString()}</dd></div>
-              <div className="is-gap"><dt>Also at Moon gravity</dt><dd className="mono">{moonHook.atGravity.toLocaleString()}</dd></div>
-            </dl>
+            <div className="hero-evidence">
+              <dl className="hero-stats" aria-label="NASA evidence for a Moon habitat, solid materials">
+                <div><dt>NASA test records</dt><dd className="mono">{runs.length.toLocaleString()}</dd></div>
+                <div><dt>Solid-material tests with air on record</dt><dd className="mono">{moonHook.plotted.toLocaleString()}</dd></div>
+              </dl>
+              <p className="hero-finding">
+                {heroFinding(moonHook, { tests: 'solid-material', air: 'Moon-habitat air', gravity: 'Moon gravity' })}
+              </p>
+            </div>
           )}
           <div className="hero-actions">
             <button type="button" className="button primary" onClick={() => jumpToPlace('moon-habitat', 'solid')}>

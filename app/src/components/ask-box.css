@@ -3,7 +3,7 @@
   display: grid;
   gap: var(--space-8);
   padding: var(--space-16);
-  border: 1px solid var(--line-strong);
+  border: 0;
   border-radius: var(--radius-panel);
   background: var(--panel);
 }
@@ -30,7 +30,7 @@
 }
 .ask-submit:hover:not(:disabled) { background: var(--focus); color: var(--accent-ink); }
 .ask-submit:disabled { opacity: .55; cursor: not-allowed; }
-.ask-hint { margin: 0; color: var(--muted); font-size: .875rem; }
+.ask-hint { margin: 0; color: var(--muted); font-size: var(--type-small); }
 .ask-examples { display: flex; flex-wrap: wrap; gap: var(--space-8); margin: 0; padding: 0; list-style: none; }
 .ask-examples button {
   min-height: 32px;
@@ -40,7 +40,7 @@
   background: transparent;
   color: var(--text);
   font: inherit;
-  font-size: .8125rem;
+  font-size: var(--type-caption);
   text-align: left;
   cursor: pointer;
 }
@@ -58,9 +58,7 @@
 .asked-kind {
   display: inline-block;
   margin-right: var(--space-8);
-  font: 600 .75rem/1.4 var(--font-mono);
-  text-transform: uppercase;
-  letter-spacing: .04em;
+  font: 600 var(--type-caption)/1.4 var(--font-body);
 }
 .asked .text-button {
   padding: 0;

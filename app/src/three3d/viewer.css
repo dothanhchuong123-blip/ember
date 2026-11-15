@@ -6,17 +6,17 @@
 
 .ember-model {
   margin: 0;
-  border: 1px solid #334560;
-  border-radius: .75rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-large);
   overflow: hidden;
-  background: #111d2e;
-  color: #e2edfc;
+  background: var(--panel);
+  color: var(--text);
 }
 
 .ember-model-stage {
   position: relative;
   aspect-ratio: 16 / 9;
-  background: #162338;
+  background: var(--media-bg);
 }
 
 .ember-model-stage > img,
@@ -41,11 +41,11 @@
   top: .6rem;
   left: .6rem;
   border: 1px solid #dfa85f;
-  border-radius: .35rem;
+  border-radius: var(--radius-small);
   padding: .25rem .45rem;
   background: #231b14;
   color: #ffd59d;
-  font-size: .75rem;
+  font-size: var(--type-caption);
   font-weight: 600;
   pointer-events: none;
 }
@@ -54,7 +54,7 @@
   padding: .8rem;
   display: grid;
   gap: .4rem;
-  font-size: .85rem;
+  font-size: var(--type-small);
 }
 
 .ember-model-controls {
@@ -73,10 +73,10 @@
 
 .ember-model-controls button,
 .ember-model-picker select {
-  color: #e2edfc;
-  background: #223450;
-  border: 1px solid #4a688a;
-  border-radius: .35rem;
+  color: var(--text);
+  background: var(--panel-2);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-small);
   padding: .35rem .6rem;
   font: inherit;
 }
