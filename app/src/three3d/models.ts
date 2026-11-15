@@ -36,6 +36,7 @@ export const models = {
   lunar_hab: glb('Moon habitat concept'),
   moon_ground: procedural('Lunar ground', { generated: true }),
   lunar_suit: glb('Lunar suit concept'),
+  lunar_rover: glb('Pressurised lunar rover concept'),
   mars_hab: glb('Mars habitat concept'),
   mars_ground: glb('Mars ground'),
   astro_emu_anim: glb('EMU spacesuit'),

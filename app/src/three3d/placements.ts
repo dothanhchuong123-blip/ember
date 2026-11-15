@@ -29,7 +29,7 @@ export const profileModelNotes: Readonly<Partial<Record<string, string>>> = {
 export const environmentModels: Readonly<Partial<Record<string, readonly ModelId[]>>> = {
   iss: ['msg', 'cir', 'flex_mdca'],
   'moon-habitat': moon,
-  'lunar-rover': ['lunar_suit'],
+  'lunar-rover': ['lunar_rover'],
   'iss-spacesuit': ['astro_emu_anim'],
   hyperbaric: ['chamber'],
 }
