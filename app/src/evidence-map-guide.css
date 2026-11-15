@@ -12,12 +12,22 @@
 .nearest-swatch {
   flex: none;
   width: 22px;
-  border-top: 2px dashed var(--focus);
+  border-top: var(--unknown-rule);
   transform: translateY(-4px);
 }
 .map .map-nearest-link, .map .map-label-leaders, .map .plot-border { pointer-events: none; }
-.map .map-nearest-link line { stroke: var(--focus); stroke-width: 1.6; stroke-dasharray: 5 4; }
-.map .map-nearest-link circle { fill: none; stroke: var(--focus); stroke-width: 1.4; }
+/* Gap to the nearest test: the unknown language (grey, dashed), quieter than the data dots.
+   It fades in once the "You are here" marker has finished travelling. */
+.map .map-nearest-link { animation: gap-link-in var(--motion-normal) var(--ease-out) calc(var(--map-travel) - 160ms) backwards; }
+@keyframes gap-link-in { from { opacity: 0; } to { opacity: 1; } }
+.map .map-nearest-link line { stroke: var(--unknown-ink); stroke-width: 1.2; stroke-dasharray: 4 3; stroke-opacity: .9; }
+.map .map-nearest-link circle { fill: none; stroke: var(--unknown-ink); stroke-width: 1.2; }
+.map .gap-chip rect {
+  fill: color-mix(in srgb, var(--plot-well) 90%, transparent);
+  stroke: color-mix(in srgb, var(--unknown-ink) 45%, transparent);
+  stroke-width: 1;
+}
+.map .gap-chip text { fill: var(--unknown-ink); font: 400 11px var(--font-mono); letter-spacing: 0; }
 .map .map-landmark { pointer-events: none; }
 .map .map-landmark path { stroke: var(--muted); stroke-width: 1; opacity: .55; }
 .map .map-landmark circle { fill: var(--plot-bg); stroke: var(--muted); stroke-width: 1.2; opacity: .8; }
@@ -40,7 +50,8 @@
 .breathing-line-key { border-color: var(--map-reference); }
 .map-area-key { width: 16px; height: 10px; border: 1px solid var(--line-strong); }
 .map-area-key.shaded { background: var(--score-ramp); }
-.map-area-key.hatched { background: repeating-linear-gradient(135deg, var(--line) 0 1px, var(--plot-well) 1px 4px); }
+/* Same unknown marker used beside "No evidence here", "Evidence gap" and "Outside tested conditions" (index.css). */
+.map-area-key.hatched { margin: 0; border: var(--unknown-rule); background: var(--unknown-hatch-mark), var(--plot-well); }
 
 .plot-label {
   position: absolute;

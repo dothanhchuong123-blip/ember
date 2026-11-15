@@ -684,7 +684,8 @@ function App() {
 
               </div>
 
-              <div className="verdict" role="group" aria-label="Evidence verdict">
+              <div className="verdict" role="group" aria-label="Evidence verdict"
+                data-verdict={verdict === 'Evidence gap' ? 'gap' : undefined}>
                 <VerdictMessage key={`${env.id}|${fuel}`} label={verdict} headline={verdictStatement} note={verdictNote} reduced={reduced} />
                 <dl className="verdict-stats">
                   <div>

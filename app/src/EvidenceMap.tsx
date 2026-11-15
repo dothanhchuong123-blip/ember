@@ -286,7 +286,7 @@ function PlaceLeader({ anchor, box, selected = false }: { anchor: Point; box: Bo
   const x2 = clamp(anchor.x, box.x0, box.x1)
   const y2 = clamp(anchor.y, box.y0, box.y1)
   if (selected) return (
-    <line className="target-leader plot-glide" x2={1} vectorEffect="non-scaling-stroke"
+    <line className="target-leader plot-glide place-travel" x2={1} vectorEffect="non-scaling-stroke"
       style={{ transform: lineTransform(anchor.x, anchor.y, x2, y2) }} />
   )
   return (
@@ -533,7 +533,12 @@ export function EvidenceMap({
       dO > 0 ? `${formatGap(dO)} points ${lessO ? 'less' : 'more'} oxygen` : 'oxygen inside this place’s range',
       dP > 0 ? `${formatGap(dP)} kPa ${lessP ? 'less' : 'more'} pressure` : 'pressure inside this place’s range',
     ].join(', ') + (assumed ? ' (assumed pressure)' : '')
-    return { kind: 'nearest' as const, run: best, long }
+    // The same two differences, shortened for the chip on the drawn gap line.
+    const short = [
+      dO > 0 ? `${formatGap(dO)} pts ${lessO ? 'less' : 'more'} O₂` : 'O₂ in range',
+      (dP > 0 ? `${formatGap(dP)} kPa ${lessP ? 'less' : 'more'}` : 'pressure in range') + (assumed ? ' (assumed)' : ''),
+    ]
+    return { kind: 'nearest' as const, run: best, long, short }
   }, [plotted, env, oLimit, pLimit])
 
   const connector = useMemo(() => {
@@ -547,6 +552,54 @@ export function EvidenceMap({
     const line = { x1: ringX + ux * 10, y1: ringY + uy * 10, x2: tx - ux * 7, y2: ty - uy * 7 }
     return { tx, ty, line }
   }, [nearest, x, y, ringX, ringY])
+
+  const gapX = gapPos?.x
+  const gapY = gapPos?.y
+
+  // Chip with the gap's two differences: near the line's midpoint, moved along or across the line
+  // to keep clear of the "You are here" label, the marker and the nearest test itself.
+  const gapChip = useMemo(() => {
+    if (nearest?.kind !== 'nearest' || !connector) return null
+    const lines = compact ? nearest.short : [nearest.short.join(' · ')]
+    const width = Math.max(...lines.map((text) => text.length)) * 6.6 + 14
+    const height = lines.length * 14 + 8
+    const { tx, ty } = connector
+    const dx = tx - ringX
+    const dy = ty - ringY
+    const length = Math.hypot(dx, dy) || 1
+    const nx = -dy / length
+    const ny = dx / length
+    const bounds = inset(plotBox, 4)
+    const gapBox = gapX === undefined || gapY === undefined
+      ? null
+      : boxAt(gapX - (compact ? 54 : 80), gapY - 15, compact ? 108 : 160, compact ? 20 : 37)
+    const obstacles = [inset(targetLabel, -4), inset(ringBox, -2), boxAt(tx - 10, ty - 10, 20, 20), gapBox]
+      .flatMap((box) => box ? [box] : [])
+    // Data dots count too, so the chip avoids hiding tests where it can.
+    plotted.forEach((run) => obstacles.push(boxAt(x(run.pressure) - 3, y(run.o2_pct) - 3, 6, 6)))
+    const across = height / 2 + 7
+    const centers: Point[] = connector.line
+      ? [0, 1, -1, 2, -2, 3, -3].flatMap((side) => [.5, .62, .38, .75, .25].map((t) => ({
+        x: ringX + dx * t + nx * side * across,
+        y: ringY + dy * t + ny * side * across,
+      })))
+      : [[1, 0], [-1, 0], [0, 1], [0, -1]].map(([sx, sy]) => ({
+        x: tx + sx * (width / 2 + 14),
+        y: ty + sy * (height / 2 + 14),
+      }))
+    const boxes = centers.map((center) => boxAt(
+      clamp(center.x - width / 2, bounds.x0, bounds.x1 - width),
+      clamp(center.y - height / 2, bounds.y0, bounds.y1 - height),
+      width, height,
+    ))
+    // First clear spot wins; on a crowded plot, take the spot that covers the least of the obstacles.
+    const covered = (candidate: Box) => obstacles.reduce((sum, obstacle) => sum +
+      Math.max(0, Math.min(candidate.x1, obstacle.x1) - Math.max(candidate.x0, obstacle.x0)) *
+      Math.max(0, Math.min(candidate.y1, obstacle.y1) - Math.max(candidate.y0, obstacle.y0)), 0)
+    const box = boxes.find((candidate) => covered(candidate) === 0) ??
+      boxes.reduce((best, candidate) => covered(candidate) < covered(best) ? candidate : best)
+    return { box, lines }
+  }, [nearest, connector, compact, ringX, ringY, plotBox, gapX, gapY, targetLabel, ringBox, plotted, x, y])
 
   const landmarks = useMemo(() => {
     return (otherPlaces ?? []).flatMap((place) => {
@@ -563,8 +616,6 @@ export function EvidenceMap({
     })
   }, [otherPlaces, env.id, x, y, pLimit, oLimit])
 
-  const gapX = gapPos?.x
-  const gapY = gapPos?.y
   const landmarkLabels = useMemo(() => {
     const bounds = inset(plotBox, 6)
     const dots = plotted.map((run) => ({ x: x(run.pressure), y: y(run.o2_pct) }))
@@ -605,7 +656,7 @@ export function EvidenceMap({
       <button
         key={selected ? 'selected-place' : id}
         type="button"
-        className={`plot-label ${selected ? 'plot-label-selected plot-glide' : 'plot-label-landmark'}`}
+        className={`plot-label ${selected ? 'plot-label-selected plot-glide place-travel' : 'plot-label-landmark'}`}
         style={{ left: 0, top: 0, transform: `translate(${box.x0}px, ${box.y0}px)`, width: box.x1 - box.x0, height: box.y1 - box.y0 }}
         title={`${name} · Drag or use arrow keys to move`}
         aria-label={`${selected ? 'You are here, ' : ''}${name}. Drag or use arrow keys to move this label.`}
@@ -693,7 +744,7 @@ export function EvidenceMap({
         <svg viewBox={`0 0 ${width} ${height}`} role="group" aria-label="Evidence map of oxygen and pressure. Use arrow keys to move among tests and Enter or Space to select one.">
           <defs>
             <pattern id={`${id}-hatch`} width={8} height={8} patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
-              <line y2={8} className="plot-hatch" />
+              <line x1={0.5} x2={0.5} y2={8} className="plot-hatch" />
             </pattern>
             <clipPath id={`${id}-clip`}>
               <rect x={plot.left} y={plot.top} width={Math.max(1, plot.right - plot.left)} height={Math.max(1, plot.bottom - plot.top)} />
@@ -763,16 +814,26 @@ export function EvidenceMap({
 
           <rect x={plot.left} y={plot.top} width={Math.max(1, plot.right - plot.left)} height={Math.max(1, plot.bottom - plot.top)} className="plot-border" />
 
-          {connector && (
-            <g className="map-nearest-link" aria-hidden="true">
+          {/* Drawn gap to the nearest test; the caption line below says the same in words for screen readers.
+              Keyed by place, material and test so it fades in again once the marker has travelled. */}
+          {connector && nearest?.kind === 'nearest' && (
+            <g key={`${env.id}|${fuel}|${nearest.run.id}`} className="map-nearest-link" aria-hidden="true">
               {connector.line && <line className="plot-glide" x2={1} vectorEffect="non-scaling-stroke"
                 style={{ transform: lineTransform(connector.line.x1, connector.line.y1, connector.line.x2, connector.line.y2) }} />}
               <circle className="plot-glide" r={8} style={{ transform: `translate(${connector.tx}px, ${connector.ty}px)` }} />
+              {gapChip && (
+                <g className="gap-chip plot-glide" style={{ transform: `translate(${gapChip.box.x0}px, ${gapChip.box.y0}px)` }}>
+                  <rect width={gapChip.box.x1 - gapChip.box.x0} height={gapChip.box.y1 - gapChip.box.y0} rx={4} />
+                  {gapChip.lines.map((text, index) => (
+                    <text key={index} x={(gapChip.box.x1 - gapChip.box.x0) / 2} y={15 + index * 14} textAnchor="middle">{text}</text>
+                  ))}
+                </g>
+              )}
             </g>
           )}
 
           {classModel && (
-            <g className={`whatif-marker plot-glide ${cursorClass}`}
+            <g className={`whatif-marker plot-glide${current ? '' : ' place-travel'} ${cursorClass}`}
               style={{ transform: `translate(${x(pressure)}px, ${y(oxygen)}px)` }}>
               <path d="M0,-7 L7,0 L0,7 L-7,0 Z" />
               {current && (
@@ -791,9 +852,9 @@ export function EvidenceMap({
           </g>
           <g aria-hidden="true" className="place-target">
             <PlaceLeader anchor={marker} box={targetLabel} selected />
-            <g className="selected-place-marker plot-glide" style={{ transform: positionMarker }}>
+            <g className="selected-place-marker plot-glide place-travel" style={{ transform: positionMarker }}>
               {highlightPlace && <circle className="answer-place-ring" r={24} />}
-              <rect className="env-range-box plot-glide" x={-6} y={-6} width={12} height={12}
+              <rect className="env-range-box plot-glide place-travel" x={-6} y={-6} width={12} height={12}
                 rx={1} vectorEffect="non-scaling-stroke"
                 style={{ transform: `scale(${rangeWidth / 12}, ${rangeHeight / 12})`, opacity: rangeWidth > 18 || rangeHeight > 18 ? 1 : 0 }} />
               <circle className="target-pulse" r={15} />
@@ -895,7 +956,7 @@ export function EvidenceMap({
             {stripPressure != null && <span><i className="map-line-key assumed-line-key" aria-hidden="true" /> {stripPressure} kPa assumed for BASS-II</span>}
             <span><i className="map-line-key breathing-line-key" aria-hidden="true" /> Sea-level O₂ partial pressure</span>
             {grid && <span><i className="map-area-key shaded" aria-hidden="true" /> Shaded · model score</span>}
-            <span><i className="map-area-key hatched" aria-hidden="true" /> {grid ? 'Hatched · too few nearby tests for a model score' : 'Model shading unavailable'}</span>
+            <span><i className="map-area-key hatched unknown-mark" aria-hidden="true" /> {grid ? 'Hatched · too few nearby tests for a model score' : 'Model shading unavailable'}</span>
           </div>
           {fuel === 'gas' && klass?.status && <span className="model-status">{klass.status}</span>}
           {fuel === 'droplet' && grid && <span className="map-context">{DILUENTS.find(({ value }) => value === diluent)?.label} model</span>}
@@ -979,13 +1040,13 @@ export function EvidenceMap({
             <h3>What if the air changes?</h3>
             <p>Explore oxygen and pressure against the model’s microgravity tests.</p>
           </div>
-          <div className="whatif-readout" role="status" aria-atomic="true">
+          <div className={result && !result.inSupport ? 'whatif-readout is-unknown' : 'whatif-readout'} role="status" aria-atomic="true">
             {!result ? (
               <strong>Model unavailable</strong>
             ) : result.inSupport ? (
               <strong className="mono">{result.p_sustain?.toFixed(3)} <span>model score</span></strong>
             ) : (
-              <strong>Outside tested conditions</strong>
+              <strong><i className="unknown-mark" aria-hidden="true" />Outside tested conditions</strong>
             )}
             {result && <span className="mono">Support {result.support.toFixed(3)} / 1.000</span>}
           </div>

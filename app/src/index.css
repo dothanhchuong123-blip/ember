@@ -35,6 +35,10 @@
   --cool: var(--extinguished);
   --cool-soft: #122b36;
   --unknown: #9299a7;
+  /* "Nobody knows" language: grey ink, 135deg hatch, dashed rule. See the Unknown-state block. */
+  --unknown-ink: var(--unknown);
+  --unknown-hatch-opacity: .2;
+  --unknown-hatch-gap: 8px;
   --warn-text: #ffb566;
   --focus: #fff4e2;
   --space-4: 4px;
@@ -733,7 +737,12 @@ select:hover, input[type='search']:hover { border-color: var(--accent); }
   transform-origin: 0 0;
   transition: transform var(--motion-normal) var(--ease-out), opacity var(--motion-fast) var(--ease-out);
 }
+/* Place switch: the "You are here" marker, its range box, label and leader travel together, slower than other glides. */
+.map { --map-travel: 600ms; }
+.map .place-travel { transition-duration: var(--map-travel), var(--motion-fast); }
 .plot-label-selected:active, .plot-label-selected:focus-visible { transition: none; }
+/* While the label is dragged or moved by keyboard, its leader follows at once. */
+.map-svg-wrap:has(.plot-label-selected:is(:active, :focus-visible)) .target-leader { transition: none; }
 .run-mark { transform-origin: 0 0; }
 .run-motion .run-mark {
   transition: transform var(--motion-normal) var(--ease-out), opacity var(--motion-normal) var(--ease-out);
@@ -746,7 +755,12 @@ select:hover, input[type='search']:hover { border-color: var(--accent); }
 .run-motion .run-entering {
   animation: reveal-run var(--motion-normal) var(--ease-out) var(--run-delay) backwards;
 }
+/* New tests settle from slightly smaller; scaled about the dot centre (the anchor's local origin). */
+.run-motion .run-entering > .dot-target {
+  animation: settle-run var(--motion-normal) var(--ease-out) var(--run-delay) backwards;
+}
 @keyframes reveal-run { from { opacity: 0; } to { opacity: 1; } }
+@keyframes settle-run { from { scale: .6; } to { scale: 1; } }
 .plot-backdrop { fill: var(--plot-well); }
 .boundary-raster { image-rendering: auto; }
 .map .grid { stroke: var(--muted); stroke-width: .7; stroke-opacity: .14; }
@@ -762,7 +776,7 @@ select:hover, input[type='search']:hover { border-color: var(--accent); }
   fill: var(--text);
 }
 .map .breathing { fill: none; stroke: var(--map-reference); stroke-width: 1.5; stroke-opacity: .72; stroke-dasharray: 6 4; }
-.map .plot-hatch { stroke: var(--muted); stroke-opacity: .14; }
+.map .plot-hatch { stroke: var(--unknown-ink); stroke-opacity: var(--unknown-hatch-opacity); }
 .map .plot-border { stroke: var(--line); fill: none; }
 .assumed-line {
   stroke: var(--muted);
@@ -879,6 +893,45 @@ select:hover, input[type='search']:hover { border-color: var(--accent); }
   border-left: 2px solid var(--accent);
 }
 .whatif-readout > span, .whatif-readout strong span { color: var(--muted); font-size: var(--type-caption); }
+
+/* Unknown state: one visual language for "nobody knows" (untested air, no evidence, outside support).
+   Orange = kept burning, cyan = out / no ignition, grey hatch + dashed rule = unknown.
+   The hatch matches the SVG map pattern (EvidenceMap.tsx): 135deg stripes, 1px line every 8px, --unknown-ink.
+   Declared on .earth-band too so the paper section resolves its own --unknown-ink. */
+:root, .earth-band {
+  --unknown-hatch: repeating-linear-gradient(135deg,
+    color-mix(in srgb, var(--unknown-ink) calc(var(--unknown-hatch-opacity) * 100%), transparent) 0 1px,
+    transparent 1px var(--unknown-hatch-gap));
+  --unknown-hatch-mark: repeating-linear-gradient(135deg,
+    color-mix(in srgb, var(--unknown-ink) 80%, transparent) 0 1px, transparent 1px 4px);
+  --unknown-rule: 1px dashed var(--unknown-ink);
+}
+.earth-band { --unknown-ink: #5d6575; }
+.unknown-mark,
+.verdict[data-verdict='gap'] .verdict-label::before {
+  content: '';
+  display: inline-block;
+  flex: none;
+  inline-size: 14px;
+  block-size: 10px;
+  margin-inline-end: .45em;
+  vertical-align: -1px;
+  border: var(--unknown-rule);
+  border-radius: 2px;
+  background: var(--unknown-hatch-mark);
+}
+.unknown-surface { border: var(--unknown-rule); background-image: var(--unknown-hatch); }
+/* Verdict "Evidence gap" (no plotted test close to this air; data-verdict set in App.tsx) and any zero-count stat cell. */
+.verdict[data-verdict='gap'] { border-top: var(--unknown-rule); }
+.verdict[data-verdict='gap'] .verdict-label { color: var(--unknown-ink); }
+.verdict-stats > div:has(.number-value[data-value='0']) { border-top: 2px dashed var(--unknown-ink); }
+.verdict-stats > div:has(.number-value[data-value='0']) .stat-value { color: var(--unknown-ink); }
+/* What-if readout outside tested conditions. */
+.whatif-readout.is-unknown {
+  padding-inline-end: var(--space-12);
+  border-left: 2px dashed var(--unknown-ink);
+  background-image: var(--unknown-hatch);
+}
 .whatif-controls {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1351,7 +1404,8 @@ dialog.drawer-dialog[open]::backdrop {
   .verdict-stats { grid-template-columns: minmax(0, 1fr); gap: var(--space-12); }
   .verdict-stats > div {
     display: grid;
-    grid-template-columns: 4.5ch minmax(0, 1fr);
+    /* Sized in rem (the number's scale, not the small label text), and it grows with a wider number, so "129" never runs under its label. */
+    grid-template-columns: minmax(4.5rem, max-content) minmax(0, 1fr);
     column-gap: var(--space-16);
     row-gap: 2px;
   }
@@ -1360,6 +1414,19 @@ dialog.drawer-dialog[open]::backdrop {
 }
 @media (max-width: 405px) {
   .hero-art img { max-height: 185px; }
+}
+/* Phone: put the candle right under the headline so the flame is on the first screen. */
+@media (max-width: 700px) {
+  .hero-copy { display: contents; }
+  .hero > .hero-copy > *, .hero > .hero-art { grid-column: 1 / -1; min-width: 0; }
+  .hero-kicker { order: 1; margin-bottom: 0; }
+  .hero h1 { order: 2; font-size: clamp(1.875rem, 9vw, 2.25rem); }
+  .hero-art { order: 3; align-self: auto; }
+  .hero-copy > p.hero-lede { order: 4; margin-block: 0; }
+  .hero-evidence { order: 5; margin-bottom: 0; }
+  .hero-actions { order: 6; }
+  .hero-places { order: 7; margin-top: 0; }
+  .hero { padding-block: var(--space-16); }
 }
 
 /* Themes: ash in space, warmer ash on Earth. Fire (and its absence) is the only colour. Outcome colours never change. */
@@ -1607,7 +1674,7 @@ dialog.drawer-dialog[open]::backdrop {
 .hero-actions .button { min-height: 48px; padding-inline: var(--space-24); font-size: var(--type-body); }
 .hero-places { margin-top: var(--space-24); }
 .hero-places .metadata { display: block; margin-bottom: var(--space-8); color: var(--muted); }
-.hero-places ul { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-8); margin: 0; padding: 0; list-style: none; }
+.hero-places ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-8); margin: 0; padding: 0; list-style: none; }
 .hero-place {
   display: flex;
   align-items: center;
@@ -1629,8 +1696,8 @@ dialog.drawer-dialog[open]::backdrop {
   transition: background-color var(--motion-fast) var(--ease-out), transform var(--motion-press) var(--ease-out);
 }
 .hero-place > span:last-child { display: grid; min-width: 0; line-height: 1.25; }
-.hero-place strong { font-size: var(--type-small); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.hero-place small { color: var(--muted); font-size: var(--type-caption); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hero-place strong { font-size: var(--type-small); overflow-wrap: anywhere; }
+.hero-place small { color: var(--muted); font-size: var(--type-caption); overflow-wrap: anywhere; }
 @media (min-width: 701px) {
   .hero-copy { grid-column: 1 / 8; }
   .hero-art { grid-column: 8 / -1; }
@@ -1750,7 +1817,7 @@ h1 em, h2 em { font-style: italic; font-weight: 380; }
 /* Evidence map: embers in the dark. Burning tests glow, extinguished tests stay cold,
    untested air is left dark, and the place you asked about is the one lit reticle. */
 :root .plot-backdrop { fill: #070605; }
-:root .map .plot-hatch { stroke: var(--muted); stroke-opacity: .07; }
+:root .map .plot-hatch { stroke: var(--unknown-ink); stroke-opacity: var(--unknown-hatch-opacity); }
 :root .map .grid { stroke-opacity: .09; }
 :root .map .axis { font: 500 var(--type-caption) var(--font-mono); letter-spacing: .08em; text-transform: uppercase; fill: var(--muted); }
 :root .dot.sustained:not(.assumed) { fill: var(--sustained); filter: drop-shadow(0 0 3px var(--flame-orange)) drop-shadow(0 0 7px #ff875066); }

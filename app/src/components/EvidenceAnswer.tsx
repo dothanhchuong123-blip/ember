@@ -82,6 +82,38 @@ export function EvidenceAnswer({
     return fullClaims.some((line) => line.citeNumbers.some((number) => matchedNumbers.has(number) && !shortNumbers.has(number)))
   })
 
+  function renderColumn(col: CitedAnswerSummary['columns'][number], lead = false) {
+    return (
+          <section className={[col.refusal && 'is-refusal', lead && 'answer-lead'].filter(Boolean).join(' ') || undefined} key={col.key}>
+            <h3>{col.title}</h3>
+            {col.refusal && <p className="refusal-tag"><i className="unknown-mark" aria-hidden="true" />No evidence here</p>}
+            {col.refusal
+              ? col.fullClaims.map((claim, index) => <p className="claim-headline" key={index}>{claim.text}</p>)
+              : (
+                <p className="claim-headline" data-cited-run={isMatched(col.headline.sourceNumbers ?? col.headline.citeNumbers) || undefined}>
+                  {col.headline.text}{renderMarkers(col.headline.citeNumbers)}
+                </p>
+              )}
+            {(col.refusal || (col.key === 'known' && showAirGap)) && gapLink}
+            {!col.refusal && col.bullets.length > 0 && (
+              <details className="claim-more" open={col.bullets.some((bullet) => isMatched(bullet.sourceNumbers ?? bullet.citeNumbers)) ? true : undefined}>
+                <summary>{col.bullets.length} more {col.bullets.length === 1 ? 'point' : 'points'}</summary>
+                <ul className="claim-bullets">
+                  {col.bullets.map((bullet) => (
+                    <li key={bullet.text} data-cited-run={isMatched(bullet.sourceNumbers ?? bullet.citeNumbers) || undefined}>
+                      {bullet.text}{renderMarkers(bullet.citeNumbers)}
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            )}
+          </section>
+    )
+  }
+
+  const leadColumn = summary?.columns.find((col) => col.key === 'known') ?? summary?.columns[0]
+  const supportColumns = summary?.columns.filter((col) => col !== leadColumn) ?? []
+
   const gapLink = (
     <a className="answer-gap-link" href="#evidence-plot"
       onPointerEnter={(event) => { if (event.pointerType !== 'touch') onPreviewGap(true) }}
@@ -127,34 +159,11 @@ export function EvidenceAnswer({
         {!summary && showAirGap && gapLink}
         {askedNotice}
         {summary && <>
+          {leadColumn && renderColumn(leadColumn, true)}
           <div className="answer-grid">
-            {summary.columns.map((col) => (
-              <section className={col.refusal ? 'is-refusal' : undefined} key={col.key}>
-                <h3>{col.title}</h3>
-                {col.refusal && <p className="refusal-tag">No evidence here</p>}
-                {col.refusal
-                  ? col.fullClaims.map((claim, index) => <p className="claim-headline" key={index}>{claim.text}</p>)
-                  : (
-                    <p className="claim-headline" data-cited-run={isMatched(col.headline.sourceNumbers ?? col.headline.citeNumbers) || undefined}>
-                      {col.headline.text}{renderMarkers(col.headline.citeNumbers)}
-                    </p>
-                  )}
-                {(col.refusal || (col.key === 'known' && showAirGap)) && gapLink}
-                {!col.refusal && col.bullets.length > 0 && (
-                  <details className="claim-more" open={col.bullets.some((bullet) => isMatched(bullet.sourceNumbers ?? bullet.citeNumbers)) ? true : undefined}>
-                    <summary>{col.bullets.length} more {col.bullets.length === 1 ? 'point' : 'points'}</summary>
-                    <ul className="claim-bullets">
-                      {col.bullets.map((bullet) => (
-                        <li key={bullet.text} data-cited-run={isMatched(bullet.sourceNumbers ?? bullet.citeNumbers) || undefined}>
-                          {bullet.text}{renderMarkers(bullet.citeNumbers)}
-                        </li>
-                      ))}
-                    </ul>
-                  </details>
-                )}
-              </section>
-            ))}
+            {supportColumns.map((col) => renderColumn(col))}
           </div>
+          <div className="answer-tools">
           {targets.size > 0 && <p className="answer-hint">Hover or focus a citation chip to trace it. Press it to keep the highlight.</p>}
           <details className="answer-disclosure" open={revealFullAnswer ? true : undefined}>
             <summary>Read the full cited answer</summary>
@@ -194,6 +203,7 @@ export function EvidenceAnswer({
               </ol>
             </details>
           )}
+          </div>
         </>}
       </motion.div>
       {summary && (

@@ -64,7 +64,14 @@
   color: var(--accent);
   font: 650 var(--type-small)/1.3 var(--font-display);
 }
-.answer-grid .is-refusal h3 { color: var(--sustained); }
+.answer-grid .is-refusal h3 { color: var(--unknown-ink); }
+/* Refusal = the shared unknown language (index.css): faint 135deg hatch, dashed grey rule, marker on the tag. */
+.answer-body section.is-refusal {
+  padding: var(--space-12) var(--space-16);
+  border: var(--unknown-rule);
+  border-radius: var(--radius-small);
+  background-image: var(--unknown-hatch);
+}
 .refusal-tag {
   margin-block-end: var(--space-4);
   font: 650 var(--type-h3)/1.25 var(--font-display);
@@ -163,10 +170,55 @@
   color: var(--muted);
   font: 600 var(--type-small)/1.3 var(--font-body);
 }
-:root .answer-grid .is-refusal h3 { color: var(--flame-orange); }
+:root .answer-body .is-refusal h3 { color: var(--unknown-ink); }
 :root .refusal-tag, :root .claim-headline strong:first-child { font-weight: 400; }
 :root .refusal-tag { font: italic 380 clamp(1.4rem, 1.1rem + 1vw, 1.9rem)/1.15 var(--font-display); font-variation-settings: 'opsz' 72; }
 :root .cite-marker { background: var(--panel-2); border-color: transparent; color: var(--sustained); }
 :root .cite-marker:hover, :root .cite-marker:focus-visible { border-color: var(--flame-orange); box-shadow: 0 0 12px #ff875040; }
 :root .cite-marker[data-active='true'], :root .cite-marker[aria-pressed='true'] { background: var(--flame-orange); border-color: var(--flame-orange); color: #140a05; }
 :root .evidence-answer [data-cited-run='true'] { background: #ff87500f; box-shadow: -3px 0 var(--flame-orange); }
+
+/* Hierarchy: the verdict leads at full width; Nearest / Missing / Earth support beneath; tools sit quiet at the foot. */
+.answer-body .answer-lead { padding: var(--space-24) 0 var(--space-16); max-width: none; }
+.answer-body .answer-lead.is-refusal { padding: var(--space-24); margin-block: var(--space-16) var(--space-8); }
+.answer-lead > * { max-width: 60ch; }
+:root .answer-lead h3 { margin-bottom: var(--space-8); font-size: var(--type-small); }
+.answer-lead .claim-headline {
+  /* A full sentence (not a short heading), so one step below h2 keeps it to a few lines. */
+  font: 400 var(--type-h3)/1.35 var(--font-display);
+  font-variation-settings: 'opsz' 48;
+  max-width: 60ch;
+}
+.answer-lead.is-refusal .claim-headline { font: 400 var(--type-body)/1.55 var(--font-body); max-width: 60ch; }
+.answer-lead .refusal-tag { margin-block-end: var(--space-8); }
+.answer-lead .claim-bullets, .answer-lead .claim-more > summary { font-size: var(--type-small); }
+.answer-lead .answer-gap-link { margin-top: var(--space-8); }
+
+.answer-grid { grid-template-columns: minmax(0, 1fr); border-top: 1px solid var(--line); }
+.answer-grid > section { padding-block: var(--space-12); }
+.answer-grid > section + section { border-top: 1px solid var(--line); }
+@media (min-width: 900px) {
+  .answer-grid, :root .answer-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    column-gap: var(--space-24);
+  }
+  .answer-grid > section, .answer-grid > section + section { border-top: 0; padding: var(--space-16) 0; }
+}
+
+.answer-tools {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+  padding-block-end: var(--space-8);
+  border-top: 1px solid var(--line);
+}
+.answer-tools .answer-hint { order: 3; padding-block: var(--space-4) 0; }
+.answer-tools .answer-disclosure > summary { padding-block: var(--space-8); color: var(--muted); font-weight: 500; }
+.answer-tools .answer-disclosure > summary:hover { color: var(--accent); }
+.answer-tools .answer-disclosure + .answer-disclosure { border-top: 0; }
+.answer-footer { padding-block: var(--space-8); align-items: center; }
+.answer-footer .answer-disclosure > summary { color: var(--muted); font-weight: 500; }
+.answer-footer .model-credit { margin-inline-start: auto; }

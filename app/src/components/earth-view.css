@@ -59,7 +59,19 @@
   line-height: 1.4;
   white-space: nowrap;
 }
-.ev-gap-tag { border-color: var(--accent); color: var(--accent); }
+.ev-gap-tag { border-style: dashed; border-color: var(--unknown-ink); color: var(--unknown-ink); }
+/* Same unknown marker as the evidence map legend (index.css .unknown-mark). */
+.ev-gap-tag::before {
+  content: '';
+  display: inline-block;
+  inline-size: 14px;
+  block-size: 10px;
+  margin-inline-end: .45em;
+  vertical-align: -1px;
+  border: var(--unknown-rule);
+  border-radius: 2px;
+  background: var(--unknown-hatch-mark);
+}
 
 .ev-map-button {
   justify-self: start;
@@ -105,8 +117,8 @@
 }
 .ev-gaps-h { color: var(--accent); font-size: var(--type-small); font-weight: 600; }
 .ev-gaps .ev-list li { border-left-style: dashed; border-left-color: var(--line-strong); }
-.ev-card-gap { border-style: dashed; border-color: var(--line-strong); background: transparent; }
-.ev-gap-lead { color: var(--accent); font-size: var(--type-body); font-weight: 600; line-height: 1.45; }
+.ev-card-gap { border-style: dashed; border-color: var(--unknown-ink); background: transparent var(--unknown-hatch); }
+.ev-gap-lead { color: var(--text); font-size: var(--type-body); font-weight: 600; line-height: 1.45; }
 .ev-card-action { display: flex; flex-wrap: wrap; gap: var(--space-8) var(--space-12); align-items: center; }
 .ev-action-note { color: var(--muted); font-size: var(--type-caption); }
 

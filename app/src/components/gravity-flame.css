@@ -30,7 +30,9 @@
 }
 .gflame-candle { position: absolute; left: 50%; top: 70%; block-size: 30%; aspect-ratio: 1; translate: -50% 0; overflow: visible; }
 @media (max-width: 700px) {
-  .gflame-stage { aspect-ratio: 4 / 3.3; max-block-size: 340px; }
+  .gflame { gap: var(--space-8); }
+  .gflame-stage { aspect-ratio: auto; block-size: 176px; max-block-size: 176px; }
+  .gflame-stops button { padding-block: var(--space-4); }
 }
 .gflame-wick { stroke: #1a1410; stroke-width: 1.6; stroke-linecap: round; }
 .gflame-wax { fill: #d8cdbb; opacity: .14; }

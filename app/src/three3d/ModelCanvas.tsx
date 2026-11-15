@@ -2,7 +2,7 @@ import { OrbitControls } from '@react-three/drei'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import {
-  ACESFilmicToneMapping, AnimationMixer, Group, Texture,
+  ACESFilmicToneMapping, AnimationMixer, CanvasTexture, Color, Group, SRGBColorSpace, Texture,
   Box3, DataTexture, HalfFloatType, LinearFilter, LinearSRGBColorSpace, PMREMGenerator,
   PerspectiveCamera, Sphere, Vector3,
 } from 'three'
@@ -118,10 +118,41 @@ function FittedModel({ children, onReady, dispose = false }: {
 
 const studioPath = modelPath('env/studio_small_09_1k.hdr')
 
+// Warm dark backdrop that matches the app palette (--media-bg #1f1b17 fading to #14110e).
+// A faint lift behind the model keeps dark parts separated from the background.
+function Backdrop() {
+  const scene = useThree(state => state.scene)
+  const invalidate = useThree(state => state.invalidate)
+  useEffect(() => {
+    const canvas = document.createElement('canvas')
+    canvas.width = canvas.height = 256
+    const context = canvas.getContext('2d')
+    if (!context) {
+      scene.background = new Color('#1a1713')
+      return () => { scene.background = null }
+    }
+    const glow = context.createRadialGradient(128, 118, 0, 128, 128, 182)
+    glow.addColorStop(0, '#262019')
+    glow.addColorStop(0.45, '#1f1b17')
+    glow.addColorStop(1, '#14110e')
+    context.fillStyle = glow
+    context.fillRect(0, 0, 256, 256)
+    const texture = new CanvasTexture(canvas)
+    texture.colorSpace = SRGBColorSpace
+    scene.background = texture
+    invalidate()
+    return () => {
+      scene.background = null
+      texture.dispose()
+    }
+  }, [invalidate, scene])
+  return null
+}
+
 function Studio({ procedural }: { procedural: boolean }) {
   return (
     <>
-      <color attach="background" args={['#191612']} />
+      <Backdrop />
       <hemisphereLight args={['#f4f8ff', '#a68269', 2]} />
       <directionalLight position={[3, 5, 4]} intensity={2.8} />
       <directionalLight position={[-3, 1, -4]} color="#a2cfff" intensity={1.6} />
