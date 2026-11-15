@@ -121,6 +121,7 @@ export function EvidenceAnswer({
           {hasEvidenceFocus && <button type="button" className="link-btn" onClick={onClear}>Clear highlight</button>}
         </div>
       </div>
+      {/* Enter-only on purpose: an exit crossfade would stack two answers of different heights and jump the panel. */}
       <motion.div className="answer-body" key={scenarioKey} {...scenarioFade(reduced)}>
         {dataStatus}
         {!summary && showAirGap && gapLink}

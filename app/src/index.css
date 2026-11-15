@@ -66,9 +66,19 @@
   --motion-slow: 440ms;
   --ease-out: cubic-bezier(.2,.8,.2,1);
   --ease-in-out: cubic-bezier(.45,0,.55,1);
+  /* Mild overshoot (~5%). The cubic-bezier is the fallback; the linear() spring replaces it below where supported. */
+  --ease-spring: cubic-bezier(.34,1.32,.64,1);
+  --motion-press: 90ms;
+  --motion-release: 240ms;
   --gutter: clamp(var(--space-16), 5vw, var(--space-80));
   --nav-h: 68px;
   --band-padding: clamp(var(--space-40), 5.5vw, var(--space-80));
+}
+@supports (transition-timing-function: linear(0, 1)) {
+  :root {
+    --ease-spring: linear(0, .013 1.1%, .053 2.3%, .22 5.6%, .45 9.6%, .67 14%, .84 18.6%, .95 23.6%,
+      1.02 29%, 1.047 34%, 1.052 38.5%, 1.042 44%, 1.022 51%, 1.003 60%, .996 70%, .998 82%, 1);
+  }
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -99,9 +109,17 @@ img { display: block; max-inline-size: 100%; }
 :where(button, a, summary, select, input, .choice) {
   transition: color var(--motion-fast) var(--ease-out), background-color var(--motion-fast) var(--ease-out),
     border-color var(--motion-fast) var(--ease-out), box-shadow var(--motion-normal) var(--ease-out),
-    transform var(--motion-fast) var(--ease-out);
+    transform var(--motion-release) var(--ease-out);
 }
-:where(button:not(:disabled), summary, select, .button, .choice):active { transform: translateY(1px); }
+/* Tactile press: sink quickly on press, spring back more slowly on release. */
+:where(button:not(:disabled, .plot-label), summary, .button, .choice, .section-tab):active {
+  transform: scale(.97);
+  transition: color var(--motion-fast) var(--ease-out), background-color var(--motion-fast) var(--ease-out),
+    border-color var(--motion-fast) var(--ease-out), box-shadow var(--motion-normal) var(--ease-out),
+    transform var(--motion-press) var(--ease-out);
+}
+/* Large surfaces barely shrink so the card does not look like it collapses. */
+:where(.choice, .section-details > summary):active { transform: scale(.988); }
 :where(button:not(:disabled), summary):hover { color: var(--focus); }
 
 .wrap { width: min(1280px, calc(100% - var(--gutter) * 2)); margin-inline: auto; }
@@ -279,7 +297,7 @@ img { display: block; max-inline-size: 100%; }
   border-color: var(--line-strong);
   transform: translateY(-1px);
 }
-.place-option:active { transform: translateY(0); }
+.place-option:active { transform: scale(.988); }
 .place-media {
   position: relative;
   min-height: 63px;
@@ -316,7 +334,7 @@ img { display: block; max-inline-size: 100%; }
 .place-selection, .fuel-indicator {
   opacity: 0;
   transform: scale(.96);
-  transition: opacity var(--motion-fast) var(--ease-out), transform var(--motion-normal) var(--ease-out);
+  transition: opacity var(--motion-fast) var(--ease-out), transform var(--motion-slow) var(--ease-spring);
 }
 .choice input:checked ~ :is(.place-selection, .fuel-indicator) {
   opacity: 1;
@@ -994,6 +1012,38 @@ dialog.drawer-dialog::backdrop {
   overscroll-behavior: contain;
 }
 
+/* Enter/exit motion. Progressive enhancement: without @starting-style the dialog opens instantly,
+   without transition-behavior it closes instantly. The hidden values only apply while the dialog is
+   closed (display: none), so an unsupported browser can never show an invisible dialog. */
+dialog.drawer-dialog {
+  /* Same placement the UA gives a modal dialog, kept during the exit so it does not jump where
+     overlay is not transitionable (Safari) and the dialog leaves the top layer first. */
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 180ms var(--ease-in-out), transform 180ms var(--ease-in-out),
+    overlay 180ms allow-discrete, display 180ms allow-discrete;
+}
+dialog.drawer-dialog[open] {
+  opacity: 1;
+  transform: none;
+  transition: opacity 260ms var(--ease-out), transform 260ms var(--ease-out),
+    overlay 260ms allow-discrete, display 260ms allow-discrete;
+}
+dialog.drawer-dialog::backdrop {
+  opacity: 0;
+  transition: opacity 180ms var(--ease-in-out), overlay 180ms allow-discrete, display 180ms allow-discrete;
+}
+dialog.drawer-dialog[open]::backdrop {
+  opacity: 1;
+  transition: opacity 260ms var(--ease-out), overlay 260ms allow-discrete, display 260ms allow-discrete;
+}
+@starting-style {
+  dialog.drawer-dialog[open] { opacity: 0; transform: translateY(14px); }
+  dialog.drawer-dialog[open]::backdrop { opacity: 0; }
+}
+
 .drawer-shell {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
@@ -1361,6 +1411,8 @@ dialog.drawer-dialog::backdrop {
     scroll-behavior: auto !important;
   }
   .place-option:hover, :where(button, summary, select, .button, .choice):active { transform: none; }
+  /* ::backdrop and ::details-content are not matched by the universal selectors above. */
+  dialog.drawer-dialog::backdrop { transition: none !important; }
 }
 
 /* Flame comparison band (hero follow-up) and On-Earth band */
@@ -1463,6 +1515,33 @@ dialog.drawer-dialog::backdrop {
 }
 .verdict-more[open] > summary { margin-bottom: var(--space-8); }
 
+/* Disclosure open/close: height + fade, progressive enhancement. Browsers without ::details-content or
+   interpolate-size skip this whole block and keep the instant toggle. The content is clipped only while
+   it moves; once open, overflow returns to visible (after the transition) so focus outlines and the
+   sticky compare bar in the study list are never cut off. overflow: clip is not a scroll container,
+   so sticky children keep working even during the transition. */
+@supports selector(::details-content) and (interpolate-size: allow-keywords) {
+  :is(.section-details, .place-details, .verdict-more) { interpolate-size: allow-keywords; }
+  :is(.section-details, .place-details, .verdict-more)::details-content {
+    block-size: 0;
+    overflow: clip;
+    opacity: 0;
+    transition: block-size 200ms var(--ease-in-out), opacity 160ms var(--ease-in-out),
+      content-visibility 200ms allow-discrete;
+  }
+  :is(.section-details, .place-details, .verdict-more)[open]::details-content {
+    block-size: auto;
+    overflow: visible;
+    opacity: 1;
+    transition: block-size var(--motion-normal) var(--ease-out), opacity var(--motion-normal) var(--ease-out),
+      content-visibility var(--motion-normal) allow-discrete,
+      overflow 1ms var(--motion-normal) allow-discrete;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :is(.section-details, .place-details, .verdict-more)::details-content { transition: none !important; }
+  }
+}
+
 /* Step numbers shared by the pickers and the question */
 .step-num {
   display: inline-grid;
@@ -1521,9 +1600,13 @@ dialog.drawer-dialog::backdrop {
   color: var(--text);
   text-align: start;
   cursor: pointer;
-  transition: border-color var(--motion-fast) var(--ease-out), transform var(--motion-fast) var(--ease-out);
+  transition: border-color var(--motion-fast) var(--ease-out), transform var(--motion-release) var(--ease-out);
 }
 .hero-place:hover { border-color: var(--accent); transform: translateY(-1px); }
+.hero-place:active {
+  transform: scale(.98);
+  transition: border-color var(--motion-fast) var(--ease-out), transform var(--motion-press) var(--ease-out);
+}
 .hero-place > span:last-child { display: grid; min-width: 0; line-height: 1.25; }
 .hero-place strong { font-size: .875rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .hero-place small { color: var(--muted); font-size: .6875rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -1670,3 +1753,16 @@ h1 em, h2 em { font-style: italic; font-weight: 380; }
 :root .map { border: 0; border-top: 1px solid var(--line-strong); border-radius: 0; background: none; }
 :root .map-scenario { background: none; }
 :root .whatif { border: 0; border-top: 1px solid var(--line-strong); border-radius: 0; background: none; padding-inline: 0; }
+
+/* Hover feedback for controls that only changed text colour before. */
+.segmented button:not([aria-pressed='true']):hover { background: var(--panel); color: var(--text); }
+.filter-pill:not(.on):hover { border-color: var(--line-strong); color: var(--text); }
+.drawer-close:hover { border-color: var(--accent); background: var(--panel-2); }
+.link-btn:hover { background: var(--line); }
+
+/* Press and hover movement stays off for people who ask for reduced motion. These come last so they
+   beat the per-component :hover/:active transforms declared above. */
+@media (prefers-reduced-motion: reduce) {
+  .place-option:is(:hover, :active), .hero-place:is(:hover, :active) { transform: none; }
+  :where(button, summary, .button, .choice, .section-tab):active { transform: none; }
+}

@@ -60,6 +60,10 @@
   user-select: none;
 }
 .plot-label:active { cursor: grabbing; }
+/* Draggable labels keep the short glide they had before the slower press-release timing was added. */
+.plot-label-landmark {
+  transition-duration: var(--motion-fast), var(--motion-fast), var(--motion-fast), var(--motion-normal), var(--motion-fast);
+}
 .plot-label:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
 .plot-label-grip {
   flex: none;

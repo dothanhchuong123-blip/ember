@@ -9,7 +9,7 @@
   transform: translateY(-8px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 180ms ease, transform 180ms ease;
+  transition: opacity var(--motion-fast) var(--ease-out), transform var(--motion-normal) var(--ease-out);
 }
 .scenario-bar[data-shown='true'] { transform: none; opacity: 1; pointer-events: auto; }
 @media (prefers-reduced-motion: reduce) { .scenario-bar { transition: none; transform: none; } }

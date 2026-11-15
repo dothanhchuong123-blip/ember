@@ -41,7 +41,7 @@
 }
 .section-tab:hover { border-color: var(--accent); background: var(--panel-2); color: var(--text); }
 .section-tab:focus-visible { outline-offset: 2px; }
-.section-tab svg { flex: none; transition: transform var(--motion-fast) var(--ease-out); }
+.section-tab svg { flex: none; transition: transform var(--motion-normal) var(--ease-spring); }
 @media (prefers-reduced-motion: no-preference) {
   .section-tab:hover svg { transform: translateY(-2px); }
 }

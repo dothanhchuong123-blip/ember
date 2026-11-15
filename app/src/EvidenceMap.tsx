@@ -67,7 +67,7 @@ function BoundaryRaster({ url, placement, width, height, reduced }: {
   url: string; placement: string; width: number; height: number; reduced: boolean
 }) {
   return (
-    <motion.g {...scenarioFade(reduced)} exit={{ opacity: 0 }} aria-hidden="true">
+    <motion.g {...scenarioFade(reduced, { rise: 0, from: 0 })} exit={{ opacity: 0 }} aria-hidden="true">
       <image className="boundary-raster plot-glide" width={width} height={height} href={url} preserveAspectRatio="none"
         style={{ transform: placement }} />
     </motion.g>

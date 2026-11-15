@@ -26,14 +26,39 @@ function fmtRange(range: [number, number] | null, unit: string): string {
   return range[0] === range[1] ? `${range[0]} ${unit}` : `${range[0]}–${range[1]} ${unit}`
 }
 
+const EXIT_MS = 200 // a little longer than the CSS exit transition on dialog.drawer-dialog
+
 export function InvestigationDrawer({
   open,
-  mode,
-  investigations,
+  mode: modeProp,
+  investigations: investigationsProp,
   runs,
   onClose,
   onSelectProfile,
 }: Props) {
+  // Keep the last shown study while the dialog plays its exit transition; the parent clears
+  // the list as soon as it closes, which would otherwise empty the box mid-fade.
+  const [held, setHeld] = useState({ mode: modeProp, investigations: investigationsProp })
+  if (investigationsProp.length > 0 && (held.investigations !== investigationsProp || held.mode !== modeProp)) {
+    setHeld({ mode: modeProp, investigations: investigationsProp })
+  }
+  const showingProp = investigationsProp.length > 0
+  const mode = showingProp ? modeProp : held.mode
+  const investigations = showingProp ? investigationsProp : held.investigations
+  // Same for the 3D models: unmount them only once the exit transition is over.
+  const [wasOpen, setWasOpen] = useState(open)
+  const [closing, setClosing] = useState(false)
+  if (wasOpen !== open) {
+    setWasOpen(open)
+    setClosing(!open)
+  }
+  useEffect(() => {
+    if (!closing) return
+    const timer = window.setTimeout(() => setClosing(false), EXIT_MS)
+    return () => window.clearTimeout(timer)
+  }, [closing])
+  const modelsOn = open || closing
+
   const dialogRef = useRef<HTMLDialogElement>(null)
   const titleId = useId()
   const tableCaptionId = useId()
@@ -160,7 +185,7 @@ export function InvestigationDrawer({
                 <StudyEarthLine studyId={primary.id} />
               </section>
 
-              {open && modelIds && (
+              {modelsOn && modelIds && (
                 <div className="study-models">
                   {profileModelNotes[primary.id] && <p className="muted-note">{profileModelNotes[primary.id]}</p>}
                   <ModelCollection key={primary.id} ids={modelIds} label="Choose a model" preview />

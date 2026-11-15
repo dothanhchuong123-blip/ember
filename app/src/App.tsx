@@ -10,7 +10,7 @@ import { ScenarioNumber } from './components/ScenarioNumber'
 import { SectionDetails } from './components/SectionDetails'
 import { SectionNav } from './components/SectionNav'
 import { StepHint } from './components/StepHint'
-import { enterView, fadeTransition, scenarioFade, useMotionPreference } from './motion'
+import { enterView, scenarioFade, scrollBehavior, useMotionPreference } from './motion'
 import type { ModelId } from './three3d/models'
 import { InvestigationDrawer } from './components/InvestigationDrawer'
 import { EvidenceAnswer, type CitationTarget } from './components/EvidenceAnswer'
@@ -86,7 +86,7 @@ function showEvidencePlot() {
   const bounds = plot.getBoundingClientRect()
   const headerHeight = document.querySelector('.site-header')?.clientHeight ?? 0
   if (bounds.top >= headerHeight && bounds.bottom <= window.innerHeight) return
-  plot.scrollIntoView({ block: 'start' })
+  plot.scrollIntoView({ block: 'start', behavior: scrollBehavior() })
   plot.focus({ preventScroll: true })
 }
 
@@ -132,7 +132,7 @@ function SelectedStill({ place, reduced }: { place: Environment; reduced: boolea
   const present = useIsPresent()
   return (
     <motion.div className="selected-still-frame" aria-hidden={!present || undefined}
-      {...scenarioFade(reduced)} exit={{ opacity: 0 }}>
+      {...scenarioFade(reduced, { rise: 0, from: 0 })} exit={{ opacity: 0 }}>
       <PlaceStill place={place} />
     </motion.div>
   )
@@ -144,7 +144,7 @@ function VerdictMessage({ label, headline, note, reduced }: {
   return (
     <div className="verdict-message">
       <motion.div key={`${label}|${headline}`} className="verdict-title"
-        initial={reduced ? false : { opacity: .65 }} animate={{ opacity: 1 }} transition={fadeTransition}>
+        {...scenarioFade(reduced)}>
         <p className="metadata verdict-label">{label}</p>
         <h3 className="verdict-headline">{headline}</h3>
       </motion.div>
@@ -268,22 +268,24 @@ function App() {
 
   useEffect(() => {
     if (!coreReady) return
-    const reveal = () => {
+    // Page load jumps straight to the linked section; later link clicks scroll there smoothly (unless reduced motion).
+    const reveal = (smooth: boolean) => {
       const section = document.getElementById(location.hash.slice(1))
       const details = section?.querySelector<HTMLDetailsElement>('.section-details')
       if (details) details.open = true
-      if (section?.closest('main')) section.scrollIntoView()
+      if (section?.closest('main')) section.scrollIntoView({ behavior: smooth ? scrollBehavior() : 'auto' })
     }
-    reveal()
+    reveal(false)
+    const onHashChange = () => reveal(true)
     const followLink = (event: MouseEvent) => {
       if (event.defaultPrevented) return
       const link = event.target instanceof Element ? event.target.closest('a') : null
-      if (link?.hash === location.hash) reveal()
+      if (link?.hash === location.hash) reveal(true)
     }
-    window.addEventListener('hashchange', reveal)
+    window.addEventListener('hashchange', onHashChange)
     document.addEventListener('click', followLink)
     return () => {
-      window.removeEventListener('hashchange', reveal)
+      window.removeEventListener('hashchange', onHashChange)
       document.removeEventListener('click', followLink)
     }
   }, [coreReady])
@@ -591,7 +593,7 @@ function App() {
     if (details) details.open = true
     const row = document.getElementById(`study-${id}`)
     row?.focus({ preventScroll: true })
-    row?.scrollIntoView({ block: 'start' })
+    row?.scrollIntoView({ block: 'start', behavior: scrollBehavior(reduced) })
   }
 
   return (

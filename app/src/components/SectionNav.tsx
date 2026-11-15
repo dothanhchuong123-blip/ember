@@ -1,6 +1,6 @@
 import { motion } from 'motion/react'
 import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from 'react'
-import { layoutTransition, slideSection } from '../motion'
+import { pillSpring, scrollBehavior } from '../motion'
 import { EmberReticle, EmberWordmark } from './EmberLogo'
 import './section-nav.css'
 
@@ -33,18 +33,18 @@ function sectionAtProbe(probe: number): TabId | null {
   return found
 }
 
+const readingLine = (header: HTMLElement | null) => (header?.offsetHeight ?? 64) + 40
+
 export function SectionNav({ reduced }: { reduced: boolean | null }) {
   const headerRef = useRef<HTMLElement>(null)
-  const sectionAnimation = useRef<Animation | null>(null)
   const [active, setActive] = useState<TabId | null>(null)
+  // While a clicked smooth scroll runs, the pill stays on the clicked tab instead of stepping through every section.
+  const scrollLock = useRef<(() => void) | null>(null)
 
   useEffect(() => {
-    if (reduced) sectionAnimation.current?.cancel()
-    return () => sectionAnimation.current?.cancel()
-  }, [reduced])
-
-  useEffect(() => {
-    const update = () => setActive(sectionAtProbe((headerRef.current?.offsetHeight ?? 64) + 40))
+    const update = () => {
+      if (!scrollLock.current) setActive(sectionAtProbe(readingLine(headerRef.current)))
+    }
     update()
     window.addEventListener('scroll', update, { passive: true })
     window.addEventListener('resize', update)
@@ -55,27 +55,47 @@ export function SectionNav({ reduced }: { reduced: boolean | null }) {
       window.removeEventListener('scroll', update)
       window.removeEventListener('resize', update)
       observer.disconnect()
+      scrollLock.current?.()
     }
   }, [])
 
-  function navigate(event: MouseEvent<HTMLAnchorElement>, target: string) {
+  // Hold the pill on `id` until the scroll ends: `scrollend` where supported, else 200ms without a scroll event
+  // (400ms before the first one), and never longer than 1.5s. The next scroll after that resumes the scroll spy.
+  function lockActive(id: TabId) {
+    scrollLock.current?.()
+    setActive(id)
+    let idle = window.setTimeout(release, 400)
+    const cap = window.setTimeout(release, 1500)
+    const onScroll = () => {
+      window.clearTimeout(idle)
+      idle = window.setTimeout(release, 200)
+    }
+    function release() {
+      window.clearTimeout(idle)
+      window.clearTimeout(cap)
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('scrollend', release)
+      if (scrollLock.current === release) scrollLock.current = null
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('scrollend', release)
+    scrollLock.current = release
+  }
+
+  function navigate(event: MouseEvent<HTMLAnchorElement>, tab: (typeof TABS)[number]) {
     if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
-    const section = document.getElementById(target)
+    const section = document.getElementById(tab.target)
     if (!section) return
     event.preventDefault()
-    sectionAnimation.current?.cancel()
-    const readingLine = (headerRef.current?.offsetHeight ?? 64) + 40
-    const distance = section.getBoundingClientRect().top - readingLine
     const details = section.querySelector<HTMLDetailsElement>('.section-details')
     if (details) details.open = true
     const hash = event.currentTarget.hash
-    const newLocation = location.hash !== hash
-    if (newLocation) history.pushState(null, '', hash)
-    section.scrollIntoView()
+    if (location.hash !== hash) history.pushState(null, '', hash)
+    const behavior = scrollBehavior(reduced ?? undefined)
+    if (behavior === 'smooth') lockActive(tab.id)
+    // html has scroll-padding-top, so the section lands below the sticky header.
+    section.scrollIntoView({ behavior })
     section.focus({ preventScroll: true })
-    if (!reduced && (newLocation || Math.abs(distance) > 32)) {
-      sectionAnimation.current = slideSection(section, distance >= 0 ? 1 : -1)
-    }
   }
 
   return (
@@ -94,10 +114,10 @@ export function SectionNav({ reduced }: { reduced: boolean | null }) {
             {TABS.map((tab) => (
               <li key={tab.id}>
                 <a className="section-tab" href={`#${tab.target}`} aria-current={active === tab.id ? 'location' : undefined}
-                  onClick={(event) => navigate(event, tab.target)}>
+                  onClick={(event) => navigate(event, tab)}>
                   {active === tab.id && (
                     <motion.span className="section-tab-pill" aria-hidden="true"
-                      layoutId={reduced ? undefined : 'section-tab-pill'} transition={layoutTransition} />
+                      layoutId={reduced ? undefined : 'section-tab-pill'} transition={pillSpring} />
                   )}
                   {tab.icon}
                   <span className="section-tab-label">{tab.label}</span>
